@@ -1,0 +1,4 @@
+#!/bin/bash
+
+set -e
+bash $(dirname $0)/cmdclick_dir/exec_cmdclick.sh

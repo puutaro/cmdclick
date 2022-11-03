@@ -1,0 +1,18 @@
+#!/bin/bash
+
+LOOP=0
+center_box &
+INDEX_TITLE_TEXT_MESSAGE=${EDIT_CMD_INDEX_MESSAGE}
+EDIT_FILE_PATH="${INI_FILE_DIR_PATH}/${EXECUTE_FILE_NAME}"
+check_ini_file "${EDIT_FILE_PATH}"
+case "${SIGNAL_CODE}" in 
+	"${CHECK_ERR_CODE}") SIGNAL_CODE=${INDEX_CODE};;
+esac
+case "${SIGNAL_CODE}" in 
+	"${INDEX_CODE}") continue;;
+esac
+
+EDIT_EDITOR_ON=""
+wait
+edit_ini_gui "${EXECUTE_FILE_NAME}"
+SIGNAL_CODE=${INDEX_CODE}

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+set -e
+bash $(dirname $0)/cmdclick_dir/exec_cmdclick.sh
+# set mypath=%cd%
+# wsl.exe bash "/mnt/c/Users/hoper/cmd/os_goods/cmdclick/win_sub/srcs/cmdclick_dir/exec_cmdclick.sh"
+# wsl.exe bash $(dirname $0)/cmdclick_dir/exec_cmdclick.sh
+

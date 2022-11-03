@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=cmdclick
+Name[ja]=cmdclick
+Name[en]=cmdclick
+Icon=/usr/share/icons/cmdclick_image.png
+Exec=cmdclick
+Comment[ja]=コマンドをクリックで実行できる
+Comment[en]=You can click the command easily
+Categories=GTK;Utility;

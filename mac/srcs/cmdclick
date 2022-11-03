@@ -1,0 +1,40 @@
+#!/bin/bash
+
+IMPORT_CMDCLICK_VAL=1
+IMOPRT_CMCCLICK_DIR="$(dirname ${0})/cmdclick_dir"
+START_APP_PROCCESS_PATH="${IMOPRT_CMCCLICK_DIR}/exec_cmdclick.sh"
+LUNCHER_HOME_DIR=${HOME}
+LUNCHER_LIB_DIR="${IMOPRT_CMCCLICK_DIR}/lib/luncher"
+
+STARTUP_SETTING_RESOLUTION=1366
+. ${IMOPRT_CMCCLICK_DIR}/exec_cmdclick.sh
+. ${LUNCHER_LIB_DIR}/size_startup.sh
+
+CMDCLICL_JUMP_EXEC=""
+first_para="${1}"
+if [ "${first_para}" == "-c" ];then
+	cmd_click_startup_source_app "${CMD_CLICK_SOURCE_APP}"
+	exit 0
+fi
+
+if [ -z "${CMDCLICL_JUMP_EXEC}" ];then
+	cmd_click_startup_target_app "${CMD_CLICK_TARGET_APP}"
+	maximize_app "${CMD_CLICK_TARGET_APP}"
+fi
+check_cmdclick="$(ps aux | grep "${START_APP_PROCCESS_PATH}" | grep -v grep )"
+app_full_name="/Applications/iTerm.app/Contents/MacOS/iTerm2"
+app_name="iTerm"
+ps_contents=$(ps aux | grep "${app_name}" | grep -v grep)
+check_active=$(echo "${ps_contents}" | head -n 1 | grep "${app_full_name}")
+
+
+if [ -z "${check_cmdclick}" ];then
+	echo "cmdclick nasi cmd_click_startup_source_app"
+	cmd_click_startup_source_app "${CMD_CLICK_SOURCE_APP}"
+elif [ -n "${check_cmdclick}" ] && [ -z "${check_active}" ];then
+	echo "cmdclick ari iterm nasi cmd_click_startup_source_app"
+	cmd_click_startup_source_app "${CMD_CLICK_SOURCE_APP}"
+else
+	echo "cmd_click_startup_target_app"
+	cmd_click_startup_target_app "${CMD_CLICK_SOURCE_APP}"
+fi

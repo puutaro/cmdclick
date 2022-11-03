@@ -1,0 +1,11 @@
+// Settings in here override those in "Default/Preferences.sublime-settings",
+// and are overridden in turn by syntax-specific settings.
+{
+	"font_face": "Ricty Diminished",
+	"font_size": 15,
+	"word_wrap": true,
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+}
