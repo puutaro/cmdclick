@@ -56,8 +56,8 @@ Table of Contents
 - Only X11 support (wayland not support)
 
 ```
-git clone https://github.com/kitamura-take/os_goods.git
-cd os_goods/cmdclick/linux/install
+git clone https://github.com/kitamura-take/cmdclick.git ~/.cmdclick
+cd ~/.cmdclick/linux/install
 bash installer.sh
 ```
 
@@ -68,10 +68,10 @@ bash installer.sh
 - Only X11 support
 
 ```
-git clone https://github.com/kitamura-take/os_goods.git
-cd os_goods/cmdclick/linux/install
+git clone https://github.com/kitamura-take/cmdclick.git ~/.cmdclick
+cd ~/.cmdclick/linux/install
 vi installer.sh
-# please replace apt with your package system cmd, which is yum 
+# please replace apt with your package system cmd, which is yum
 bash installer.sh
 ```
 
