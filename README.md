@@ -266,6 +266,7 @@ Cmdclick's essence is shortcut usage.
 | `ctrl`+`d`  | delete | o  |
 | `ctrl`+`c`  | launch app directory manager | x |
 | `ctrl`+`C`  | setting | x  |
+| `ctrl`+`v`  | copy highlited shellscript file path | x  |
 | `ctrl`+`m`  | move | o  |
 | `ctrl`+`i`  | install | o  |
 | `ctrl`+`g`  | descriptoin scroll up | o |
