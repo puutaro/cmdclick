@@ -7,5 +7,5 @@ CALL :uninstall_package_in_ubuntu
 exit
 
 :uninstall_package_in_ubuntu
-	powershell -c "$base = bash -c 'wslpath -u  ''%userprofile%'''; $base = $base -replace 'home','Users'; echo $base; bash ""$base/os_goods/cmdclick/win/install/uninstaller_lib/exec_uninstall.sh"""
+	powershell -c "$base = bash -c 'wslpath -u  ''%userprofile%'''; $base = $base -replace 'home','Users'; echo $base; bash ""$base/cmdclick/win/install/uninstaller_lib/exec_uninstall.sh"""
 EXIT /B 0

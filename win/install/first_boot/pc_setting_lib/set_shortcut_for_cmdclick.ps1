@@ -1,7 +1,7 @@
 
 
 Function setShortcutForCmdclick(){
-    $relative_install_dir_path = "\os_goods\cmdclick\win\install"
+    $relative_install_dir_path = "\cmdclick\win\install"
     $absolule_install_dir_path = "$HOME$relative_install_dir_path"
     $desti_program_dir_path = "c:\Program Files"
     Copy-Item `
