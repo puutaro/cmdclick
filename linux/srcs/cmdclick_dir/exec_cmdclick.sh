@@ -239,12 +239,12 @@ execute_cmd_by_xdotool(){
 
 init(){
 	make_requrement_dir
+	set_default_setting_value
 	# change default dir file make 
 	if [ ! -e ${CMDCLICK_DEFAULT_CD_FILE_PATH} ];then 
-		add_chdir_cmd_ini_file "${CMDCLICK_APP_DIR_PATH}"
+		add_chdir_cmd_ini_file "${CMDCLICK_DEFAULT_INI_FILE_DIR_PATH}"
 	fi
 	read_resolution_from_system
-	set_default_setting_value
 }
 
 init

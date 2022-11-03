@@ -51,10 +51,6 @@ exec_dec(){
 }
 
 input_cmd_index(){
-	if [ ! -e ${CMDCLICK_DEFAULT_CD_FILE_PATH} ];then 
-		add_chdir_cmd_ini_file \
-			"${CMDCLICK_DEFAULT_INI_FILE_DIR_PATH}"
-	fi
 	#画面大きさ策定
 	#まず、解像度取得
 	local ifs_old=${IFS}
