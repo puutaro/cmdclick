@@ -46,7 +46,7 @@ Table of Contents
   * [Shortcut table](#shortcut-table)
 
 ### For windows 10
-1. Downlaod [installer.bat](https://drive.google.com/file/d/1VdilXU8r0vloVcwSPqT_G_h-JPwck7AG/view?usp=share_link) from google drive
+1. Downlaod [installer.bat](https://drive.google.com/file/d/1kRF2j3tp8rZhFmIsx8p8NK1liE2GPxKJ/view?usp=share_link) from google drive
 2. Double click installer.bat
 
 	- for windows 11, disable wayland, but it's unconfirmed operation

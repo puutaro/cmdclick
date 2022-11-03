@@ -1,7 +1,7 @@
 
 
 $pc_setting_lib_path = "$PSScriptRoot\pc_setting_lib"
-$relative_install_dir_path = "\os_goods\cmdclick\win\install"
+$relative_install_dir_path = "\cmdclick\win\install"
 $absolule_install_dir_path = "$HOME$relative_install_dir_path"
 
 

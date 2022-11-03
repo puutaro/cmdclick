@@ -46,7 +46,7 @@ EXIT /B 0
 
 
 :install_package_in_ubuntu
-	powershell -c "$base = bash -c 'wslpath -u  ''%userprofile%'''; $base = $base -replace 'home','Users'; echo $base; bash ""$base/os_goods/cmdclick/win/install/after_reboot/ubuntu_setting.sh"""$base""
+	powershell -c "$base = bash -c 'wslpath -u  ''%userprofile%'''; $base = $base -replace 'home','Users'; echo $base; bash ""$base/cmdclick/win/install/after_reboot/ubuntu_setting.sh"""$base""
 EXIT /B 0
 
 

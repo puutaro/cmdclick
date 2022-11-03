@@ -26,7 +26,7 @@ EXIT /B 0
 :copy_files
 	SETLOCAL
 	set startup_dir_path=\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
-	set install_lib_path=\os_goods\cmdclick\win\install
+	set install_lib_path=\cmdclick\win\install
 	copy /Y "%userprofile%%install_lib_path%\files\config.xlaunch" "%userprofile%%startup_dir_path%"
 	copy /Y "%userprofile%%install_lib_path%\after_reboot\wsl_setting.bat" "%userprofile%%startup_dir_path%"
 	ENDLOCAL

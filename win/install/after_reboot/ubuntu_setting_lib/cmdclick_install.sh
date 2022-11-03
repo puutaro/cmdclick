@@ -4,7 +4,7 @@
 cmdclick_install(){
 	local windows_home_path="${1}"
 	local usrlocalbin_dir_path="/usr/local/bin"
-	local cmdclick_section_path="${windows_home_path}/os_goods/cmdclick"
+	local cmdclick_section_path="${windows_home_path}/cmdclick"
 	local config_lxterminal_dir_path="${HOME}/.config/lxterminal"
 
 	mkdir -p "${config_lxterminal_dir_path}"
