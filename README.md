@@ -101,7 +101,8 @@ CommandClick will launch shellscript platform, read shellscript from $HOME/cmdcl
 ### Launch
 
 ##### for windows
-key down ctrl+alt+c as shrotcut key. (if your shortcut key is this, change by right click at cmdclick_shortcut.link in desktop)
+First, type windows key and "cmdclick", then click `cmdclick` icon   
+Or key down ctrl+alt+c as shrotcut key. (if your shortcut key is this, change by right click at cmdclick_shortcut.link in desktop)
 
 ##### for Linux
 Type `cmdclick` for search in menu.
@@ -111,8 +112,8 @@ Type `cmdclick` for search in menu.
 
 Add file to command click
 
-1. type alt+a, that way, open source file.
-2. write the file name you want to set at shellFileName between `SETTING_SECTION_START` and `SETTING_SECTION_END.
+1. Type alt+a, that way, open source file.
+2. Write the file name you want to set at shellFileName between `SETTING_SECTION_START` and `SETTING_SECTION_END.
     - Set the various settingVriables below as necessary
 
     | settingVariable| set value | description  |
