@@ -3,7 +3,6 @@
 LANG=C
 EXECUTE_LIB_DIR_PATH="${LIB_DIR_PATH}/execute_lib"
 . "${EXECUTE_LIB_DIR_PATH}/handler.sh"
-. "${EXECUTE_LIB_DIR_PATH}/nw_ready_before_open_terminal.sh"
 . "${EXECUTE_LIB_DIR_PATH}/get_ccerminal_window.sh"
 . "${EXECUTE_LIB_DIR_PATH}/open_new_tab_terminal.sh"
 . "${EXECUTE_LIB_DIR_PATH}/execute_before_command.sh"
@@ -36,13 +35,11 @@ fi
 case "${EXEC_TERMINAL_ON}" in 
 	"ON")
 		#コマンド実行前の準備-------------------------------------
-		#terminalを開く前の準備（サイズ、タブ、アクティブ化）
-		nw_ready_before_open_terminal
 		#実行可能なCCerminalを取得、なければ、ターミナルで代用
-		ccerminal_window_list=$(get_ccerminal_window)
-		current_term_active_cmd="wmctrl -i -a ${ccerminal_window_list}"
-		bash -c "${current_term_active_cmd}"
-		
+		ccerminal_window_list=""
+		get_ccerminal_window
+		wmctrl -i -a ${ccerminal_window_list}
+
 		#新しいタブで開く場合	
 		open_new_tab_terminal
 		#-----------------------------------------------------------------
@@ -57,6 +54,5 @@ case "${EXEC_TERMINAL_ON}" in
 		;;
 esac
 unset -v ccerminal_window_list
-unset -v current_term_active_cmd
 unset -v terminal_exec_command
 SIGNAL_CODE=${INDEX_CODE}

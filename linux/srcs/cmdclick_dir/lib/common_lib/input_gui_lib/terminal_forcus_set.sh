@@ -26,7 +26,7 @@ exec_terminal_forcus_set(){
 	if [ -z "${ccerminal_window_list}" ]; then
 		ccerminal_window_list=$(\
 			get_by_window_title \
-				"terminal"\
+				"${PASTE_TARGET_TERMINAL_NAME}"\
 		)
 	fi
 	test -z "${ccerminal_window_list}" && return

@@ -143,7 +143,7 @@ ${INI_AFTER_COMMAND}=
 ${INI_CMD_FILE_NAME}="
 
 readonly INI_TERMINAL_ON_DEFAULT_VALUE="ON!OFF"
-readonly INI_OPEN_WHERE_DEFAULT_VALUE="CW!NT!NW"
+readonly INI_OPEN_WHERE_DEFAULT_VALUE="CW!NT"
 readonly INI_TERMINAL_FOCUS_DEFAULF_VALUE="OFF!ON"
 readonly INI_INPUT_EXECUTE_DEFAULF_VALUE="N!C!E"
 readonly INI_IN_EXE_DFLT_VL_DEFAULT_VALUE=""
@@ -207,7 +207,6 @@ case  "${IMPORT_CMDCLICK_VAL:-}" in
 . "${COMMON_LIB_DIR_PATH}/choose_app_dir_list_for_move.sh"
 . "${WIN_COMMON_LIB_DIR_PATH}/input_gui.sh"
 . "${WIN_COMMON_LIB_DIR_PATH}/reactive_when_aleady_exist_cmdclick.sh"
-. "${WIN_COMMON_LIB_DIR_PATH}/get_by_window_title.sh"
 . "${WIN_INIT_LIB_DIR_PATH}/read_resolution_from_system.sh"
 export -f fetch_parameter
 export -f fetch_parameter_from_pip

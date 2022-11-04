@@ -2,24 +2,20 @@
 
 
 get_ccerminal_window(){
-	local ccerminal_window_list=$(\
+	ccerminal_window_list=$(\
 		get_by_window_title \
 			"${PASTE_TARGET_TERMINAL_NAME}" \
 	)
 	case "${ccerminal_window_list}" in 
 		"") ;; 
-		*)  echo "${ccerminal_window_list}" 
-			return ;; esac
+		*)  return ;; esac
 	ccerminal_window_list=$(get_terminal_window_exclude_command_click_window)
 	case "${ccerminal_window_list}" in 
 		"") ;; 
-		*)  echo "${ccerminal_window_list}"
-			return ;; esac
+		*)  return ;; esac
 	bash -c "${terminal_exec_command}"
-	ccerminal_window_list=$(get_terminal_window_exclude_command_click_window)
-	echo "${ccerminal_window_list}"
 	sleep 0.5
-	wait
+	ccerminal_window_list=$(get_terminal_window_exclude_command_click_window)
 }
 
 
