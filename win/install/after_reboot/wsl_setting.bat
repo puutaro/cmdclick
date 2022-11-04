@@ -1,4 +1,5 @@
 set ubuntu=ubuntu2004
+set ubuntu_wsl_destri_name=Ubuntu-20.04
 
 
 CALL :decide_title_and_win_max
@@ -30,7 +31,7 @@ EXIT /B 0
 	)
 	wmctrl -a %ubuntu%
 	if %errorlevel% neq 0 (
-		nircmd elevate powershell -c "wsl.exe --install -d Ubuntu-20.04; wsl.exe --update"
+		nircmd elevate powershell -c "wsl.exe --install -d %ubuntu_wsl_destri_name%; wsl.exe --update"
 	)
 	set /p ok_next_process="please type y, after let VcXsrv to access and typed usename and password in %ubuntu% (otherwise type r for reboot ): "
 	if %ok_next_process% equ r (
@@ -46,7 +47,7 @@ EXIT /B 0
 
 
 :install_package_in_ubuntu
-	powershell -c "$base = bash -c 'wslpath -u  ''%userprofile%'''; $base = $base -replace 'home','Users'; echo $base; bash ""$base/cmdclick/win/install/after_reboot/ubuntu_setting.sh"""$base""
+	powershell -c "wslconfig /setdefault %ubuntu_wsl_destri_name%; $base = bash -c 'wslpath -u  ''%userprofile%'''; $base = $base -replace 'home','Users'; echo $base; bash ""$base/cmdclick/win/install/after_reboot/ubuntu_setting.sh"""$base""
 EXIT /B 0
 
 
@@ -56,7 +57,7 @@ EXIT /B 0
 	start %wt_name%
 	timeout 2 /NOBREAK
 	powershell -c "Start-Process -Verb RunAs powershell.exe -args '-c ""Set-ExecutionPolicy -Force RemoteSigned; Stop-Process -Name "%windows_terminal_name%" -Force ""'"
-	powershell -c " $json_path = Get-ChildItem $HOME\AppData\Local\Packages\  -Filter Settings.json -Recurse | ForEach-Object {$_.FullName} | select-string Microsoft.%windows_terminal_name%; $jsondata = Get-Content -Path  """$json_path""" -Encoding UTF8 |  Out-String | ConvertFrom-Json; $query_json = echo $jsondata.profiles.list | where { $_.name -eq 'Ubuntu-20.04' }; echo $query_json.guid; $guid = $query_json.guid; echo $guid;$jsondata.defaultProfile = $guid;  echo $jsondata.defaultProfile; ConvertTo-Json -Depth 4 $jsondata | Out-File  """$json_path""" -Encoding UTF8 "
+	powershell -c " $json_path = Get-ChildItem $HOME\AppData\Local\Packages\  -Filter Settings.json -Recurse | ForEach-Object {$_.FullName} | select-string Microsoft.%windows_terminal_name%; $jsondata = Get-Content -Path  """$json_path""" -Encoding UTF8 |  Out-String | ConvertFrom-Json; $query_json = echo $jsondata.profiles.list | where { $_.name -eq '%ubuntu_wsl_destri_name%' }; echo $query_json.guid; $guid = $query_json.guid; echo $guid;$jsondata.defaultProfile = $guid;  echo $jsondata.defaultProfile; ConvertTo-Json -Depth 4 $jsondata | Out-File  """$json_path""" -Encoding UTF8 "
 	CALL :confirm_about_go_to_next ^
 			"please type y after finishing powershell setupper: " 
 	wsl.exe --shutdown
