@@ -21,7 +21,9 @@ Table of Contents
   * [For windows 10](#for-windows-10)
   * [For Ubuntu or Debian](#for-ubuntu-or-debian)
   * [For other Linux](#for-other-linux)
-* [Upgrading cmdclick](#upgrading-cmd)
+* [Upgrading](#upgrading)
+  * [Upgrading for windows 10](#upgrading-for-windows10)
+  * [Upgrading for Ubuntu or Debian](#upgrading-for-ubuntu-or-debian)
 * [Demo](#demo)
 * [Usage](#usage)
   * [Launch](#launch)
@@ -80,10 +82,16 @@ bash installer.sh
 ```
 
 
-Upgrading cmdclick.
+Upgrading.
 -----
+### Upgrading for windows10
+1. delete $HOME/cmdclick directory
+2. same as installation.
 
-All same as installation.
+
+### Upgrading for Ubuntu or Debian
+1. delete $HOME/.cmdclick directory
+2. same as installation.
 
 
 Demo
