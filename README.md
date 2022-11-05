@@ -238,6 +238,9 @@ change setting in cmdclick
         | `openEditorCmd` | editor cmd  | editor command |
         | `shiban`  | shell shiban | running shellscript's shiban |
         | `runShell` | shell name  | run shell name |
+	- `pasteTargetTerminalName`'s example  
+	windows) `WindowsTerminal`, `ubuntu2004`, `ubuntu`(cmdclick installing one) etc.  
+	ubuntu) `xfce4-terminal`, `gnome-terminal` etc.
 3. When you wont to set the column, ctrl+enter.
 4. Soon apear confirm screen, if it correct, type ctrl+enter if not, esc.
 5. Restart cmdclick in order to reflect the settings
