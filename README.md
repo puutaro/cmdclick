@@ -68,8 +68,7 @@ bash installer.sh
 ### For other Linux
 
 
-- wayland not support
-- Only X11 support
+- Only X11 support (wayland not support)
 - It's unconfirmed operation
 
 ```
