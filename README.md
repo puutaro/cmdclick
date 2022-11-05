@@ -4,7 +4,7 @@ shellscript gui platform.
 
 ![範囲を選択_032](https://user-images.githubusercontent.com/55217593/199426265-5e62eea3-5a19-4129-9e66-c7f898328f20.png)
 
-It's a shellscript manager app from gui that have execution, edit, delete, and creat as feature.
+It's a shellscript manager app from gui that have execution, edit, delete, and create as feature.
 
 Pros
 ----
