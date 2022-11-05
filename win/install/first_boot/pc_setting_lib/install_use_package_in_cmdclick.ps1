@@ -16,4 +16,5 @@ Function installUsePackageInCmdclick(){
     choco install -y microsoft-windows-terminal; 
     start-sleep 5; 
     choco install -y vcxsrv
+    choco install -y fzf
 }
