@@ -54,7 +54,7 @@ readonly CMDCLICK_INI_PASTE_TARGET_TERMINAL_NAME="pasteTargetTerminalName"
 readonly CMDCLICK_INI_OPEN_EDITOR_CMD="openEditorCmd"
 readonly CMDCLICK_INI_CREATE_FILE_SHIBAN="shiban"
 readonly CMDCLICK_INI_RUN_SHELL="runShell"
-readonly PASTE_AFTER_ENTER_DEFAULT_VALUE="OFF"
+readonly PASTE_AFTER_ENTER_DEFAULT_VALUE="ON"
 readonly PASTE_TARGET_TERMINAL_DEFAULT_VALUE="WindowsTerminal"
 readonly CMDCLICK_EDITOR_CMD_DEFAULT_VALUE="subl.exe"
 readonly CMDCLICK_CREATE_FILE_SHIBAN_DEFAULT_VALUE="#!/bin/bash"
@@ -230,7 +230,6 @@ execute_cmd_by_xdotool(){
 			cmd.exe /c start wmctrl.exe -a "${ccerminal_acctive_window_name}"
 			sleep 0.2
 			nircmd.exe sendkeypress ctrl+shift+v
-			nircmd.exe sendkeypress enter
 			test "${PASTE_AFTER_ENTER_BOOL}" == "ON" \
 				&& nircmd.exe sendkeypress enter
     		echo -n "${clip_con}" | xclip -selection c &

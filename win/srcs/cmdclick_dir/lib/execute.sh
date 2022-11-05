@@ -26,7 +26,7 @@ exec_handler
 # echo "EXECUTE_FILE_PATH: ${EXECUTE_FILE_PATH}"
 #ターミナル起動コマンド格納
 if [ "${EXEC_TERMINAL_ON}" = "ON" ]; then
-	terminal_exec_command="nircmd.exe elevate cmd /c wt.exe"
+	terminal_exec_command="nircmd.exe elevate cmd /c \"start ${START_EXE_NAME}.exe\""
 else 
 	terminal_exec_command=""
 fi
