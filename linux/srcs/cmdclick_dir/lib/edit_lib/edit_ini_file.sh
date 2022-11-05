@@ -19,14 +19,15 @@ edit_ini_gui(){
   local EDIT_FILE_NAME="${1}"
   local exec_input_execute="${2:-N}"
   local ch_dir_path_parameter_before=""
-  local EDIT_FILE_PATH="${INI_FILE_DIR_PATH}/${1}"
+  local EDIT_FILE_PATH="${INI_FILE_DIR_PATH}/${EDIT_FILE_NAME}"
   while :
   do
     ROOP_NUM=$((${ROOP_NUM} + 1))
     local ini_contents_moto=$(\
       echo_ini_contents_moto \
         "${ROOP_NUM}" \
-        "${INI_CONTENTS}"
+        "${INI_CONTENTS}" \
+        "${EDIT_FILE_NAME}" \
     )
     ch_dir_path_parameter_before=$(\
       echo_ch_dir_path_parameter_if_chdir_first_roop \
