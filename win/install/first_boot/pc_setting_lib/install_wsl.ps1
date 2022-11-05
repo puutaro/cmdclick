@@ -1,17 +1,19 @@
 
 
 Function installWsl(){
-    $wsl_list_source `
-        = wsl `
-        --list `
-        --online 
-    $wsl_list_grep_and_clean `
-        = $wsl_list_source `
-            -replace [char]0x00,'' `
-            | sls "^Ubuntu"
     $wsl_list = `
-        $wsl_list_grep_and_clean `
-            -replace "  .*", ""
+        wsl --list --online `
+        | % { $_ -replace [char]0x00,"" } `
+        | sls Ubuntu | % { $_ -replace '^  ', ''} `
+        | % { $_ -replace '^\* ',''} `
+        | % { $_ -replace '  .*', '' };
+    # $wsl_list_grep_and_clean `
+    #     = $wsl_list_source `
+    #         -replace [char]0x00,'' `
+    #         | sls "^Ubuntu"
+    # $wsl_list = `
+    #     $wsl_list_grep_and_clean `
+    #         -replace "  .*", ""
     do {
         $selected_distri = echo $wsl_list `
             | fzf `
