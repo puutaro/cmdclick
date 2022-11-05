@@ -1,6 +1,10 @@
-set ubuntu=ubuntu2004
-set ubuntu_wsl_destri_name=Ubuntu-20.04
-
+@echo off
+FOR /F "tokens=1" %%F IN (%userprofile%/distri.txt) DO SET ubuntu_wsl_destri_name=%%F
+set ubuntu=%ubuntu_wsl_destri_name:-=%
+set ubuntu=%ubuntu:.=%
+set ubuntu=%ubuntu:U=u%
+echo %ubuntu_wsl_destri_name%
+echo %ubuntu%
 
 CALL :decide_title_and_win_max
 CALL :update_wsl

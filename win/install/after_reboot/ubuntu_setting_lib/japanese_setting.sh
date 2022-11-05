@@ -59,5 +59,5 @@ japanese_setting(){
 	im-config -n fcitx
 	sed -i "/EnabledIMList/s/mozc:False/mozc:True/g" ~/.config/fcitx/profile
 	fcitx-configtool mozc
-	wsl.exe -t Ubuntu-20.04
+	wsl.exe --shutdown
 }
