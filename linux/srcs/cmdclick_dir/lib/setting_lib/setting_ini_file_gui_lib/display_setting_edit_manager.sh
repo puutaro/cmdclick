@@ -20,6 +20,5 @@ display_setting_edit_manager(){
 		${setting_con} \
 	)
 	SIGNAL_CODE=$?
-	echo "display_setting_edit_manager::SIGNAL_CODE ${SIGNAL_CODE}"
 	set -e
 }
