@@ -7,20 +7,27 @@ Function installWsl(){
         | sls Ubuntu | % { $_ -replace '^  ', ''} `
         | % { $_ -replace '^\* ',''} `
         | % { $_ -replace '  .*', '' };
-    # $wsl_list_grep_and_clean `
-    #     = $wsl_list_source `
-    #         -replace [char]0x00,'' `
-    #         | sls "^Ubuntu"
-    # $wsl_list = `
-    #     $wsl_list_grep_and_clean `
-    #         -replace "  .*", ""
-    do {
-        $selected_distri = echo $wsl_list `
-            | fzf `
-                --prompt="type you wont to install distri from above> "
-    } while ( 
-        !$selected_distri 
-    )
+    while ($true) {
+        $selected_distri = `
+            echo $wsl_list `
+                | fzf `
+                    --prompt="type you wont to install Ubuntu20.04+ distri from above > "
+        $distri_version = `
+            $selected_distri -replace 'Ubuntu','' `
+                | % { $_ -replace '-','' } `
+                | % { $_ -replace '\.','' }
+        if(`
+            $distri_version -ge 2000 `
+        ){ 
+            break
+        }
+        if( `
+            $selected_distri `
+            -And !$distri_version `
+        ){ 
+            break 
+        }
+    }
     $selected_distri_txt_path = "$HOME\distri.txt"
     echo $selected_distri `
         | Out-File -FilePath "$selected_distri_txt_path" `
@@ -30,4 +37,3 @@ Function installWsl(){
         --install `
         -d "$selected_distri"
 }
-
