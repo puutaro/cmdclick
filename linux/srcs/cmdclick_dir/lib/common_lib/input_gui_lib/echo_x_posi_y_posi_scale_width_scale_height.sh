@@ -2,7 +2,6 @@
 
 x_posi_y_posi_scale_width_scale_height_lib="${INPUT_GUI_LIB_DIR_PATH}/x_posi_y_posi_scale_width_scale_height_lib"
 . "${x_posi_y_posi_scale_width_scale_height_lib}/resize_maxs.sh"
-. "${x_posi_y_posi_scale_width_scale_height_lib}/judge_panel_position.sh"
 . "${x_posi_y_posi_scale_width_scale_height_lib}/echo_true_resolution_list_source.sh"
 unset -v x_posi_y_posi_scale_width_scale_height_lib
 

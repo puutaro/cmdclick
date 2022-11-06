@@ -75,8 +75,9 @@ edit_ini_gui(){
       "0")  
           local ini_file_name_str=$(\
             echo -e "${INI_CONTENTS}" \
-              | rga "${INI_CMD_FILE_NAME}="\
-              | cut -d= -f2-\
+              | grep "${INI_CMD_FILE_NAME}="\
+              | cut -d= -f2- \
+              || e=$? \
           )
           test -z "${ini_file_name_str}" \
           && ini_file_name_str=$(\

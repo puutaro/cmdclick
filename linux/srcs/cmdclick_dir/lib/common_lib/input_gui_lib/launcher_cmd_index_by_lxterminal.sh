@@ -23,7 +23,12 @@ launcher_cmd_index_by_lxterminal(){
 	while true
 	do
 		sleep 0.05
-		local lxwmId=$(wmctrl -lx | rga "lxterminal.Lxterminal" | awk '{print $1}') 
+		local lxwmId=$(\
+			wmctrl -lx \
+			| grep "lxterminal.Lxterminal" \
+			| awk '{print $1}' \
+			|| e=$? \
+		) 
 		case "${lxwmId}" in "");; *) break;; esac 
 	done
 	wmctrl  -r "${WINDOW_TITLE}" -e 0,${x_position},${y_position},${scale_display_width},${scale_display_height}

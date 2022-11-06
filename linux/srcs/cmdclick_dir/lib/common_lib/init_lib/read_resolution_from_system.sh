@@ -4,7 +4,15 @@
 read_resolution_from_system(){
 	local ifs_old=${IFS}
 	local IFS=$' ' 
-	readonly DISPLAY_RSOLUTION_LIST=($(xrandr | rga '\*' | awk '{print $1}' | sed -e 's|x| |g'))
+	readonly DISPLAY_RSOLUTION_LIST=(\
+		$(\
+			xrandr \
+			| grep -E '\*' \
+			| awk '{print $1}' \
+			| sed -e 's|x| |g' \
+			|| e=$? \
+		) \
+	)
 	local IFS="${ifs_old}"
 	export DISPLAY_RSOLUTION_WIDTH="${DISPLAY_RSOLUTION_LIST[0]}"
 	export DISPLAY_RSOLUTION_HEIGHT="${DISPLAY_RSOLUTION_LIST[1]}"

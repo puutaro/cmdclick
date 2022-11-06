@@ -29,9 +29,10 @@ delete_cmd(){
     "${DELETE_CODE}")
       local delete_dir_path=$(\
         cat "${DELETE_FILE_PATH}" \
-        | rga "^${CH_DIR_PATH}=" \
+        | grep -E "^${CH_DIR_PATH}=" \
         | head -n 1 \
         | sed 's/^'${CH_DIR_PATH}'\=//'\
+        || e=$? \
       )
       local display_delete_dir_path=$(\
         echo "${delete_dir_path}" \

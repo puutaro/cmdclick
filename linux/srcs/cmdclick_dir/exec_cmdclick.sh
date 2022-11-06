@@ -204,10 +204,11 @@ ACTIVE_CHECK_VARIABLE=0
 execute_cmd_by_xdotool(){
 	local ccerminal_acctive_state=$(\
 		wmctrl -lx \
-		| rga "${2}" \
-		| rga "${PASTE_TARGET_TERMINAL_NAME}" \
+		| grep -i "${2}" \
+		| grep -i "${PASTE_TARGET_TERMINAL_NAME}" \
 		| tail -n -1 \
 		| awk '{print $1}' \
+		|| e=$? \
 	)
 	case "${ccerminal_acctive_state}" in 
 		"");;
@@ -223,10 +224,11 @@ execute_cmd_by_xdotool(){
     #CCerminal or terminalがあれば、ウィンドウをアクティブにし、CCerminal化
 	ccerminal_acctive_state=$(\
 		wmctrl -lx \
-		| rga "${2}" \
-		| rga "${PASTE_TARGET_TERMINAL_NAME}" \
+		| grep -i "${2}" \
+		| grep -i "${PASTE_TARGET_TERMINAL_NAME}" \
 		| tail -n -1 \
 		| awk '{print $1}' \
+		|| e=$? \
 	)
 	case "${ccerminal_acctive_state}" in 
 		"") EXECUTE_COMMAND="";;
