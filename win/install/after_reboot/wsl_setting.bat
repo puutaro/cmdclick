@@ -35,7 +35,8 @@ EXIT /B 0
 	if %errorlevel% neq 0 (
 		nircmd elevate powershell -c "wsl.exe --install -d %ubuntu_wsl_destri_name%; wsl.exe --update"
 	)
-	CALL :confirm_about_go_to_next "please type y, after let VcXsrv to access and typed usename and password in %ubuntu%: "
+	CALL :confirm_about_go_to_next ^
+		"please type y, after let VcXsrv to access and typed usename and password in %ubuntu%: "
 	wmctrl -l | find "%ubuntu%"
 	if %errorlevel% neq 0 (
 		exit
