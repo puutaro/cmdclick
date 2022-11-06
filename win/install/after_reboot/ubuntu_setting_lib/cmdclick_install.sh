@@ -22,7 +22,7 @@ cmdclick_install(){
 	local usrlocalbin_cmdclick="${usrlocalbin_dir_path}/cmdclick"
 	sudo cp -arvf \
 		"${cmdclick_section_path}/win/srcs/cmdclick" \
-		"${usrlocalbin_cmdclick}/"
+		"${usrlocalbin_cmdclick}"
 
 	sudo chmod +x "${usrlocalbin_cmdclick}"
 
