@@ -4,7 +4,8 @@
 upgrade_app_dir_list_order(){
 	local ini_file_dir_path="${1}"
 	case ${ini_file_dir_path} in 
-		"") return;;
+		""|"${CMDCLICK_APP_DIR_PATH}") 
+			return;;
 	esac
 	local hit_app_dir_file=$(\
 			get_hit_app_dir_file \
