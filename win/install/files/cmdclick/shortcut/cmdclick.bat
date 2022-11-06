@@ -4,4 +4,4 @@ if %errorlevel% neq 0 (
     nircmd.exe elevate bash "/usr/local/bin/cmdclick"
     exit /b
 )
-nircmd.exe win activate title "%cmd_click_title%"
+nircmd.exe win activate title %cmd_click_title%
