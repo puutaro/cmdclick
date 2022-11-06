@@ -29,6 +29,7 @@ launcher_cmd_index_by_lxterminal(){
 				| grep "${WINDOW_TITLE}" \
 				|| e=$? \
 		)
+		echo "${ccerminal_acctive_state}"
 		case "${ccerminal_acctive_state}" in 
 			"")  ;;
 			*) 
