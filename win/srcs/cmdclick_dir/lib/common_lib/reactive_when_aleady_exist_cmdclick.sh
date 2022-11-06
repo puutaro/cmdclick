@@ -8,6 +8,6 @@ reactive_when_aleady_exist_cmdclick(){
 	local reacctive_check=$(ps aux | grep -v " grep " | grep "${WINDOW_TITLE}")
 	case "${reacctive_check}" in 
 		"") return ;; esac 
-	nircmd.exe win activate title "${WINDOW_TITLE}"
+	powershell.exe -c "add-type -assembly microsoft.visualbasic; [microsoft.visualbasic.interaction]::AppActivate('${WINDOW_TITLE}')"
 	exit 0
 }
