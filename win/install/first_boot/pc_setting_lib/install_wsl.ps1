@@ -17,7 +17,7 @@ Function installWsl(){
                 | % { $_ -replace '-','' } `
                 | % { $_ -replace '\.','' }
         if(`
-            $distri_version -ge 2000 `
+            $distri_version -ge 1800 `
         ){ 
             break
         }
