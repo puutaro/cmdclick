@@ -36,7 +36,7 @@ case "${EXEC_TERMINAL_ON}" in
 	"ON")
 		ccerminal_acctive_state=$(\
 			wmctrl.exe -l \
-			| rga -o "${PASTE_TARGET_TERMINAL_NAME}" \
+			| grep -o "${PASTE_TARGET_TERMINAL_NAME}" \
 			|| e=$? \
 		)
 		#コマンド実行前の準備-------------------------------------

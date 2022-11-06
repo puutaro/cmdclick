@@ -13,6 +13,6 @@ nw_ready_before_open_terminal(){
 	wait
 	sleep 1
 	wmctrl.exe -l \
-		|  rga -o "${PASTE_TARGET_TERMINAL_NAME}" \
+		|  grep -o "${PASTE_TARGET_TERMINAL_NAME}" \
 		|| e=$?
 }
