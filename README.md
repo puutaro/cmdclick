@@ -46,6 +46,8 @@ Table of Contents
       * [Exit](#exit)
       * [Delete](#delete)
   * [Shortcut table](#shortcut-table)
+  * [Trouble Shouting](#trouble-shouting)
+  	 * [Not Startup](#not-startup)
 
 Installation
 -----
@@ -53,13 +55,13 @@ Installation
 1. Downlaod [installer.bat](https://drive.google.com/file/d/1XqA2EhTeLQnFtFSh87D1oWIh96Hna1w_/view?usp=share_link) from google drive
 2. Double click installer.bat
 
-  	- Support ubuntu20.04+
+  	- Support Ubuntu18.04+
 	- for windows 11, disable wayland, but it's unconfirmed operation
 
 ### For Ubuntu or Debian
 
 - Only X11 support (wayland not support)
-- Support Ubuntu20.04+
+- Support Ubuntu18.04+
 
 ```
 git clone https://github.com/kitamura-take/cmdclick.git ~/.cmdclick
@@ -287,3 +289,13 @@ Cmdclick's essence is shortcut usage.
 | `ctrl`+`i`  | install | o  |
 | `ctrl`+`g`  | descriptoin scroll up | o |
 | `ctrl`+`b`  | descriptoin scroll down | o |
+
+
+### Trouble Shouting
+#### Not startup
+
+Kill like bellow command, because leftover cmdclick process is getting in the way  
+(When starting, cmdclick check current process, otherwise staqrtup)
+```
+c -k
+```
