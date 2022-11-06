@@ -43,6 +43,5 @@ launcher_cmd_index_by_lxterminal(){
 	done 	
 	powershell.exe -c "add-type -assembly microsoft.visualbasic; [microsoft.visualbasic.interaction]::AppActivate('${WINDOW_TITLE}')" &
 	wait "${lx_terminal_pid}"
-	LANG=C
 }
 
