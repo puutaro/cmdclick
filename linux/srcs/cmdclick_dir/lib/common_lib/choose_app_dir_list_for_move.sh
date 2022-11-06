@@ -23,7 +23,7 @@ choose_app_dir_list_for_move(){
     --column="APP DIR PATH" \
     --center \
     --separator="" \
-    ${ini_file_list[@]} \
+    "${ini_file_list[@]}" \
     --button  gtk-ok:${OK_CODE} \
     --button  gtk-close:${EXIT_CODE}
 	set -e
