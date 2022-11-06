@@ -4,4 +4,4 @@ if %errorlevel% neq 0 (
     nircmd.exe elevate bash "/usr/local/bin/cmdclick"
     exit /b
 )
-powershell.exe -c "add-type -assembly microsoft.visualbasic; [microsoft.visualbasic.interaction]::AppActivate('%cmd_click_title%')"
+nircmd.exe win activate title "%cmd_click_title%"
