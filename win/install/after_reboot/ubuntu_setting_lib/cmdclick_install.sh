@@ -9,26 +9,21 @@ cmdclick_install(){
 
 	mkdir -p "${config_lxterminal_dir_path}"
 	sudo cp -arvf \
-	"${cmdclick_section_path}/win/install/files/lxterminal"/* \
-	"${config_lxterminal_dir_path}/"
+		"${cmdclick_section_path}/win/install/files/lxterminal"/* \
+		"${config_lxterminal_dir_path}/"
 
 	sudo cp -arvf \
-	"${cmdclick_section_path}/linux" \
-	"${usrlocalbin_dir_path}/"
+		"${cmdclick_section_path}/linux" \
+		"${usrlocalbin_dir_path}/"
 	sudo cp -arvf \
-	"${cmdclick_section_path}/win" \
-	"${usrlocalbin_dir_path}/"
+		"${cmdclick_section_path}/win" \
+		"${usrlocalbin_dir_path}/"
 
-	local temp_file_path="$HOME/temp_file"
 	local usrlocalbin_cmdclick="${usrlocalbin_dir_path}/cmdclick"
-	sudo cat <<- 'EOF' > "${temp_file_path}"
-	#!/bin/bash
-
-	bash "$(dirname $0)/win/srcs/cmdclick_dir/exec_cmdclick.sh"
-	EOF
 	sudo cp -arvf \
-		"${temp_file_path}" \
-		"${usrlocalbin_cmdclick}"
+		"${cmdclick_section_path}/win/srcs/cmdclick" \
+		"${usrlocalbin_cmdclick}/"
+
 	sudo chmod +x "${usrlocalbin_cmdclick}"
 
 	sudo ln -s \
