@@ -45,6 +45,11 @@ make_ini_contents(){
   ;; esac
   case "${ROOP_NUM}" in 
     "0"|"1") 
+      ALL_KEY_CON=""
+      SOURCE_CMD=""
+      VARIABLE_CONTENSTS_FIELD_LIST=""
+      VARIABLE_CONTENSTS_VALUE_LIST=""
+      EDIT_DESCRIPTION=""
       set_all_key_con_and_source_cmd_and_variable_con_field_and_value_list \
         "${ini_contents_moto}" \
         "${source_con}" \

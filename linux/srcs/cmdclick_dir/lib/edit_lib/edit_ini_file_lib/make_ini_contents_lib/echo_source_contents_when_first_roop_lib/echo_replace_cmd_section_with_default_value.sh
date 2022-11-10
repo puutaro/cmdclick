@@ -9,6 +9,25 @@ echo_replace_cmd_section_with_default_value(){
 	-v ini_contents_moto="${ini_contents_moto}" \
 	'
 	BEGIN {
+		gui_edit_option_list[0]="H"
+		gui_edit_option_list[1]="RO"
+		gui_edit_option_list[2]="NUM"
+		gui_edit_option_list[3]="CHK"
+		gui_edit_option_list[4]="CB"
+		gui_edit_option_list[5]="CBE"
+		gui_edit_option_list[6]="FL"
+		gui_edit_option_list[7]="MFL"
+		gui_edit_option_list[8]="SFL"
+		gui_edit_option_list[9]="DIR"
+		gui_edit_option_list[10]="MDIR"
+		gui_edit_option_list[11]="CHDIR"
+		gui_edit_option_list[12]="FN"
+		gui_edit_option_list[13]="DT"
+		gui_edit_option_list[14]="SCL"
+		gui_edit_option_list[15]="CLR"
+		gui_edit_option_list[16]="BTN"
+		gui_edit_option_list[17]="FBTN"
+		gui_edit_option_list[18]="LBL"
 		end_buffer_order = 1000
 	}
 	{ 
@@ -18,7 +37,16 @@ echo_replace_cmd_section_with_default_value(){
 			0, \
 			index(replace_record, "=") - 1 \
 		)
-		sub(":CB$", "", grep_str)
+		for(\
+			i=0; i<length(gui_edit_option_list);i++ \
+		){
+			success_code = sub(\
+				":"gui_edit_option_list[i]"$", \
+				"", \
+				grep_str \
+			)
+			if(success_code) break
+		}
 		if(\
 			ini_contents_moto !~ "\n"grep_str"=" \
 		) next
