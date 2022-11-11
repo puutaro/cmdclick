@@ -8,7 +8,7 @@ set_all_key_con_and_source_cmd_and_variable_con_field_and_value_list(){
   ALL_KEY_CON=$(\
     echo "${source_con}" \
     | awk -F '=' '{
-      gsub( /:CB$/, "", $1)
+      gsub( /:[a-zA-Z]*$/, "", $1)
       print $1
     }'
   )

@@ -8,7 +8,7 @@ unset -v convert_input_value_lib_dir_path
 
 convert_input_value(){
   local source_ini_value="${1}"
-  LANG=C
+  local LANG=C
   #入力値を取得
   local ini_value_source=$(\
     echo "${source_ini_value}" \

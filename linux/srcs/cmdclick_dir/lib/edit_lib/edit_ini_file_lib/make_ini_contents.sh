@@ -10,7 +10,7 @@ MAKE_INI_CONTENTS_LIB_DIR_PATH="${EDIT_INI_FILE_LIB_DIR_PATH}/make_ini_contents_
 unset -v MAKE_INI_CONTENTS_LIB_DIR_PATH
 
 make_ini_contents(){
-  LANG=C
+  local LANG=C
   local ini_contents_moto="${1}"
   case "${ROOP_NUM}" in 
     "1")
