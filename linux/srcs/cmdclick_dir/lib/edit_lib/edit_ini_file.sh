@@ -13,7 +13,7 @@ unset -v EDIT_INI_FILE_LIB_DIR_PATH
 
 
 edit_ini_gui(){
-  LANG=C
+  local LANG=C
   local ROOP_NUM=0
   local INI_CONTENTS=""
   local EDIT_FILE_NAME="${1}"

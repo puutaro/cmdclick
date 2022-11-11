@@ -8,6 +8,23 @@ echo_replace_cmd_section_with_default_value(){
 	| awk \
 	-v ini_contents_moto="${ini_contents_moto}" \
 	'
+	function replace_yad_gtk_edit_option(\
+		gui_edit_option_list \
+	){
+		if(index(grep_str, ":") == 0) {
+			return
+		}
+		for(\
+			i=0; i<length(gui_edit_option_list);i++ \
+		){
+			success_code = sub(\
+				":"gui_edit_option_list[i]"$", \
+				"", \
+				grep_str \
+			)
+			if(success_code) break
+		}
+	}
 	BEGIN {
 		gui_edit_option_list[0]="H"
 		gui_edit_option_list[1]="RO"
@@ -37,16 +54,9 @@ echo_replace_cmd_section_with_default_value(){
 			0, \
 			index(replace_record, "=") - 1 \
 		)
-		for(\
-			i=0; i<length(gui_edit_option_list);i++ \
-		){
-			success_code = sub(\
-				":"gui_edit_option_list[i]"$", \
-				"", \
-				grep_str \
-			)
-			if(success_code) break
-		}
+		replace_yad_gtk_edit_option(\
+			gui_edit_option_list \
+		)
 		if(\
 			ini_contents_moto !~ "\n"grep_str"=" \
 		) next
