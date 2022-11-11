@@ -34,4 +34,3 @@ launcher_cmd_index_by_lxterminal(){
 	wmctrl  -r "${WINDOW_TITLE}" -e 0,${x_position},${y_position},${scale_display_width},${scale_display_height}
 	wait "${lx_terminal_pid}"
 }
-

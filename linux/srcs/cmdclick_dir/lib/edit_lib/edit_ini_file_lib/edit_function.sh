@@ -40,10 +40,8 @@ display_edit_contensts(){
     --window-icon="${WINDOW_ICON_PATH}" \
     --text="${edit_label}" \
     --separator=$'\t' --item-separator="!" \
-    --center \
+    ${EDIT_WINDOW_LOCATION} \
     --scroll \
-    --height=${CENTER_SCALE_DISPLAY_HEIGHT} \
-    --width=${CENTER_SCALE_DISPLAY_WIDTH} \
     ${button_list[@]} \
     ${VARIABLE_CONTENSTS_FIELD_LIST[@]} \
     "${VARIABLE_CONTENSTS_VALUE_LIST[@]}"

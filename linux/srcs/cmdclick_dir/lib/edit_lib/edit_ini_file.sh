@@ -46,17 +46,26 @@ edit_ini_gui(){
         INI_CONTENTS="${ini_contents_moto}"
         make_ini_contents \
           "${ini_contents_moto}"
-        if [ ${SIGNAL_CODE} -eq ${EXIT_CODE} ] || [ ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ]; then break; fi
+        [ ${SIGNAL_CODE} -eq ${EXIT_CODE} \
+          -o ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ] \
+        &&  EXEC_INPUT_EXEC_ROOP_DO="" \
+        && break \
+        || e=$?
         local INI_VALUE=""
         SIGNAL_CODE=${EDIT_CODE}
-        display_edit_contensts
+        display_edit_contensts \
+          "${EDIT_WINDOW_LOCATION}" 
     ;; esac
     case "${EDIT_EDITOR_ON}" in 
       "ON") EXEC_INPUT_EXECUTE_SIGNAL=""
             editor_on_display
     ;; esac
-    if [ ${SIGNAL_CODE} -eq ${EXIT_CODE} ] \
-      || [ ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ]; then break; fi
+    echo "edit_ini_file::SIGNAL_CODE ${SIGNAL_CODE}"
+    [ ${SIGNAL_CODE} -eq ${EXIT_CODE} \
+      -o ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ] \
+    &&  EXEC_INPUT_EXEC_ROOP_DO="" \
+    && break \
+    || e=$?
     convert_input_value "${INI_VALUE}"
     check_ini_std_out "${INI_CONTENTS}"
     case "${SIGNAL_CODE}" in 

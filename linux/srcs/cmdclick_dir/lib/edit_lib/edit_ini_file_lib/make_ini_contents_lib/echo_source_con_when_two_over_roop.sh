@@ -21,6 +21,7 @@ echo_source_con_when_two_over_roop(){
       ini_setting_default_value_cons_of["'${INI_OPEN_WHERE}'"]="'${INI_OPEN_WHERE_DEFAULT_VALUE}'"
       ini_setting_default_value_cons_of["'${INI_TERMINAL_FOCUS}'"]="'${INI_TERMINAL_FOCUS_DEFAULF_VALUE}'"
       ini_setting_default_value_cons_of["'${INI_INPUT_EXECUTE}'"]="'${INI_INPUT_EXECUTE_DEFAULF_VALUE}'"
+      ini_setting_default_value_cons_of["'${INI_INPUT_EXEC_ROOP_DO}'"]="'${INI_INPUT_EXEC_ROOP_DO_DEFAULF_VALUE}'"
     }
     {
       current_first_field_value=$1
