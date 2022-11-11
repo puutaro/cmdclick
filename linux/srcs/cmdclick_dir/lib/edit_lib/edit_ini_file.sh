@@ -60,7 +60,6 @@ edit_ini_gui(){
       "ON") EXEC_INPUT_EXECUTE_SIGNAL=""
             editor_on_display
     ;; esac
-    echo "edit_ini_file::SIGNAL_CODE ${SIGNAL_CODE}"
     [ ${SIGNAL_CODE} -eq ${EXIT_CODE} \
       -o ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ] \
     &&  EXEC_INPUT_EXEC_ROOP_DO="" \

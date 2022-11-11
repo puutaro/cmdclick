@@ -52,26 +52,6 @@ echo_replace_cmd_section_with_default_value(){
 		)
 		replace_record=replace_key"="replace_value
 	}
-	function replace_yad_gtk_edit_option(\
-		gui_edit_option_list \
-	){
-		if(index(grep_str, ":") == 0) {
-			return
-		}
-		for(\
-			i=0; i<length(gui_edit_option_list);i++ \
-		){
-			success_code = sub(\
-				":"gui_edit_option_list[i]"$", \
-				"", \
-				grep_str \
-			)
-			if(success_code) {
-				gtk_edit_type=gui_edit_option_list[i]
-				break
-			}
-		}
-	}
 	BEGIN {
 		gui_edit_option_list[0]="H"
 		gui_edit_option_list[1]="RO"
@@ -98,6 +78,24 @@ echo_replace_cmd_section_with_default_value(){
 		extramation_use_gtk_edit_type_of["MDIR"]=1
 		end_buffer_order = 1000
 	}
+	function replace_yad_gtk_edit_option(){
+		if(index(grep_str, ":") == 0) {
+			return
+		}
+		for(\
+			i=0; i<length(gui_edit_option_list);i++ \
+		){
+			success_code = sub(\
+				":"gui_edit_option_list[i]"$", \
+				"", \
+				grep_str \
+			)
+			if(success_code) {
+				gtk_edit_type=gui_edit_option_list[i]
+				break
+			}
+		}
+	}
 	{ 
 		gtk_edit_type=""
 		replace_record = $0
@@ -106,9 +104,7 @@ echo_replace_cmd_section_with_default_value(){
 			0, \
 			index(replace_record, "=") - 1 \
 		)
-		replace_yad_gtk_edit_option(\
-			gui_edit_option_list \
-		)
+		replace_yad_gtk_edit_option()
 		if(\
 			ini_contents_moto !~ "\n"grep_str"=" \
 		) next
