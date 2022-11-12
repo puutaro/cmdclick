@@ -1,15 +1,17 @@
 #!/bin/bash
 
 LANG=C
-EXECUTE_LIB_DIR_PATH="${LIB_DIR_PATH}/execute_lib"
-COMMON_EXECUTE_LIB_DIR_PATH="${COMMON_LIB_DIR_PATH}/execute_lib"
-. "${COMMON_EXECUTE_LIB_DIR_PATH}/handler.sh"
-. "${EXECUTE_LIB_DIR_PATH}/get_ccerminal_window.sh"
-. "${EXECUTE_LIB_DIR_PATH}/open_new_tab_terminal.sh"
-. "${EXECUTE_LIB_DIR_PATH}/execute_before_command.sh"
-. "${EXECUTE_LIB_DIR_PATH}/execute_after_command.sh"
+LINUX_EXECUTE_LIB_DIR_PATH="${LIB_DIR_PATH}/execute_lib"
+EXECUTE_LIB_DIR_PATH="${COMMON_LIB_DIR_PATH}/execute_lib"
+. "${LINUX_EXECUTE_LIB_DIR_PATH}/get_ccerminal_window.sh"
+. "${LINUX_EXECUTE_LIB_DIR_PATH}/open_new_tab_terminal.sh"
+. "${LINUX_EXECUTE_LIB_DIR_PATH}/execute_before_command.sh"
+. "${LINUX_EXECUTE_LIB_DIR_PATH}/execute_after_command.sh"
+. "${EXECUTE_LIB_DIR_PATH}/handler.sh"
 . "${EXECUTE_LIB_DIR_PATH}/echo_signal_code_by_input_exec_condition.sh"
 unset -v EXECUTE_LIB_DIR_PATH
+unset -v LINUX_EXECUTE_LIB_DIR_PATH
+
 
 LOOP=0
 EXECUTE_FILE_PATH="${INI_FILE_DIR_PATH}/${EXECUTE_FILE_NAME}"
