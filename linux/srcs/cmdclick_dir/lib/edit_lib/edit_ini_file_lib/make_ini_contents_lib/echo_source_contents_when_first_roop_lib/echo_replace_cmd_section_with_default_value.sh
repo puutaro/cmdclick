@@ -11,20 +11,6 @@ echo_replace_cmd_section_with_default_value(){
 	-v COUNT_EXEC_INPUT_EXECUTE="${COUNT_EXEC_INPUT_EXECUTE}" \
 	'
 	BEGIN {
-		gui_edit_option_list[0]="H"
-		gui_edit_option_list[1]="RO"
-		gui_edit_option_list[2]="NUM"
-		gui_edit_option_list[3]="CHK"
-		gui_edit_option_list[4]="CB"
-		gui_edit_option_list[5]="CBE"
-		gui_edit_option_list[6]="FL"
-		gui_edit_option_list[7]="SFL"
-		gui_edit_option_list[8]="DIR"
-		gui_edit_option_list[9]="CHDIR"
-		gui_edit_option_list[10]="DT"
-		gui_edit_option_list[11]="SCL"
-		gui_edit_option_list[12]="CLR"
-		gui_edit_option_list[13]="LBL"
 		checkbox_num=1
 		num_inc_dec=2
 		extramation_use_gtk_edit_type_of["CB"]=checkbox_num
@@ -89,22 +75,20 @@ echo_replace_cmd_section_with_default_value(){
 		replace_record=replace_key"="replace_value
 	}
 	function replace_yad_gtk_edit_option(){
-		if(index(grep_str, ":") == 0) {
+		colon_index = index(grep_str, ":")
+		if(colon_index == 0) {
 			return
 		}
-		for(\
-			i=0; i<length(gui_edit_option_list);i++ \
-		){
-			success_code = sub(\
-				":"gui_edit_option_list[i]"$", \
-				"", \
-				grep_str \
-			)
-			if(success_code) {
-				gtk_edit_type=gui_edit_option_list[i]
-				break
-			}
-		}
+		gtk_edit_type = substr(\
+			grep_str, \
+			colon_index+1, \
+			length(grep_str) - colon_index \
+		)
+		sub(\
+			/:[A-Z]*$/, \
+			"", \
+			grep_str \
+		)
 	}
 	{ 
 		gtk_edit_type=""

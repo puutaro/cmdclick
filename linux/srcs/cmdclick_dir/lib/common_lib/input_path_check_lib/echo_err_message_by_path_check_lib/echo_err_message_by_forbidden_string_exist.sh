@@ -30,10 +30,10 @@ echo_err_message_by_forbidden_string_exist(){
 			hat_user_dir_path="^"HOME
 			count_home_dir_in_path += replace_path_and_discover_home_dir_path(hat_user_dir_path)
 			gsub(hat_user_dir_path, "", $0)
-			hat_home_dir_path_curly_brackets="^\${HOME}"
+			hat_home_dir_path_curly_brackets="^${HOME}"
 			count_home_dir_in_path += replace_path_and_discover_home_dir_path(hat_home_dir_path_curly_brackets)
 			gsub(hat_home_dir_path_curly_brackets, "", $0)
-			hat_home_dir_path="^\$HOME"
+			hat_home_dir_path="^$HOME"
 			count_home_dir_in_path += replace_path_and_discover_home_dir_path(hat_home_dir_path)
 			gsub(hat_home_dir_path, "", $0)
 			if (!count_home_dir_in_path){ 

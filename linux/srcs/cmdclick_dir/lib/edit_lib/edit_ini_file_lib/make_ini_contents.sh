@@ -21,7 +21,6 @@ make_ini_contents(){
             | echo_removed_double_quote_both_ends_from_pip \
             | sed  -e 's/,[ ]*/\n/g' \
         )"
-
         local ini_input_execute="$(\
           fetch_parameter \
             "${ini_contents_moto}" \
