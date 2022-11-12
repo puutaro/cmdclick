@@ -135,6 +135,7 @@ Add file to command click
     | `terminalFocus` | `ON`/`OFF`  | whether to forcus to terminal    |
     | `inputExecute`  | `N`/`C`/`E` | before running shellscript, whether ot edit settingVriable(N: no, C: edit in console, E: edit in editor)          |
     | `inputExecDfltVal` | string  | when edit, whether to insert default value to commandVriable. In detail, follow bellow. |
+    | `inputExecRoopDo` | `OFF`/`ON`  | shellscript to GUI app (inputExecute roop). |
     | `afterCommand` | command | before run shellscript, run command |
     | `shellFileName`  | string | shellscript file name  |
     	- About inputExecDfltVal' usage
@@ -152,6 +153,21 @@ Add file to command click
 4. after `Please write bellow with shell script`, write shellscript.
 5. come back Command Click screen, and if it correct, type ctrl+enter if not, esc.
 
+  - inputExecDfltVal option
+    | option| description | example  |
+    | --------- | --------- | ------------ |
+    | `CB` | checkbox | {variablebName}:CB=value1!value2!|..   |
+    | `CB` | editable checkbox | {variablebName}:CBE=value1!value2!|..   |
+    | `H` | hidden input | {variablebName}:H={password ..etc}   |
+    | `NUM` | increment or decrement number | {variablebName}:NUM={init_value}[!{min}..{max}[!{step}(!{number of decimal places}) |
+    | `FL` | file select button | {variablebName}:FL={default file path}   |
+    | `SFL`  | create file button | {variablebName}:SFL={default file path}  |
+    | `DIR`  | directory select button | {variablebName}:SFL={default directory path}  |
+    | `CDIR`  | create directory button | {variablebName}:CDIR={default file path}  |
+    | `DT`  | create file button | {variablebName}:SFL={default file path}  |
+    | `SCL`  | scale | {variablebName}:SCL={default number}  |
+    | `CLR` | select color  | {variablebName}:SCL={default value}    |
+    | `LBL` | text label  | {variablebName}:LBL={label text}    |
 
 ### Run
 Run shellscript
