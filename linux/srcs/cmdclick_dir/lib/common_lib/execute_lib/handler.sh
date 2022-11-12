@@ -37,6 +37,8 @@ exec_handler(){
 	esac
 	case "${SIGNAL_CODE}" in
 		"${OK_CODE}")
-			read_ini_to_execute_command "${EXECUTE_FILE_PATH}" ;;
+			read_ini_to_execute_command "${EXECUTE_FILE_PATH}" 
+			return
+		;;
 	esac 
 }
