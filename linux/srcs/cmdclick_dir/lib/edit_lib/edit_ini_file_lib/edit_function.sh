@@ -2,7 +2,7 @@
 
 display_edit_contensts(){
   local LANG="ja_JP.UTF-8"
-  local SOURCE_CMD=$(\
+  local display_source_cmd=$(\
     echo_by_convert_xml_escape_sequence \
       "${SOURCE_CMD::400}" \
   )
@@ -11,7 +11,7 @@ display_edit_contensts(){
       local edit_label="$(\
         cat <(echo "\n  please edit bellow command") \
             <(echo "") \
-            <(echo "      ${SOURCE_CMD}\n")\
+            <(echo "      ${display_source_cmd}\n")\
       )" ;;
     *)
       local edit_label="$(\
@@ -19,7 +19,7 @@ display_edit_contensts(){
             <(echo "") \
             <(echo "    ${EDIT_DESCRIPTION}") \
             <(echo "") \
-            <(echo "      ${SOURCE_CMD}\n")\
+            <(echo "      ${display_source_cmd}\n")\
       )"
   ;; esac
   #ウィンドウサイズ策定

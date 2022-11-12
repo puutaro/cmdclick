@@ -17,12 +17,11 @@ set_all_key_con_and_source_cmd_and_variable_con_field_and_value_list(){
     | awk '{
       if(\
         $0 !~ "^#" \
-        && $0 ~ "^[a-zA-Z0-9_-]*=" \
+        && $0 !~ "^[a-zA-Z0-9_-]*=" \
         && $0 != ""\
       )
         print $0
     }')
-
   local IFS=$'\n'
   VARIABLE_CONTENSTS_FIELD_LIST=(\
     $(\
