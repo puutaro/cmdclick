@@ -3,7 +3,6 @@
 HANDLER_LIB_DIR_PATH="${EXECUTE_LIB_DIR_PATH}/handler_lib"
 . "${HANDLER_LIB_DIR_PATH}/read_ini_to_cmd.sh"
 . "${HANDLER_LIB_DIR_PATH}/echo_window_localtion.sh"
-. "${HANDLER_LIB_DIR_PATH}/echo_count_exec_input_execute_by_input_exec_save_val_do.sh"
 
 unset -v HANDLER_LIB_DIR_PATH
 
@@ -21,10 +20,7 @@ exec_handler(){
 				echo_window_localtion \
 					"${COUNT_EXEC_INPUT_EXECUTE}" \
 			)"
-			COUNT_EXEC_INPUT_EXECUTE=$(\
-				echo_count_exec_input_execute_by_input_exec_save_val_do \
-					"${COUNT_EXEC_INPUT_EXECUTE}"\
-			)
+			COUNT_EXEC_INPUT_EXECUTE=$(( ${COUNT_EXEC_INPUT_EXECUTE} + 1))
 			edit_ini_gui \
 				"${EXECUTE_FILE_NAME}" \
 				"${EXEC_INPUT_EXECUTE}"

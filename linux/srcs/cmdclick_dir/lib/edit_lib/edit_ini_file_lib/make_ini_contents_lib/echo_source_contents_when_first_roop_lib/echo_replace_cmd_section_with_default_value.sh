@@ -21,11 +21,11 @@ echo_replace_cmd_section_with_default_value(){
 	function update_replace_record_by_count_exec_input_execute(\
 		target_record \
 	){
-		if(\
-			COUNT_EXEC_INPUT_EXECUTE == 1 \
-		){
-			return
-		}
+		# if(\
+		# 	COUNT_EXEC_INPUT_EXECUTE == 1 \
+		# ){
+		# 	return
+		# }
 		target_value = substr(\
 			target_record, \
 			index(target_record, "=")+1, \
