@@ -67,7 +67,7 @@ echo_replace_cmd_section_with_default_value(){
 			extramation_use_gtk_edit_type_of[gtk_edit_type] == num_inc_dec \
 		){
 			sub(\
-				/^[1-9.]*/, \
+				/^[0-9.]*/, \
 				target_value, \
 				replace_value \
 			)
