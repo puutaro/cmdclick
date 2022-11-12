@@ -134,8 +134,9 @@ Add file to command click
     | `openWhere`  | `CW`/`NT` | when runing in terminal, whether to run current tab  or new tab  |
     | `terminalFocus` | `ON`/`OFF`  | whether to forcus to terminal    |
     | `inputExecute`  | `N`/`C`/`E` | before running shellscript, whether ot edit settingVriable(N: no, C: edit in console, E: edit in editor)          |
-    | `inputExecDfltVal` | string  | when edit, whether to insert default value to commandVriable. In detail, follow bellow. |
+    | `inputExecDfltVal` | string  | when edit, whether to insert default type and value to commandVariable. In detail, follow bellow. |
     | `inputExecRoopDo` | `OFF`/`ON`  | shellscript to GUI app (inputExecute roop). |
+    | `inputExecSaveValDo` | `ON`/`OFF`  | when being `OFF`, inputExecDfltVal's value and type override command variable. when`ON` inputExecDfltVal's type  override command variable. . |
     | `afterCommand` | command | before run shellscript, run command |
     | `shellFileName`  | string | shellscript file name  |
     	- About inputExecDfltVal' usage
@@ -143,6 +144,7 @@ Add file to command click
             Bellow example override val1 and val2 with inputExecVal1 and inputExecVal2-1!inputExecVal2-1. More speaking, valiable2 is checkbox, when editting.
 	> \### SETTING_SECTION_START  
 	> inputExecDfltVal=valiable1=inputExecVal1,valiable2:CB=inputExecVal2-1!inputExecVal2-1  
+    > inputExecSaveValDo=OFF
 	> \### SETTING_SECTION_END  
 	>  
 	> \### CMD_VARIABLE_SECTION_START  
@@ -159,7 +161,7 @@ Add file to command click
     | `CB` | checkbox | {variablebName}:CB=value1!value2!|..   |
     | `CB` | editable checkbox | {variablebName}:CBE=value1!value2!|..   |
     | `H` | hidden input | {variablebName}:H={password ..etc}   |
-    | `NUM` | increment or decrement number | {variablebName}:NUM={init_value}[!{min}..{max}[!{step}(!{number of decimal places}) |
+    | `NUM` | increment or decrement number | {variablebName}:NUM={init_value}!{min}..{max}!{step}(!{number of decimal places}) |
     | `FL` | file select button | {variablebName}:FL={default file path}   |
     | `SFL`  | create file button | {variablebName}:SFL={default file path}  |
     | `DIR`  | directory select button | {variablebName}:SFL={default directory path}  |
@@ -168,7 +170,9 @@ Add file to command click
     | `SCL`  | scale | {variablebName}:SCL={default number}  |
     | `CLR` | select color  | {variablebName}:SCL={default value}    |
     | `LBL` | text label  | {variablebName}:LBL={label text}    |
-
+    | `BTN` | botton  | {variablebName}:BTN={command}    |
+    | `FBTN` | botton  | {variablebName}:BTN={command}    |
+inputExecSaveValDo
 ### Run
 Run shellscript
 
