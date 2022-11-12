@@ -2,7 +2,8 @@
 
 LANG=C
 EXECUTE_LIB_DIR_PATH="${LIB_DIR_PATH}/execute_lib"
-. "${EXECUTE_LIB_DIR_PATH}/handler.sh"
+COMMON_EXECUTE_LIB_DIR_PATH="${COMMON_LIB_DIR_PATH}/execute_lib"
+. "${COMMON_EXECUTE_LIB_DIR_PATH}/handler.sh"
 . "${EXECUTE_LIB_DIR_PATH}/get_ccerminal_window.sh"
 . "${EXECUTE_LIB_DIR_PATH}/open_new_tab_terminal.sh"
 . "${EXECUTE_LIB_DIR_PATH}/execute_before_command.sh"

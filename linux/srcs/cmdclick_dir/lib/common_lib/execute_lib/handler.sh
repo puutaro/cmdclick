@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HANDLER_LIB_DIR_PATH="${COMMON_EXECUTE_LIB_DIR_PATH}/handler_lib"
+HANDLER_LIB_DIR_PATH="${EXECUTE_LIB_DIR_PATH}/handler_lib"
 . "${HANDLER_LIB_DIR_PATH}/read_ini_to_cmd.sh"
 . "${HANDLER_LIB_DIR_PATH}/echo_window_localtion.sh"
 

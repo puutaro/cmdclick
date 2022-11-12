@@ -1,18 +1,23 @@
 #!/bin/bash
 
 LANG=C
-EXECUTE_LIB_DIR_PATH="${WIN_LIB_DIR_PATH}/execute_lib"
+
+WIN_EXECUTE_LIB_DIR_PATH="${WIN_LIB_DIR_PATH}/execute_lib"
+. "${WIN_EXECUTE_LIB_DIR_PATH}/open_new_tab_terminal.sh"
+. "${WIN_EXECUTE_LIB_DIR_PATH}/nw_ready_before_open_terminal.sh"
+. "${WIN_EXECUTE_LIB_DIR_PATH}/execute_before_command.sh"
+. "${WIN_EXECUTE_LIB_DIR_PATH}/execute_after_command.sh"
+EXECUTE_LIB_DIR_PATH="${COMMON_LIB_DIR_PATH}/execute_lib"
+. "${EXECUTE_LIB_DIR_PATH}/echo_signal_code_by_input_exec_condition.sh"
 . "${EXECUTE_LIB_DIR_PATH}/handler.sh"
-. "${EXECUTE_LIB_DIR_PATH}/open_new_tab_terminal.sh"
-. "${EXECUTE_LIB_DIR_PATH}/nw_ready_before_open_terminal.sh"
-. "${EXECUTE_LIB_DIR_PATH}/execute_before_command.sh"
-. "${EXECUTE_LIB_DIR_PATH}/execute_after_command.sh"
+unset -v WIN_EXECUTE_LIB_DIR_PATH
 unset -v EXECUTE_LIB_DIR_PATH
 
 LOOP=0
 EXECUTE_FILE_PATH="${INI_FILE_DIR_PATH}/${EXECUTE_FILE_NAME}"
 #設定ファイルチェック
 check_ini_file "${EXECUTE_FILE_PATH}"
+EDIT_WINDOW_LOCATION=""
 exec_handler
 # echo "BEFORE_EXECUTE setting_variable "
 # echo "EXECUTE_COMMAND: ${EXECUTE_COMMAND}"
@@ -68,3 +73,8 @@ case "${EXEC_TERMINAL_ON}" in
 esac
 unset -v terminal_exec_command
 SIGNAL_CODE=${INDEX_CODE}
+SIGNAL_CODE=$(\
+	echo_signal_code_by_input_exec_condition \
+		"${EXEC_INPUT_EXECUTE}" \
+		"${EXEC_INPUT_EXEC_ROOP_DO}" \
+)

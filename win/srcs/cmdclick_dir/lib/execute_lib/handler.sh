@@ -15,6 +15,11 @@ exec_handler(){
 	EXEC_INPUT_EXECUTE="$(cat "${EXECUTE_FILE_PATH}" | fetch_parameter_from_pip "${INI_INPUT_EXECUTE}")"
 	case "${EXEC_INPUT_EXECUTE}" in 
 		"C")
+			EDIT_WINDOW_LOCATION="$(\
+				echo_window_localtion \
+					"${COUNT_EXEC_INPUT_EXECUTE}" \
+			)"
+			COUNT_EXEC_INPUT_EXECUTE=$(( ${COUNT_EXEC_INPUT_EXECUTE} + 1 ))
 			edit_ini_gui \
 				"${EXECUTE_FILE_NAME}" \
 				"${EXEC_INPUT_EXECUTE}"
