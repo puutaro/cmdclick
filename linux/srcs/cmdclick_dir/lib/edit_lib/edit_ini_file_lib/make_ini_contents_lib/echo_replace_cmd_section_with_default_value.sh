@@ -27,6 +27,7 @@ echo_replace_cmd_section_with_default_value(){
 			length(target_record)-1 \
 		)
 		sub("\n", "", target_value)
+		gsub("\x22", "", target_value)
 		replace_key = substr(\
 			replace_record, \
 			0, \
