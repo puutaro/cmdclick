@@ -3,7 +3,13 @@
 
 echo_source_con_when_two_over_roop(){
   local ini_contents_moto="${1}"
-  echo "${ini_contents_moto}" \
+  local ini_contents_set_default_value_in_parameter=$(\
+    echo_replace_cmd_section_with_default_value \
+      "${ini_contents_moto}" \
+      "${exec_default_parameter}" \
+      "${COUNT_EXEC_EDIT_EXECUTE}" \
+  )
+  echo "${ini_contents_set_default_value_in_parameter}" \
   | awk \
     -F '=' \
     -v INI_SETTING_DEFAULT_VALUE_CONS="${INI_SETTING_DEFAULT_VALUE_CONS}" \

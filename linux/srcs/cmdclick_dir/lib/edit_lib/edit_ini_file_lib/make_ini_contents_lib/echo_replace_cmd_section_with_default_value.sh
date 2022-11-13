@@ -21,11 +21,6 @@ echo_replace_cmd_section_with_default_value(){
 	function update_replace_record_by_count_exec_edit_execute(\
 		target_record \
 	){
-		# if(\
-		# 	COUNT_EXEC_EDIT_EXECUTE == 1 \
-		# ){
-		# 	return
-		# }
 		target_value = substr(\
 			target_record, \
 			index(target_record, "=")+1, \
@@ -102,7 +97,10 @@ echo_replace_cmd_section_with_default_value(){
 		if(\
 			ini_contents_moto !~ "\n"grep_str"=" \
 		) next
-		grep_str_order = index(ini_contents_moto, "\n"grep_str) + 1
+		grep_str_order = index(\
+			ini_contents_moto, \
+			"\n"grep_str\
+		) + 1
 		rest_str = substr(\
 			ini_contents_moto, \
 			grep_str_order, \

@@ -1,8 +1,5 @@
 #!/bin/bash
 
-echo_source_contents_when_first_roop_dir_path="${MAKE_INI_CONTENTS_LIB_DIR_PATH}/echo_source_contents_when_first_roop_lib"
-. "${echo_source_contents_when_first_roop_dir_path}/echo_replace_cmd_section_with_default_value.sh"
-
 
 echo_source_contents_when_first_roop(){
   local ini_contents_moto="${1}"

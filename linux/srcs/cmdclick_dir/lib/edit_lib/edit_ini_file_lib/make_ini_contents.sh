@@ -7,20 +7,23 @@ MAKE_INI_CONTENTS_LIB_DIR_PATH="${EDIT_INI_FILE_LIB_DIR_PATH}/make_ini_contents_
 . "${MAKE_INI_CONTENTS_LIB_DIR_PATH}/echo_source_con_when_two_over_roop.sh"
 . "${MAKE_INI_CONTENTS_LIB_DIR_PATH}/echo_by_replace_blank_with_hyphen_and_equal_with_tab.sh"
 . "${MAKE_INI_CONTENTS_LIB_DIR_PATH}/set_all_key_con_and_source_cmd_and_variable_con_field_and_value_list.sh"
+. "${MAKE_INI_CONTENTS_LIB_DIR_PATH}/echo_replace_cmd_section_with_default_value.sh"
+
 unset -v MAKE_INI_CONTENTS_LIB_DIR_PATH
+
 
 make_ini_contents(){
   local LANG=C
   local ini_contents_moto="${1}"
+  local exec_default_parameter="$(\
+    fetch_parameter \
+      "${ini_contents_moto}" \
+      "${INI_SET_VARIABLE_TYPE}" \
+      | echo_removed_double_quote_both_ends_from_pip \
+      | sed  -e 's/,[ ]*/\n/g' \
+  )"
   case "${ROOP_NUM}" in 
     "1")
-        local exec_default_parameter="$(\
-          fetch_parameter \
-            "${ini_contents_moto}" \
-            "${INI_SET_VARIABLE_TYPE}" \
-            | echo_removed_double_quote_both_ends_from_pip \
-            | sed  -e 's/,[ ]*/\n/g' \
-        )"
         local source_con=$(\
           echo_source_contents_when_first_roop \
             "${ini_contents_moto}" \
