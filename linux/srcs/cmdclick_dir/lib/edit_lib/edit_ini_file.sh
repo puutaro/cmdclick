@@ -36,30 +36,23 @@ edit_ini_gui(){
           "${ini_contents_moto}" \
           "${ch_dir_path_parameter_before}" \
     )
-    case "${EDIT_EDITOR_ON}" in "ON");;
-      *)
-        local EDIT_DESCRIPTION=""
-        local VARIABLE_CONTENSTS_FIELD_LIST=()
-        local VARIABLE_CONTENSTS_VALUE_LIST=()
-        local ALL_KEY_CON=""
-        local SOURCE_CMD=""
-        INI_CONTENTS="${ini_contents_moto}"
-        make_ini_contents \
-          "${ini_contents_moto}"
-        [ ${SIGNAL_CODE} -eq ${EXIT_CODE} \
-          -o ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ] \
-        &&  EXEC_INPUT_EXEC_ROOP_DO="" \
-        && break \
-        || e=$?
-        local INI_VALUE=""
-        SIGNAL_CODE=${EDIT_CODE}
-        display_edit_contensts \
-          "${EDIT_WINDOW_LOCATION}" 
-    ;; esac
-    case "${EDIT_EDITOR_ON}" in 
-      "ON") EXEC_INPUT_EXECUTE_SIGNAL=""
-            editor_on_display
-    ;; esac
+    local EDIT_DESCRIPTION=""
+    local VARIABLE_CONTENSTS_FIELD_LIST=()
+    local VARIABLE_CONTENSTS_VALUE_LIST=()
+    local ALL_KEY_CON=""
+    local SOURCE_CMD=""
+    INI_CONTENTS="${ini_contents_moto}"
+    make_ini_contents \
+      "${ini_contents_moto}"
+    [ ${SIGNAL_CODE} -eq ${EXIT_CODE} \
+      -o ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ] \
+    &&  EXEC_INPUT_EXEC_ROOP_DO="" \
+    && break \
+    || e=$?
+    local INI_VALUE=""
+    SIGNAL_CODE=${EDIT_CODE}
+    display_edit_contensts \
+      "${EDIT_WINDOW_LOCATION}" 
     [ ${SIGNAL_CODE} -eq ${EXIT_CODE} \
       -o ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ] \
     &&  EXEC_INPUT_EXEC_ROOP_DO="" \

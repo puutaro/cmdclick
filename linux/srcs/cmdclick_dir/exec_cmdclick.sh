@@ -159,8 +159,6 @@ EXEC_EXEC_WAKE=""
 
 COUNT_EXEC_INPUT_EXECUTE=0
 
-EDIT_EDITOR_ON=""
-
 case  "${IMPORT_CMDCLICK_VAL:-}" in 
 	"");; *) return;; esac
 . "${LIB_DIR_PATH}/check_ini_file.sh"

@@ -27,13 +27,6 @@ exec_handler(){
 			wait 
 			check_ini_file "${EXECUTE_FILE_PATH}"
 			;;
-		"E")
-			EDIT_EDITOR_ON="ON"
-			EXEC_INPUT_EXECUTE_SIGNAL=""
-			edit_ini_gui "${EXECUTE_FILE_NAME}"; wait 
-			check_ini_file "${EXECUTE_FILE_PATH}"
-			SIGNAL_CODE=${EXEC_INPUT_EXECUTE_SIGNAL}
-			;;
 	esac
 	case "${SIGNAL_CODE}" in
 		"${OK_CODE}")
