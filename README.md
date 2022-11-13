@@ -98,13 +98,15 @@ Upgrading.
 
 Demo
 -----
-![cmdclick_exec_sceen_input_exec_demo2](https://user-images.githubusercontent.com/55217593/199518490-5ab2e937-7341-486a-8590-775b433e3e95.gif)
+![show_cmdclick_from_execute_to_always_edit_execute](https://user-images.githubusercontent.com/55217593/201512545-d2134cd4-8490-41ce-b004-84b5a99ac4fe.gif)
 
 demo flow
 1. add -> run -> edit by gui -> run -> edit by editor -> run
-2. edit by gui -> set input execute -> run -> edit by editor -> run
-3. launch app directory manager -> add app directory -> change direcotry
-4.  install script -> run
+2. edit by gui -> set `editExecute`(`ONCE`) -> run -> `setVariableType`(`CB`) -> run
+3. edit by gui -> set `editExecute`(`ALWAYS`) -> run -> `setVariableType`(`NUM`) -> run
+4. Install shellscript -> run -> add -> run
+5. edit by gui -> set `editExecute`(`ALWAYS`) -> run 
+6. edit by gui -> set `TerminalDo`(`OFF`) -> run 
 
 Usage
 -----
