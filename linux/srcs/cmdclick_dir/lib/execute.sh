@@ -31,8 +31,8 @@ command_execute(){
 	# echo "EXEC_TERMINAL_ON: ${EXEC_TERMINAL_ON}"
 	# echo "EXEC_OPEN_WHERE: ${EXEC_OPEN_WHERE}"
 	# echo "EXEC_TERMINAL_FOCUS: ${EXEC_TERMINAL_FOCUS}"
-	# echo "EXEC_INPUT_EXECUTE: ${EXEC_INPUT_EXECUTE}"
-	# echo "EXEC_IN_EXE_DFLT_VL: ${EXEC_IN_EXE_DFLT_VL}"
+	# echo "EXEC_EDIT_EXECUTE: ${EXEC_EDIT_EXECUTE}"
+	# echo "EXEC_SET_VARIABLE_TYPE: ${EXEC_SET_VARIABLE_TYPE}"
 	# echo "EXEC_INPUT_EXEC_ROOP_DO ${EXEC_INPUT_EXEC_ROOP_DO}"
 	# echo "EXEC_BEFORE_COMMAND: ${EXEC_BEFORE_COMMAND}"
 	# echo "EXEC_AFTER_COMMAND: ${EXEC_AFTER_COMMAND}"
@@ -71,7 +71,7 @@ command_execute(){
 	unset -v terminal_exec_command
 	SIGNAL_CODE=$(\
 		echo_signal_code_by_input_exec_condition \
-			"${EXEC_INPUT_EXECUTE}" \
+			"${EXEC_EDIT_EXECUTE}" \
 			"${EXEC_INPUT_EXEC_ROOP_DO}" \
 	)
 }

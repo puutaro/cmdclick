@@ -4,11 +4,11 @@
 echo_replace_cmd_section_with_default_value(){
 	local ini_contents_moto="${1}"
 	local exec_default_parameter="${2}"
-	local COUNT_EXEC_INPUT_EXECUTE="${3}"
+	local COUNT_EXEC_EDIT_EXECUTE="${3}"
 	echo "${exec_default_parameter}" \
 	| awk \
 	-v ini_contents_moto="${ini_contents_moto}" \
-	-v COUNT_EXEC_INPUT_EXECUTE="${COUNT_EXEC_INPUT_EXECUTE}" \
+	-v COUNT_EXEC_EDIT_EXECUTE="${COUNT_EXEC_EDIT_EXECUTE}" \
 	'
 	BEGIN {
 		checkbox_num=1
@@ -18,11 +18,11 @@ echo_replace_cmd_section_with_default_value(){
 		extramation_use_gtk_edit_type_of["NUM"]=num_inc_dec
 		end_buffer_order = 1000
 	}
-	function update_replace_record_by_count_exec_input_execute(\
+	function update_replace_record_by_count_exec_edit_execute(\
 		target_record \
 	){
 		# if(\
-		# 	COUNT_EXEC_INPUT_EXECUTE == 1 \
+		# 	COUNT_EXEC_EDIT_EXECUTE == 1 \
 		# ){
 		# 	return
 		# }
@@ -113,7 +113,7 @@ echo_replace_cmd_section_with_default_value(){
 			grep_str_order, \
 			index(rest_str, "\n") \
 		)
-		update_replace_record_by_count_exec_input_execute(\
+		update_replace_record_by_count_exec_edit_execute(\
 			target_record \
 		)
 		sub(\
