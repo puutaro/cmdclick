@@ -13,7 +13,7 @@ exec_handler(){
 	*) return ;; esac
 	#設定ファイルからコマンドを製造
 	touch "${EXECUTE_FILE_PATH}" &
-	EXEC_INPUT_EXECUTE="$(cat "${EXECUTE_FILE_PATH}" | fetch_parameter_from_pip "${INI_INPUT_EXECUTE}")"
+	EXEC_INPUT_EXECUTE="$(cat "${EXECUTE_FILE_PATH}" | fetch_parameter_from_pip "${INI_EDIT_EXECUTE}")"
 	case "${EXEC_INPUT_EXECUTE}" in 
 		"C")
 			EDIT_WINDOW_LOCATION="$(\

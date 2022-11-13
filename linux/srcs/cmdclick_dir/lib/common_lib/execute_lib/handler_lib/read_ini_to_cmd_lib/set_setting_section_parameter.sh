@@ -16,7 +16,7 @@ set_setting_section_parameter(){
 		ini_setting_default_value_cons_of["'${INI_TERMINAL_ON}'"]="ON"
 		ini_setting_default_value_cons_of["'${INI_OPEN_WHERE}'"]="CW"
 		ini_setting_default_value_cons_of["'${INI_TERMINAL_FOCUS}'"]="ON"
-		ini_setting_default_value_cons_of["'${INI_INPUT_EXECUTE}'"]="N"
+		ini_setting_default_value_cons_of["'${INI_EDIT_EXECUTE}'"]="N"
 	}
 	{	match_INI_SETTING_SECTION_START_NAME = match($0, INI_SETTING_SECTION_START_NAME)
 		if(match_INI_SETTING_SECTION_START_NAME) {
