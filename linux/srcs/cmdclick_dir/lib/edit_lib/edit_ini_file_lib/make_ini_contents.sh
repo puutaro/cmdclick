@@ -21,16 +21,9 @@ make_ini_contents(){
             | echo_removed_double_quote_both_ends_from_pip \
             | sed  -e 's/,[ ]*/\n/g' \
         )"
-        local ini_input_execute="$(\
-          fetch_parameter \
-            "${ini_contents_moto}" \
-            "${INI_INPUT_EXECUTE}" \
-            | echo_removed_double_quote_both_ends_from_pip \
-        )"
         local source_con=$(\
           echo_source_contents_when_first_roop \
             "${ini_contents_moto}" \
-            "${ini_input_execute}" \
             "${exec_default_parameter}" \
         )
   ;; esac
