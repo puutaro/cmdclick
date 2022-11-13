@@ -1,6 +1,6 @@
 ![cmdclick_image](https://user-images.githubusercontent.com/55217593/199425521-3f088fcc-93b0-4a84-a9fd-c75418f40654.png)
 # Command Click
-shellscript gui platform.
+Shellscript gui platform made with 100% shell script (fzf, yad, etc)
 
 ![範囲を選択_032](https://user-images.githubusercontent.com/55217593/199426265-5e62eea3-5a19-4129-9e66-c7f898328f20.png)
 
