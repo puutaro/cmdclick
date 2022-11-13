@@ -133,27 +133,15 @@ Add file to command click
     | `terminalDo` | `ON`/`OFF` | whether to run in terminal   |
     | `openWhere`  | `CW`/`NT` | when runing in terminal, whether to run current tab  or new tab  |
     | `terminalFocus` | `ON`/`OFF`  | whether to forcus to terminal    |
-    | `inputExecute`  | `N`/`C`/`E` | before running shellscript, whether ot edit settingVriable(N: no, C: edit in console, E: edit in editor)          |
-    | `inputExecDfltVal` | string  | when edit, whether to insert default type and value to commandVariable. In detail, follow bellow. |
-    | `inputExecRoopDo` | `OFF`/`ON`  | shellscript to GUI app (inputExecute roop). |
+    | `editExecute`  | `N`/`C`/`E` | before running shellscript, you can edit settingVriable(NO: no, ONCE: one time edit ALWAYS:always edit)          |
+    | `setVariableType` | string  | when edit, whether to setting variable type to commandVariable. In detail, follow bellow. |
     | `afterCommand` | command | before run shellscript, run command |
     | `shellFileName`  | string | shellscript file name  |
-    	- About inputExecDfltVal' usage
-  		  If variable between `CMD_VARIABLE_SECTION_START` and `CMD_VARIABLE_SECTION_END exist, it's set default value (str value, checkbox value) Also separate variables with commas.
-            Bellow example override val1 and val2 with inputExecVal1 and inputExecVal2-1!inputExecVal2-1. More speaking, valiable2 is checkbox, when editting.
-	> \### SETTING_SECTION_START  
-	> inputExecDfltVal=valiable1=inputExecVal1,valiable2:CB=inputExecVal2-1!inputExecVal2-1  
-	> \### SETTING_SECTION_END  
-	>  
-	> \### CMD_VARIABLE_SECTION_START  
-	> valiable1=val1  
-	> valiable2=val2  
-	> \### CMD_VARIABLE_SECTION_END  
 3. Insert the variables you want to set in the gui between. `CMD_VARIABLE_SECTION_START` and `CMD_VARIABLE_SECTION_END.
 4. after `Please write bellow with shell script`, write shellscript.
 5. come back Command Click screen, and if it correct, type ctrl+enter if not, esc.
 
-  - inputExecDfltVal option
+  - setVariableType option
     | option| description | example  |
     | --------- | --------- | ------------ |
     | `CB` | checkbox | {variablebName}:CB=value1!value2!|..   |
