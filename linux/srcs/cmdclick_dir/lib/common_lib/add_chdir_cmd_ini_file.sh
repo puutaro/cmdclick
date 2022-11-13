@@ -14,7 +14,7 @@ add_chdir_cmd_ini_file(){
 	case "${create_chdir_path}" in 
 		"") return
 	;; esac
-	LANG="ja_JP.UTF-8"
+	local LANG="ja_JP.UTF-8"
 	eval "mkdir -p \"${create_chdir_path}\""
 	local ini_file_name=$(\
 		echo_ini_file_name \

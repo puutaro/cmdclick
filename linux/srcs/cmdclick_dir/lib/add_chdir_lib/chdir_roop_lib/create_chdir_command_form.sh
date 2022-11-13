@@ -13,6 +13,6 @@ create_chdir_command_form(){
 	set +e
 	eval "${add_cmd_base}\
 		--text=\"\n${ADD_CD_PATH_MESSAGE}\n\" \
-		--field=\"${CH_DIR_PATH}\" \"${HOME}/\""
+		--field=\"${CH_DIR_PATH}\":MDIR \"${HOME}/\""
 	set -e
 }

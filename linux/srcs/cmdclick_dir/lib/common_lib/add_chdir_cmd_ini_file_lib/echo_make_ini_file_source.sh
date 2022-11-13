@@ -18,8 +18,11 @@ echo_make_ini_file_source(){
 		<(echo "${INI_SETTING_SECTION_START_NAME}")  \
 		<(\
 			echo "${INI_SETTING_DEFAULT_GAIN_CON}" \
-				| sed -e 's/'${INI_TERMINAL_ON}'=.*/'${INI_TERMINAL_ON}'=OFF/' \
-					-re "s/(${INI_CMD_FILE_NAME}=)/\1\"${sed_ini_file_name}\"/") \
+			| sed \
+				-e 's/'${INI_TERMINAL_ON}'=.*/'${INI_TERMINAL_ON}'=OFF/' \
+				-re "s/(${INI_CMD_FILE_NAME}=)/\1\"${sed_ini_file_name}\"/" \
+				-re "s/(${INI_SET_VARIABLE_TYPE})=/\1=${CH_DIR_PATH}:MDIR=/" \
+		) \
 		<(echo "${INI_SETTING_SECTION_END_NAME}"\
 		) \
 		<(echo -e "\n") \
