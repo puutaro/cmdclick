@@ -9,6 +9,7 @@ EDIT_INI_FILE_LIB_DIR_PATH="${EDIT_LIB_DIR_PATH}/edit_ini_file_lib"
 . "${EDIT_INI_FILE_LIB_DIR_PATH}/echo_ini_contents_moto.sh"
 . "${EDIT_INI_FILE_LIB_DIR_PATH}/echo_ch_dir_path_parameter_if_chdir_first_roop.sh"
 . "${EDIT_INI_FILE_LIB_DIR_PATH}/mv_app_dir.sh"
+. "${EDIT_INI_FILE_LIB_DIR_PATH}/echo_signal_code_by_two_over_when_edit_execute.sh"
 unset -v EDIT_INI_FILE_LIB_DIR_PATH
 
 
@@ -100,7 +101,12 @@ edit_ini_gui(){
           local edit_output_path="${INI_FILE_DIR_PATH}/${removed_file_name_double_quote_ends}"
           unset -v removed_file_name_double_quote_ends
           echo "${INI_CONTENTS}" > "${edit_output_path}"
-          touch "${edit_output_path}"
+          touch "${edit_output_path}" &
+          SIGNAL_CODE=$(\
+            echo_signal_code_by_two_over_when_edit_execute \
+            "${exec_edit_execute}"\
+            "${ROOP_NUM}" \
+          )
           break ;;
       *) break ;;
     esac

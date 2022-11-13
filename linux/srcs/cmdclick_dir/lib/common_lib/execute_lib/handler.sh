@@ -23,7 +23,8 @@ exec_handler(){
 			COUNT_EXEC_EDIT_EXECUTE=$(( ${COUNT_EXEC_EDIT_EXECUTE} + 1))
 			edit_ini_gui \
 				"${EXECUTE_FILE_NAME}" \
-				"${EXEC_EDIT_EXECUTE}"
+				"${EXEC_EDIT_EXECUTE}" \
+				"${SIGNAL_CODE}"
 			wait 
 			check_ini_file "${EXECUTE_FILE_PATH}"
 			;;

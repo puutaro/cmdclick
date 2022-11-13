@@ -21,10 +21,16 @@ command_execute(){
 	EDIT_WINDOW_LOCATION=""
 	exec_handler
 	case "${SIGNAL_CODE}" in
-		"${OK_CODE}") ;;
+		"${OK_CODE}") 
+			;;
+		"${EDIT_CODE}")
+			SIGNAL_CODE="${OK_CODE}"
+			return
+			;;
 		*) 
 			SIGNAL_CODE="${INDEX_CODE}"
 			return
+			;;
 	esac 
 	# echo "BEFORE_EXECUTE setting_variable "
 	# echo "EXECUTE_COMMAND: ${EXECUTE_COMMAND}"
