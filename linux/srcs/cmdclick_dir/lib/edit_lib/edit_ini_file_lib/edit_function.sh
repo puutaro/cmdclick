@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 display_edit_contensts(){
   local LANG="ja_JP.UTF-8"
   local display_source_cmd=$(\
@@ -35,11 +36,16 @@ display_edit_contensts(){
         ;;
   esac
   set +e
-  INI_VALUE=$(LANG="ja_JP.UTF-8" yad --form \
+  INI_VALUE=$(\
+    LANG="ja_JP.UTF-8" \
+    yad \
+    --form \
     --title="${WINDOW_TITLE}" \
     --window-icon="${WINDOW_ICON_PATH}" \
     --text="${edit_label}" \
-    --separator=$'\t' --item-separator="!" \
+    --separator=$'\t' \
+    --date-format="%Y-%m-%d"\
+    --item-separator="!" \
     ${EDIT_WINDOW_LOCATION} \
     --scroll \
     ${button_list[@]} \
