@@ -17,7 +17,7 @@ edit_ini_gui(){
   local ROOP_NUM=0
   local INI_CONTENTS=""
   local EDIT_FILE_NAME="${1}"
-  local exec_input_execute="${2:-N}"
+  local exec_edit_execute="${2:-${NO_EDIT_EXECUTE}}"
   local ch_dir_path_parameter_before=""
   local EDIT_FILE_PATH="${INI_FILE_DIR_PATH}/${EDIT_FILE_NAME}"
   while :
@@ -63,7 +63,7 @@ edit_ini_gui(){
     case "${SIGNAL_CODE}" in 
       "${CHECK_ERR_CODE}") ROOP_NUM=$(( ${ROOP_NUM} - 1 )); continue;;
       "${EDIT_FULL_CODE}") continue ;; esac
-    case "${exec_input_execute}" in 
+    case "${exec_edit_execute}" in 
       "${NO_EDIT_EXECUTE}") 
           CONFIRM=""
           confirm_edit_contensts "${INI_CONTENTS}" 

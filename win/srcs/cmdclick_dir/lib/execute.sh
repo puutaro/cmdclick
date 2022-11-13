@@ -84,7 +84,6 @@ command_execute(){
 	SIGNAL_CODE=$(\
 		echo_signal_code_by_input_exec_condition \
 			"${EXEC_EDIT_EXECUTE}" \
-			"${EXEC_INPUT_EXEC_ROOP_DO}" \
 	)
 }
 

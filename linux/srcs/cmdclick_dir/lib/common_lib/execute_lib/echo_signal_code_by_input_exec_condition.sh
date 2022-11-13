@@ -2,7 +2,8 @@
 
 
 echo_signal_code_by_input_exec_condition(){
-	case "${EXEC_EDIT_EXECUTE}" in
+	local exec_edit_execute="${1}"
+	case "${exec_edit_execute}" in
 		"${ALWAYS_EDIT_EXECUTE}")
 			echo ${OK_CODE}
 			return
