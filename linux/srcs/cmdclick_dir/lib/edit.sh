@@ -11,7 +11,7 @@ case "${SIGNAL_CODE}" in
 		edit_ini_gui \
 			"${EXECUTE_FILE_NAME}" \
 			"" \
-			"${EXEC_INPUT_EXEC_ROOP_DO}"
+			"${EXEC_SET_VARIABLE_TYPE}"
 		;;
 esac
 SIGNAL_CODE=${INDEX_CODE}

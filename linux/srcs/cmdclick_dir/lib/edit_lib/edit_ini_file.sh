@@ -46,7 +46,7 @@ edit_ini_gui(){
       "${ini_contents_moto}"
     [ ${SIGNAL_CODE} -eq ${EXIT_CODE} \
       -o ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ] \
-    &&  EXEC_INPUT_EXEC_ROOP_DO="" \
+    &&  EXEC_SET_VARIABLE_TYPE="${NO_EDIT_EXECUTE}" \
     && break \
     || e=$?
     local INI_VALUE=""
@@ -55,7 +55,7 @@ edit_ini_gui(){
       "${EDIT_WINDOW_LOCATION}" 
     [ ${SIGNAL_CODE} -eq ${EXIT_CODE} \
       -o ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ] \
-    &&  EXEC_INPUT_EXEC_ROOP_DO="" \
+    &&  EXEC_SET_VARIABLE_TYPE="${NO_EDIT_EXECUTE}" \
     && break \
     || e=$?
     convert_input_value "${INI_VALUE}"
@@ -64,11 +64,11 @@ edit_ini_gui(){
       "${CHECK_ERR_CODE}") ROOP_NUM=$(( ${ROOP_NUM} - 1 )); continue;;
       "${EDIT_FULL_CODE}") continue ;; esac
     case "${exec_input_execute}" in 
-      "N") 
+      "${NO_EDIT_EXECUTE}") 
           CONFIRM=""
           confirm_edit_contensts "${INI_CONTENTS}" 
           ;;
-      "C") CONFIRM=0 ;;
+      "${ONCE_EDIT_EXECUTE}"|"${ALWAYS_EDIT_EXECUTE}") CONFIRM=0 ;;
     esac
     #yad用入力値反映イニファイル内容を作成
     case "${CONFIRM}" in 

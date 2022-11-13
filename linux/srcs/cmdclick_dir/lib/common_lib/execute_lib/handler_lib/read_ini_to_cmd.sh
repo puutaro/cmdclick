@@ -25,7 +25,6 @@ read_ini_to_execute_command(){
 	EXEC_TERMINAL_FOCUS="${variabl_contensts_setting_value_list[2]}"
 	EXEC_EDIT_EXECUTE="${variabl_contensts_setting_value_list[3]}"
 	EXEC_SET_VARIABLE_TYPE="${variabl_contensts_setting_value_list[4]}"
-	EXEC_INPUT_EXEC_ROOP_DO="${variabl_contensts_setting_value_list[5]}"
-	EXEC_BEFORE_COMMAND="$(echo "${variabl_contensts_setting_value_list[6]}" | sed -e 's/^"//' -e 's/"$//')"
-	EXEC_AFTER_COMMAND="$(echo "${variabl_contensts_setting_value_list[7]}" | sed -e 's/^"//' -e 's/"$//')"
+	EXEC_BEFORE_COMMAND="$(echo "${variabl_contensts_setting_value_list[5]}" | sed -e 's/^"//' -e 's/"$//')"
+	EXEC_AFTER_COMMAND="$(echo "${variabl_contensts_setting_value_list[6]}" | sed -e 's/^"//' -e 's/"$//')"
 }

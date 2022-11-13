@@ -2,10 +2,10 @@
 
 
 echo_signal_code_by_input_exec_condition(){
-	if [ "${EXEC_EDIT_EXECUTE}" == "C" ] \
-	 && [ "${EXEC_INPUT_EXEC_ROOP_DO}" == "ON" ];then
-		echo ${OK_CODE}
-		return
-	fi
+	case "${EXEC_EDIT_EXECUTE}" in
+		"${ALWAYS_EDIT_EXECUTE}")
+			echo ${OK_CODE}
+			return
+	;; esac
 	echo ${INDEX_CODE}
 }
