@@ -17,7 +17,7 @@ make_ini_contents(){
         local exec_default_parameter="$(\
           fetch_parameter \
             "${ini_contents_moto}" \
-            "${INI_IN_EXE_DFLT_VL}" \
+            "${INI_DEFAULT_VARIABLE_TYPE}" \
             | echo_removed_double_quote_both_ends_from_pip \
             | sed  -e 's/,[ ]*/\n/g' \
         )"
