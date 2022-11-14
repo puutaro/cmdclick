@@ -115,6 +115,7 @@ echo_replace_cmd_section_with_default_value(){
 		update_replace_record_by_count_exec_edit_execute(\
 			target_record \
 		)
+		gsub("\\$", "\\$", target_record)
 		sub(\
 			target_record, \
 			replace_record"\n", \
