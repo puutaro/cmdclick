@@ -7,7 +7,7 @@ unset -v read_ini_to_cmd_lib_dir_path
 
 
 read_ini_to_execute_command(){
-	LANG="ja_JP.UTF-8"
+	local LANG="ja_JP.UTF-8"
 	local execute_file_name="${1}"
 	local ifs_old="${IFS}"
 	local IFS=$'\n'; 

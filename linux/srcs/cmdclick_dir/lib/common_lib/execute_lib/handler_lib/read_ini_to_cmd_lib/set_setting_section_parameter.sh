@@ -46,6 +46,8 @@ set_setting_section_parameter(){
 		cur_key_row_all = cur_key"=[^=]*\n" 
 		cur_key_row_all_end = cur_key"=$" 
 		cur_key_equal=cur_key"="
+		if(count_key_of[cur_key] > 0) next
+		count_key_of[cur_key]++
 		if (set_value != ""){
 			sub(cur_key_row_all, cur_key_equal""set_value"\n", INI_SETTING_DEFAULT_GAIN_CON) 
 			sub(cur_key_row_all_end, cur_key_equal""set_value, INI_SETTING_DEFAULT_GAIN_CON) 
