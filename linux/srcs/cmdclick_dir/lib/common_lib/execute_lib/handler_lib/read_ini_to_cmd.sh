@@ -19,7 +19,6 @@ read_ini_to_execute_command(){
 	)
 	local IFS="${ifs_old}"
 	 #セッティングセクションのデータを取り込む
-	EXECUTE_COMMAND="bash \"${execute_file_name}\""
  	EXEC_TERMINAL_ON="${variabl_contensts_setting_value_list[0]}"
 	EXEC_OPEN_WHERE="${variabl_contensts_setting_value_list[1]}"
 	EXEC_TERMINAL_FOCUS="${variabl_contensts_setting_value_list[2]}"
@@ -27,4 +26,6 @@ read_ini_to_execute_command(){
 	EXEC_SET_VARIABLE_TYPE="${variabl_contensts_setting_value_list[4]}"
 	EXEC_BEFORE_COMMAND="$(echo "${variabl_contensts_setting_value_list[5]}" | sed -e 's/^"//' -e 's/"$//')"
 	EXEC_AFTER_COMMAND="$(echo "${variabl_contensts_setting_value_list[6]}" | sed -e 's/^"//' -e 's/"$//')"
+	EXEC_SHELL_ARGS="${variabl_contensts_setting_value_list[8]}"
+	EXECUTE_COMMAND="bash \"${execute_file_name}\" ${EXEC_SHELL_ARGS}"
 }

@@ -42,7 +42,6 @@ command_execute(){
 	# echo "EXEC_BEFORE_COMMAND: ${EXEC_BEFORE_COMMAND}"
 	# echo "EXEC_AFTER_COMMAND: ${EXEC_AFTER_COMMAND}"
 	# echo "EXECUTE_FILE_PATH: ${EXECUTE_FILE_PATH}"
-
 	#ターミナル起動コマンド格納
 	if [ "${EXEC_TERMINAL_ON}" = "ON" ]; then
 		terminal_exec_command="x-terminal-emulator -T \"${CC_TERMINAL_NAME}\" &"
@@ -69,7 +68,7 @@ command_execute(){
 			execute_after_command "${EXEC_AFTER_COMMAND}" "${ccerminal_window_list}"
 			;;
 		"OFF")
-			bash -c "${EXECUTE_COMMAND} &"
+			bash -c "${EXECUTE_COMMAND}" ${EXEC_SHELL_ARGS} &
 			;;
 	esac
 	unset -v ccerminal_window_list

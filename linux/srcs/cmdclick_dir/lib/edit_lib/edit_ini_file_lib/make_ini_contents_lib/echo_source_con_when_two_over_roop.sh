@@ -21,6 +21,7 @@ echo_source_con_when_two_over_roop(){
       ini_setting_default_value_cons_of["'${INI_OPEN_WHERE}'"]="'${INI_OPEN_WHERE_DEFAULT_VALUE}'"
       ini_setting_default_value_cons_of["'${INI_TERMINAL_FOCUS}'"]="'${INI_TERMINAL_FOCUS_DEFAULF_VALUE}'"
       ini_setting_default_value_cons_of["'${INI_EDIT_EXECUTE}'"]="'${INI_EDIT_EXECUTE_DEFAULF_VALUE}'"
+      multiple_ok_key_of["'${INI_SET_VARIABLE_TYPE}'"] = 1
     }
     {
       current_first_field_value=$1
@@ -44,7 +45,9 @@ echo_source_con_when_two_over_roop(){
         && count_ini_cmd_variable_section_end_name == 1 \
         ) next
       if(current_first_field_value ~ "[^a-zA-Z0-9:_-]") next
-      if(count_key_of[current_first_field_value] > 0) next
+      if(\
+        count_key_of[current_first_field_value] > 0 \
+        && multiple_ok_key_of[current_first_field_value] <=0) next
       count_key_of[current_first_field_value]++
       match_num = match(INI_SETTING_DEFAULT_VALUE_CONS, current_first_field_value)
       if( \

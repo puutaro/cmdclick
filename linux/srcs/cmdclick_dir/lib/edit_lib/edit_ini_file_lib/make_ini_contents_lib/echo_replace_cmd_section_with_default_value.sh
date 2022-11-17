@@ -100,7 +100,7 @@ echo_replace_cmd_section_with_default_value(){
 		) next
 		grep_str_order = index(\
 			ini_contents_moto, \
-			"\n"grep_str\
+			"\n"grep_str"="\
 		) + 1
 		rest_str = substr(\
 			ini_contents_moto, \
