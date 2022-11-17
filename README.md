@@ -136,10 +136,15 @@ Add file to command click
     | `openWhere`  | `CW`/`NT` | when runing in terminal, whether to run current tab  or new tab  |
     | `terminalFocus` | `ON`/`OFF`  | whether to forcus to terminal    |
     | `editExecute`  | `N`/`C`/`E` | before running shellscript, you can edit settingVriable(NO: no, ONCE: one time edit ALWAYS:always edit)          |
-    | `setVariableType` | string  | when edit, whether to setting variable type to commandVariable. In detail, follow bellow. |
+    | `setVariableType` | string  | when edit, whether to set variable type to commandVariable. You also have multiple specifing this. In detail, follow bellow. |
     | `afterCommand` | command | before run shellscript, run command |
     | `shellFileName`  | string | shellscript file name  |
 3. Insert the variables you want to set in the gui between. `CMD_VARIABLE_SECTION_START` and `CMD_VARIABLE_SECTION_END.
+    - Set the various commandriables below as optional
+| settingVariable| set value | description  |
+    | --------- | --------- | ------------ |
+    | `shellArgs` | string | shellscript args.  You also have multiple specifing this. |
+
 4. after `Please write bellow with shell script`, write shellscript.
 5. come back Command Click screen, and if it correct, type ctrl+enter if not, esc.
 
