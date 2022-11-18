@@ -51,6 +51,7 @@ set_setting_section_parameter(){
 		if(\
 			count_ini_cmd_section_end_name \
 		) next
+		if( $0 ~ "^#" ) next
 		set_value=substr(\
 			$0, \
 			index($0, "=")+1, \
@@ -140,6 +141,7 @@ set_setting_section_parameter(){
 	}
 	END {
 		gsub(/=\n/, "=-\n", INI_EXECUTE_SETTING_DEFAULT_GAIN_CON)
+		sub(/=$/, "=-", INI_EXECUTE_SETTING_DEFAULT_GAIN_CON)
 		gsub(/\n[a-zA-Z0-9_-]*=/, "\n", INI_EXECUTE_SETTING_DEFAULT_GAIN_CON)
 		sub(/[a-zA-Z0-9_-]*=/, "", INI_EXECUTE_SETTING_DEFAULT_GAIN_CON)
 		print INI_EXECUTE_SETTING_DEFAULT_GAIN_CON
