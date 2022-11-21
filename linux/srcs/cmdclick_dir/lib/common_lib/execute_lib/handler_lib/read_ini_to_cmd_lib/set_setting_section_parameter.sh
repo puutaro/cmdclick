@@ -51,7 +51,7 @@ set_setting_section_parameter(){
 		if(\
 			count_ini_cmd_section_end_name \
 		) next
-		if( $0 ~ /^[^a-zA-Z:_-]*=/ ) next
+		if( $0 !~ /^[a-zA-Z:_-]*=/ ) next
 		set_value=substr(\
 			$0, \
 			index($0, "=")+1, \
