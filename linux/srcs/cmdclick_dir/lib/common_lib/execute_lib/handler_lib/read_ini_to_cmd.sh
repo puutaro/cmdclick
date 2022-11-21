@@ -26,6 +26,6 @@ read_ini_to_execute_command(){
 	EXEC_SET_VARIABLE_TYPE="${variabl_contensts_setting_value_list[4]:-}"
 	EXEC_BEFORE_COMMAND="$(echo "${variabl_contensts_setting_value_list[5]:-}" | sed -e 's/^"//' -e 's/"$//')"
 	EXEC_AFTER_COMMAND="$(echo "${variabl_contensts_setting_value_list[6]:-}" | sed -e 's/^"//' -e 's/"$//')"
-	EXEC_SHELL_ARGS="${variabl_contensts_setting_value_list[8]:-}"
+	EXEC_SHELL_ARGS="$(echo "${variabl_contensts_setting_value_list[8]:-}" | sed 's/^-$//')"
 	EXECUTE_COMMAND="bash \"${execute_file_name}\" ${EXEC_SHELL_ARGS}"
 }
