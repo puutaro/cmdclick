@@ -178,7 +178,7 @@ case  "${IMPORT_CMDCLICK_VAL:-}" in
 . "${COMMON_LIB_DIR_PATH}/echo_labeling_section_bitween_start_and_end.sh"
 . "${COMMON_LIB_DIR_PATH}/echo_only_parameter_value.sh"
 . "${COMMON_LIB_DIR_PATH}/get_by_window_title.sh"
-. "${COMMON_LIB_DIR_PATH}/replace_home_dir_path_by_tilde.sh"
+. "${COMMON_LIB_DIR_PATH}/echo_longpath_by_summraizing.sh"
 . "${COMMON_LIB_DIR_PATH}/confirm_edit_contensts.sh"
 . "${COMMON_LIB_DIR_PATH}/choose_app_dir_list_for_move.sh"
 . "${COMMON_LIB_DIR_PATH}/input_gui.sh"
@@ -187,7 +187,7 @@ export -f fetch_parameter
 export -f fetch_parameter_from_pip
 export -f echo_labeling_section_bitween_start_and_end
 export -f echo_labeling_section_bitween_start_and_end_from_pip
-export -f replace_home_dir_path_by_tilde
+export -f echo_longpath_by_summraizing
 LOOP=0
 SIGNAL_CODE=${INDEX_CODE}
 NORMAL_SIGNAL_CODE=${INDEX_CODE}

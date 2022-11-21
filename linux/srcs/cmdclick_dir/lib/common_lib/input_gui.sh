@@ -21,7 +21,7 @@ reload_cmd(){
 	)
 	if [ ! -e "${INI_FILE_DIR_PATH}" ];then mkdir -p "${INI_FILE_DIR_PATH}";fi
 	local display_ini_file_dir_path=$(\
-		replace_home_dir_path_by_tilde \
+		echo_longpath_by_summraizing \
 			"${INI_FILE_DIR_PATH}" \
 	)
 	echo_ini_file_list \
