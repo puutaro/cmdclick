@@ -12,9 +12,8 @@ check_quote_surrounded_when_existing_space_or_single_quote_exist(){
 			}
 			if(\
 				$0 ~ "^[a-zA-Z0-9_-]*=\x22.*\x22.*\x22$"\
-				&& $0 !~ "\\\\\x22" \
 			) {
-				printf "\x5C\x74- no escape double quote sorrunded invalid when double quote used on the way\x5C\x6E"
+				printf "\x5C\x74- double quote sorrunded invalid when double quote used on the way\x5C\x6E"
 				printf "\x5C\x74\x5C\x74 ("$0")\x5C\x6E"
 			}
 			if($0 !~ "\x20") next
