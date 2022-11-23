@@ -10,14 +10,10 @@ check_ini_std_out(){
 	local validate_err_message_body=""
 	local ini_contents="${1}" 
 	#セクションネームをチェック
-	local cmd_section_con="$(\
-		echo_setting_cmd_section_bitween_start_and_end \
-			"${ini_contents}" \
-	)"
 	validate_err_message_body+="$(\
 		ini_file_section_check \
 			"${validate_err_message_body}" \
-			"${cmd_section_con}" \
+			"${ini_contents}" \
 	)"
 	case "${validate_err_message_body}" in 
 		"") return;;

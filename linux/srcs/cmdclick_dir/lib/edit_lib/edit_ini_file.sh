@@ -63,6 +63,8 @@ edit_ini_gui(){
       "${INI_VALUE}" \
       "${INI_CONTENTS}" \
       "${ALL_KEY_CON}"
+    check_ini_std_out \
+      "${INI_CONTENTS}"
     case "${SIGNAL_CODE}" in 
       "${CHECK_ERR_CODE}") ROOP_NUM=$(( ${ROOP_NUM} - 1 )); continue;;
       "${EDIT_FULL_CODE}") continue ;; esac
