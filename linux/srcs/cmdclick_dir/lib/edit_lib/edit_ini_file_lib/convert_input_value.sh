@@ -13,8 +13,6 @@ convert_input_value(){
     echo "${source_ini_value}" \
     | tr '\t' '\n' \
   )
-  echo ini_value_source
-  echo "${ini_value_source}"
   local ini_value=$(\
     surround_single_double_quote_when_existing_space_or_quote \
       "${ini_value_source}" \

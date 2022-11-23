@@ -11,10 +11,16 @@ surround_single_double_quote_when_existing_space_or_quote(){
     ){
     	double_quote_surround = \
 			match($0, /^\x22.*\x22$/)
-		if(double_quote_surround) next
+		if(double_quote_surround){ 
+			print $0
+			next
+		}
 		signle_quote_surround = \
 			match($0, /^\x27.*\x27$/)
-		if(signle_quote_surround) next
+		if(signle_quote_surround){
+			print $0
+			next
+		}
     	if(!exist_target_char) return
     	prefix_surrounded = match($0, "^"surround_char)
 		if(prefix_surrounded) {
