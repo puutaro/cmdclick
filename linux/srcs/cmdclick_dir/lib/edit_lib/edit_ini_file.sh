@@ -59,8 +59,10 @@ edit_ini_gui(){
     &&  EXEC_SET_VARIABLE_TYPE="${NO_EDIT_EXECUTE}" \
     && break \
     || e=$?
-    convert_input_value "${INI_VALUE}"
-    check_ini_std_out "${INI_CONTENTS}"
+    convert_input_value \
+      "${INI_VALUE}" \
+      "${INI_CONTENTS}" \
+      "${ALL_KEY_CON}"
     case "${SIGNAL_CODE}" in 
       "${CHECK_ERR_CODE}") ROOP_NUM=$(( ${ROOP_NUM} - 1 )); continue;;
       "${EDIT_FULL_CODE}") continue ;; esac
