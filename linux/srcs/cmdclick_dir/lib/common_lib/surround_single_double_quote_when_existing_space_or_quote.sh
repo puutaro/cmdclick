@@ -68,18 +68,37 @@ surround_single_double_quote_when_existing_space_or_quote(){
 
 		hankaku_space_exist = match($0, /\x20/)
 		zenkaku_space_exist = match($0, /　/)
-		space_exist = hankaku_space_exist + zenkaku_space_exist
-		if(!space_exist) {
-			print $0
-			next
-		}
+		space_exist = \
+			hankaku_space_exist \
+				+ zenkaku_space_exist
 		single_quote_exist = match(\
 			$0, /\x27/ \
 		)
+		double_quote_exist = match(\
+			$0, /\x22/ \
+		)
+		space_quotes_exist = \
+			hankaku_space_exist \
+				+ zenkaku_space_exist \
+				+ single_quote_exist \
+				+ double_quote_exist		
+		if(\
+			!space_exist \
+			&& !single_quote_exist \
+			&& !double_quote_exist \
+		) {
+			print $0
+			next
+		}
 		if(single_quote_exist) \
 			exec_surround(\
 	    		space_exist+1, \
 	    		"\x27" \
+	    	)
+	    if(double_quote_exist) \
+			exec_surround(\
+	    		space_exist+1, \
+	    		"\x22" \
 	    	)
 		exec_surround(\
     		space_exist+1, \
