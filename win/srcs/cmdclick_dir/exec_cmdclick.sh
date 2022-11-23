@@ -200,6 +200,7 @@ case  "${IMPORT_CMDCLICK_VAL:-}" in
 . "${COMMON_LIB_DIR_PATH}/echo_longpath_by_summraizing.sh"
 . "${COMMON_LIB_DIR_PATH}/confirm_edit_contensts.sh"
 . "${COMMON_LIB_DIR_PATH}/choose_app_dir_list_for_move.sh"
+. "${COMMON_LIB_DIR_PATH}/surround_single_double_quote_when_existing_space_or_quote.sh"
 . "${WIN_COMMON_LIB_DIR_PATH}/input_gui.sh"
 . "${WIN_COMMON_LIB_DIR_PATH}/reactive_when_aleady_exist_cmdclick.sh"
 . "${WIN_INIT_LIB_DIR_PATH}/read_resolution_from_system.sh"

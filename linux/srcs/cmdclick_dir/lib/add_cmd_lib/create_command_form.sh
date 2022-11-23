@@ -6,7 +6,6 @@ create_dommand_form_lib_dir_path="${ADD_CMD_LIB_DIR_PATH}/create_command_form_li
 . "${create_dommand_form_lib_dir_path}/add_cmd_confirm.sh"
 . "${create_dommand_form_lib_dir_path}/replace_ini_cmd_file_name_by_double_quote_one.sh"
 . "${COMMON_LIB_DIR_PATH}/input_path_check.sh"
-. "${COMMON_LIB_DIR_PATH}/surround_single_double_quote_when_existing_space.sh"
 . "${COMMON_LIB_DIR_PATH}/echo_removed_double_quote_both_ends.sh"
 
 unset -v create_dommand_form_lib_dir_path
@@ -50,7 +49,7 @@ create_command_form(){
 			return
 	;; esac
 	local surrounded_ini_rename_file_name=$(\
-		surround_single_double_quote_when_existing_space \
+		surround_single_double_quote_when_existing_space_or_quote \
 			"${ini_rename_file_name}" \
 	)
 	unset -v ini_rename_file_name

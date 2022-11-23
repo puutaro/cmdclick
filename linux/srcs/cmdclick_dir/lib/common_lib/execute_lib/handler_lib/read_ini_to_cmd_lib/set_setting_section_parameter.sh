@@ -23,6 +23,26 @@ set_setting_section_parameter(){
 		ini_setting_default_value_cons_of["'${INI_EDIT_EXECUTE}'"]="'${NO_EDIT_EXECUTE}'"
 		multiple_ok_key_of["'${INI_SHELL_ARGS}'"] = 1
 	}
+	function remove_quote_sorrounding(){
+		last_str_order = length(set_value)
+		first_str = substr(\
+			set_value, \
+			1, \
+			1\
+		)
+		last_str = substr(\
+			set_value, \
+			last_str_order, \
+			last_str_order\
+		)
+		if(\
+			first_str == "\x22" \
+			&& last_str == "\x22" \
+		){
+			sub("^\x22", "", set_value)
+			sub("\x22$", "", set_value)
+		}
+	}
 	{
 		match_ini_setting_section_start_name = match($0, INI_SETTING_SECTION_START_NAME)
 		if(match_ini_setting_section_start_name) {
@@ -57,6 +77,7 @@ set_setting_section_parameter(){
 			index($0, "=")+1, \
 			length($0) \
 		)
+		remove_quote_sorrounding()
 		cur_key=substr(\
 			$0, \
 			0, \
@@ -71,7 +92,6 @@ set_setting_section_parameter(){
 			&& multiple_ok_key_of[cur_key] <= 0\
 		) next
 		count_key_of[cur_key]++
-		
 		if (\
 			set_value != "" \
 			&& count_plane_replace_of[cur_key] <= 0\
@@ -105,7 +125,7 @@ set_setting_section_parameter(){
 						"\n"\
 					)-1 \
 				)
-			if(!cur_val){
+			if(!cur_val) \
 				cur_val = substr(\
 					str_start_from_cur_key, \
 					index(\
@@ -114,20 +134,17 @@ set_setting_section_parameter(){
 					)+1, \
 					length(str_start_from_cur_key)\
 				)
-			}
-
 			sub_success_code = sub(\
 				cur_key"=[^=]*\n" , \
 				cur_key"="cur_val" "set_value"\n", \
 				INI_EXECUTE_SETTING_DEFAULT_GAIN_CON \
 			)
-			if(!sub_success_code){
+			if(!sub_success_code) \
 				sub(\
 					cur_key"=[^=]*" , \
 					cur_key"="cur_val" "set_value, \
 					INI_EXECUTE_SETTING_DEFAULT_GAIN_CON \
 				)
-			}
 			next
 		}
 		if (\

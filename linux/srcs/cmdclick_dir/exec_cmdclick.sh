@@ -183,6 +183,7 @@ case  "${IMPORT_CMDCLICK_VAL:-}" in
 . "${COMMON_LIB_DIR_PATH}/choose_app_dir_list_for_move.sh"
 . "${COMMON_LIB_DIR_PATH}/input_gui.sh"
 . "${COMMON_LIB_DIR_PATH}/reactive_when_aleady_exist_cmdclick.sh"
+. "${COMMON_LIB_DIR_PATH}/surround_single_double_quote_when_existing_space_or_quote.sh"
 export -f fetch_parameter
 export -f fetch_parameter_from_pip
 export -f echo_labeling_section_bitween_start_and_end

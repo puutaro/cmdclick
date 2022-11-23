@@ -43,6 +43,7 @@ command_execute(){
 	# echo "EXEC_AFTER_COMMAND: ${EXEC_AFTER_COMMAND}"
 	# echo "EXECUTE_FILE_PATH: ${EXECUTE_FILE_PATH}"
 	# echo "EXEC_SHELL_ARGS ${EXEC_SHELL_ARGS}"
+
 	#ターミナル起動コマンド格納
 	if [ "${EXEC_TERMINAL_ON}" = "ON" ]; then
 		terminal_exec_command="x-terminal-emulator -T \"${CC_TERMINAL_NAME}\" &"
@@ -80,6 +81,5 @@ command_execute(){
 			"${EXEC_SET_VARIABLE_TYPE}" \
 	)
 }
-
 
 command_execute
