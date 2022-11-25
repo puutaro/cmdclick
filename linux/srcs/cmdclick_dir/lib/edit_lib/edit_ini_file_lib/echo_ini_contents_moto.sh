@@ -14,5 +14,5 @@ echo_ini_contents_moto(){
 				| sed "s/^${INI_CMD_FILE_NAME}=.*/${INI_CMD_FILE_NAME}=${sed_edit_file_name}/"
 			return
 	;; esac
-    echo "${ini_contents}" | sed 's/\\\\/\\/g'
+    echo "${ini_contents}"
 }

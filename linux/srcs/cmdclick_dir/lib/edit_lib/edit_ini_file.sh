@@ -45,6 +45,7 @@ edit_ini_gui(){
     INI_CONTENTS="${ini_contents_moto}"
     make_ini_contents \
       "${ini_contents_moto}"
+
     [ ${SIGNAL_CODE} -eq ${EXIT_CODE} \
       -o ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ] \
     &&  EXEC_SET_VARIABLE_TYPE="${NO_EDIT_EXECUTE}" \
@@ -63,6 +64,7 @@ edit_ini_gui(){
       "${INI_VALUE}" \
       "${INI_CONTENTS}" \
       "${ALL_KEY_CON}"
+
     check_ini_std_out \
       "${INI_CONTENTS}"
     case "${SIGNAL_CODE}" in 
