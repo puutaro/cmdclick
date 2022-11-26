@@ -4,7 +4,9 @@
 surround_single_double_quote_when_existing_space_or_quote(){
 	local ini_value_source="${1}"
 	echo "${ini_value_source}" \
-    | awk '
+    | awk \
+    -v next_str="next" \
+    '
     function exec_surround(\
     	exist_target_char, \
     	surround_char \
@@ -13,27 +15,27 @@ surround_single_double_quote_when_existing_space_or_quote(){
 			match($0, /^\x22.*\x22$/)
 		if(double_quote_surround){ 
 			print $0
-			next
+			return next_str
 		}
 		signle_quote_surround = \
 			match($0, /^\x27.*\x27$/)
 		if(signle_quote_surround){
 			print $0
-			next
+			return next_str
 		}
     	if(!exist_target_char) return
     	prefix_surrounded = match($0, "^"surround_char)
 		if(prefix_surrounded) {
 			print $0""surround_char
-			next
+			return next_str
 		}
 		suffix_surrounded = match($0, surround_char"$")
 		if(suffix_surrounded){
 			print surround_char""$0
-			next
+			return next_str
 		}
 		print surround_char""$0""surround_char
-		next
+		return next_str
     }
     {
 		single_quote_middle_exist = match(\
@@ -46,10 +48,12 @@ surround_single_double_quote_when_existing_space_or_quote(){
 			print $0
 			next
 		}
-		exec_surround(\
+		return_next = ""
+		return_next = exec_surround(\
     		single_quote_middle_exist, \
     		"\x22" \
     	)
+    	if(return_next == next_str) next
 
 		double_quote_middle_exist = match(\
 			$0, /^([a-zA-z]|[^a-zA-Z]).*\x22.*([a-zA-z]|[^a-zA-Z])$/ \

@@ -41,7 +41,7 @@ display_edit_contensts(){
     --form \
     --title="${WINDOW_TITLE}" \
     --window-icon="${WINDOW_ICON_PATH}" \
-    --text="${edit_label}" \
+    --text="${edit_label::500}" \
     --separator=$'\t' \
     --date-format="%Y-%m-%d"\
     --item-separator="!" \
