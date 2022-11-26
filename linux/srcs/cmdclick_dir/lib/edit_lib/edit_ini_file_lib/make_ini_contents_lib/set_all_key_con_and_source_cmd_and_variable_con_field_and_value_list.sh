@@ -44,4 +44,8 @@ set_all_key_con_and_source_cmd_and_variable_con_field_and_value_list(){
     echo_labeling_section_bitween_start_and_end \
       "${ini_contents_moto}"
   )
+  EDIT_DESCRIPTION="$(\
+    echo_by_convert_xml_escape_sequence \
+      "${EDIT_DESCRIPTION}"\
+  )"
 }

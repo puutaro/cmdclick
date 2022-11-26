@@ -19,8 +19,7 @@ display_edit_contensts(){
         cat <(echo "\n  please edit bellow command") \
             <(echo "") \
             <(echo "    ${EDIT_DESCRIPTION}") \
-            <(echo "") \
-            <(echo "      ${display_source_cmd}\n")\
+            <(echo "\n") \
       )"
   ;; esac
   #ウィンドウサイズ策定
