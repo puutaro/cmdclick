@@ -7,7 +7,7 @@ EXECUTE_LIB_DIR_PATH="${COMMON_LIB_DIR_PATH}/execute_lib"
 . "${LINUX_EXECUTE_LIB_DIR_PATH}/open_new_tab_terminal.sh"
 . "${LINUX_EXECUTE_LIB_DIR_PATH}/execute_before_command.sh"
 . "${LINUX_EXECUTE_LIB_DIR_PATH}/execute_after_command.sh"
-. "${LINUX_EXECUTE_LIB_DIR_PATH}/execute_ctrl_cmd.sh"
+. "${EXECUTE_LIB_DIR_PATH}/execute_ctrl_cmd.sh"
 . "${EXECUTE_LIB_DIR_PATH}/handler.sh"
 . "${EXECUTE_LIB_DIR_PATH}/echo_signal_code_by_input_exec_condition.sh"
 unset -v EXECUTE_LIB_DIR_PATH
