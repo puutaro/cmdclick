@@ -10,6 +10,7 @@ WIN_EXECUTE_LIB_DIR_PATH="${WIN_LIB_DIR_PATH}/execute_lib"
 EXECUTE_LIB_DIR_PATH="${COMMON_LIB_DIR_PATH}/execute_lib"
 . "${EXECUTE_LIB_DIR_PATH}/echo_signal_code_by_input_exec_condition.sh"
 . "${EXECUTE_LIB_DIR_PATH}/handler.sh"
+. "${EXECUTE_LIB_DIR_PATH}/execute_ctrl_cmd.sh"
 unset -v WIN_EXECUTE_LIB_DIR_PATH
 unset -v EXECUTE_LIB_DIR_PATH
 
@@ -42,6 +43,8 @@ command_execute(){
 	# echo "EXEC_SET_VARIABLE_TYPE: ${EXEC_SET_VARIABLE_TYPE}"
 	# echo "EXEC_BEFORE_COMMAND: ${EXEC_BEFORE_COMMAND}"
 	# echo "EXEC_AFTER_COMMAND: ${EXEC_AFTER_COMMAND}"
+	# echo "EXEC_BEFORE_CTRL_CMD: ${EXEC_BEFORE_CTRL_CMD}"
+	# echo "EXEC_AFTER_CTRL_CMD: ${EXEC_AFTER_CTRL_CMD}"
 	# echo "EXECUTE_FILE_PATH: ${EXECUTE_FILE_PATH}"
 	#ターミナル起動コマンド格納
 	if [ "${EXEC_TERMINAL_ON}" = "ON" ]; then
@@ -70,6 +73,8 @@ command_execute(){
 			#-----------------------------------------------------------------
 
 			#以後、コマンド系----------------------------------------------------
+			execute_ctrl_cmd \
+				"${EXEC_BEFORE_CTRL_CMD}"
 			execute_before_command \
 				"${EXEC_BEFORE_COMMAND}" \
 				"${ccerminal_acctive_state}"
@@ -79,6 +84,8 @@ command_execute(){
 			execute_after_command \
 				"${EXEC_AFTER_COMMAND}" \
 				"${ccerminal_acctive_state}"
+			execute_ctrl_cmd \
+				"${EXEC_BEFORE_CTRL_CMD}"
 			unset -v ccerminal_acctive_state
 			;;
 		"OFF")

@@ -7,6 +7,7 @@ EXECUTE_LIB_DIR_PATH="${COMMON_LIB_DIR_PATH}/execute_lib"
 . "${LINUX_EXECUTE_LIB_DIR_PATH}/open_new_tab_terminal.sh"
 . "${LINUX_EXECUTE_LIB_DIR_PATH}/execute_before_command.sh"
 . "${LINUX_EXECUTE_LIB_DIR_PATH}/execute_after_command.sh"
+. "${LINUX_EXECUTE_LIB_DIR_PATH}/execute_ctrl_cmd.sh"
 . "${EXECUTE_LIB_DIR_PATH}/handler.sh"
 . "${EXECUTE_LIB_DIR_PATH}/echo_signal_code_by_input_exec_condition.sh"
 unset -v EXECUTE_LIB_DIR_PATH
@@ -20,6 +21,7 @@ command_execute(){
 	check_ini_file "${EXECUTE_FILE_PATH}"
 	EDIT_WINDOW_LOCATION=""
 	exec_handler
+	echo execute SIGNAL_CODE ${SIGNAL_CODE}
 	case "${SIGNAL_CODE}" in
 		"${OK_CODE}") 
 			;;
@@ -41,9 +43,10 @@ command_execute(){
 	# echo "EXEC_SET_VARIABLE_TYPE: ${EXEC_SET_VARIABLE_TYPE}"
 	# echo "EXEC_BEFORE_COMMAND: ${EXEC_BEFORE_COMMAND}"
 	# echo "EXEC_AFTER_COMMAND: ${EXEC_AFTER_COMMAND}"
+	# echo "EXEC_BEFORE_CTRL_CMD: ${EXEC_BEFORE_CTRL_CMD}"
+	# echo "EXEC_AFTER_CTRL_CMD: ${EXEC_AFTER_CTRL_CMD}"
 	# echo "EXECUTE_FILE_PATH: ${EXECUTE_FILE_PATH}"
 	# echo "EXEC_SHELL_ARGS ${EXEC_SHELL_ARGS}"
-
 	#ターミナル起動コマンド格納
 	if [ "${EXEC_TERMINAL_ON}" = "ON" ]; then
 		terminal_exec_command="x-terminal-emulator -T \"${CC_TERMINAL_NAME}\" &"
@@ -65,9 +68,19 @@ command_execute(){
 			#-----------------------------------------------------------------
 
 			#以後、コマンド系----------------------------------------------------
-			execute_before_command "${EXEC_BEFORE_COMMAND}" "${ccerminal_window_list}"
-			execute_cmd_by_xdotool "${EXECUTE_COMMAND}" "${ccerminal_window_list}"
-			execute_after_command "${EXEC_AFTER_COMMAND}" "${ccerminal_window_list}"
+			execute_ctrl_cmd \
+				"${EXEC_BEFORE_CTRL_CMD}"
+			execute_before_command \
+				"${EXEC_BEFORE_COMMAND}" \
+				"${ccerminal_window_list}"
+			execute_cmd_by_xdotool \
+				"${EXECUTE_COMMAND}" \
+				"${ccerminal_window_list}"
+			execute_after_command \
+				"${EXEC_AFTER_COMMAND}" \
+				"${ccerminal_window_list}"
+			execute_ctrl_cmd \
+				"${EXEC_AFTER_CTRL_CMD}"
 			;;
 		"OFF")
 			bash -c "${EXECUTE_COMMAND}" ${EXEC_SHELL_ARGS} &
