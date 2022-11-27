@@ -138,6 +138,9 @@ Add file to command click
     | `editExecute`  | `N`/`C`/`E` | before running shellscript, you can edit settingVriable(NO: no, ONCE: one time edit ALWAYS:always edit)          |
     | `setVariableType` | string  | when edit, whether to set variable type to commandVariable. You also have multiple specifing this. In detail, follow bellow. |
     | `afterCommand` | command | before run shellscript, run command |
+    | `afterCommand` | command | before run shellscript, run command |
+    | `ExecBeforeCtrlCmd` | command | before run shellscript, run cmdclik crtl command (prefix NO: only apply when editExecute is NO, prefix ONCE: only apply when editExecute is ONCE, prefix ALWAYS: only apply when editExecute is ALWAYS. no prefix is apply to all editExecute value)|
+    | `execAfterCtrlCmd` | command | after run shellscript, run command |
     | `shellFileName`  | string | shellscript file name  |
 3. Insert the variables you want to set in the gui between. `CMD_VARIABLE_SECTION_START` and `CMD_VARIABLE_SECTION_END.
     - Set the various commandriables below as optional
