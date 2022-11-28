@@ -5,9 +5,11 @@ LOOP=0
 
 index_lib_dir_path="${LIB_DIR_PATH}/index_lib"
 . "${index_lib_dir_path}/get_inc_dir_file.sh"
+. "${index_lib_dir_path}/exit_when_app_mode.sh"
 unset -v index_lib_dir_path
 
 
+exit_when_app_mode
 reactive_when_aleady_exist_cmdclick
 get_inc_dir_file &
 first_index_num_in_app_dir_list=1
