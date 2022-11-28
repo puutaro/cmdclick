@@ -255,6 +255,8 @@ export -f open_editor
 
 
 init(){
+	switch_cmdclick_or_app_mode \
+		"${APP_MODE_FILE_PATH}"
 	make_requrement_dir
 	set_default_setting_value
 	# change default dir file make 
