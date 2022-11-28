@@ -4,7 +4,8 @@ set -ue
 
 LANG=C
 readonly ITEM_THREAD="ITEM_THREAD_CM2GUI"
-readonly WINDOW_TITLE="Command Click"
+readonly APP_MODE_FILE_PATH="${1:-}"
+readonly CMDCLICK_WINDOW_TITLE="Command Click"
 readonly COMMAND_CLICK_EXTENSION='.sh'
 readonly SOURCE_FILE_PATH="${0}"
 readonly SOURCE_DIR_PATH="$(dirname $0)"
@@ -181,6 +182,7 @@ case  "${IMPORT_CMDCLICK_VAL:-}" in
 . "${INIT_LIB_DIR_PATH}/set_default_setting_value.sh"
 . "${INIT_LIB_DIR_PATH}/read_resolution_from_system.sh"
 . "${INIT_LIB_DIR_PATH}/make_requrement_dir.sh"
+. "${INIT_LIB_DIR_PATH}/switch_cmdclick_or_app_mode.sh"
 . "${COMMON_LIB_DIR_PATH}/echo_by_convert_xml_escape_sequence.sh"
 . "${COMMON_LIB_DIR_PATH}/echo_removed_double_quote_both_ends.sh"
 . "${COMMON_LIB_DIR_PATH}/fetch_parameter_from_pip.sh"
@@ -201,9 +203,8 @@ export -f echo_labeling_section_bitween_start_and_end
 export -f echo_labeling_section_bitween_start_and_end_from_pip
 export -f echo_longpath_by_summraizing
 LOOP=0
-SIGNAL_CODE=${INDEX_CODE}
-NORMAL_SIGNAL_CODE=${INDEX_CODE}
 ACTIVE_CHECK_VARIABLE=0
+
 
 execute_cmd_by_xdotool(){
 	local ccerminal_acctive_state=$(\
@@ -244,6 +245,8 @@ execute_cmd_by_xdotool(){
 }
 
 init(){
+	switch_cmdclick_or_app_mode \
+		"${APP_MODE_FILE_PATH}"
 	make_requrement_dir
 	set_default_setting_value
 	# change default dir file make 

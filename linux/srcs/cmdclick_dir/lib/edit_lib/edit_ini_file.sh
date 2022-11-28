@@ -45,6 +45,13 @@ edit_ini_gui(){
     INI_CONTENTS="${ini_contents_moto}"
     make_ini_contents \
       "${ini_contents_moto}"
+
+    test "${CMDCLICK_WINDOW_TITLE}" != "${WINDOW_TITLE}" \
+      && test ${ROOP_NUM} -eq 1 \
+      && [ ${SIGNAL_CODE} -eq ${EXIT_CODE} -o ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ] \
+      && exit 0 \
+      || e=$?
+
     [ ${SIGNAL_CODE} -eq ${EXIT_CODE} \
       -o ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ] \
     &&  EXEC_SET_VARIABLE_TYPE="${NO_EDIT_EXECUTE}" \
@@ -54,6 +61,13 @@ edit_ini_gui(){
     SIGNAL_CODE=${EDIT_CODE}
     display_edit_contensts \
       "${EDIT_WINDOW_LOCATION}" 
+
+    test "${CMDCLICK_WINDOW_TITLE}" != "${WINDOW_TITLE}" \
+      && test ${ROOP_NUM} -eq 1 \
+      && [ ${SIGNAL_CODE} -eq ${EXIT_CODE} -o ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ] \
+      && exit 0 \
+      || e=$?
+
     test ${ROOP_NUM} -eq 1 \
       && [ ${SIGNAL_CODE} -eq ${EXIT_CODE} -o ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ] \
       &&  EXEC_SET_VARIABLE_TYPE="${NO_EDIT_EXECUTE}" \
