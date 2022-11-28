@@ -1,6 +1,11 @@
 #!/bin/bash
 
 
+execute_ctrl_cmd_lib_path="${EXECUTE_LIB_DIR_PATH}/execute_ctrl_cmd_lib"
+. "${execute_ctrl_cmd_lib_path}/display_continue_wait_dialog.sh"
+unset -v execute_ctrl_cmd_lib_path
+
+
 execute_ctrl_cmd(){
 	local cmd_source="${1:-}"
 	case "${cmd_source}" in
@@ -38,5 +43,11 @@ execute_ctrl_cmd(){
 	case "${cmd}" in
 		""|"-") return
 	;; esac
-	bash -c "${cmd}"
+	local ECEC_CTRL_CMD_WAIT_WINDOW_LOCATION="--center --width=${CENTER_SCALE_DISPLAY_WIDTH} --height=${CENTER_SCALE_DISPLAY_HEIGHT}"
+	local WAIT_WINDOW_LOCATION="--geometry ${RIGHT_SCALE_DISPLAY_WIDTH}x${RIGHT_SCALE_DISPLAY_HEIGHT}+${RIGHT_X_POSITION}+${RIGHT_Y_POSITION}"
+	local wait_message="please wait ctrl cmd finished"
+	bash -c "${cmd}" &
+	local ctrl_cmd_pid=$!
+	display_continue_wait_dialog \
+		"${ctrl_cmd_pid}"
 }

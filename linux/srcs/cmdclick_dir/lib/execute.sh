@@ -21,7 +21,6 @@ command_execute(){
 	check_ini_file "${EXECUTE_FILE_PATH}"
 	EDIT_WINDOW_LOCATION=""
 	exec_handler
-	echo execute SIGNAL_CODE ${SIGNAL_CODE}
 	case "${SIGNAL_CODE}" in
 		"${OK_CODE}") 
 			;;
