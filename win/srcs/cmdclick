@@ -22,8 +22,10 @@ case "${first_option}" in
 		exit 0
 		;;
 	"") 
-		bash $(dirname $0)/cmdclick_dir/exec_cmdclick.sh
+		exec_cmdclick_path="$(dirname $0)/win/srcs/cmdclick_dir/exec_cmdclick.sh"
+		bash "${exec_cmdclick_path}"
 		exit 0
 		;;
 esac
-bash $(dirname $0)/cmdclick_dir/exec_cmdclick.sh "${first_option}"
+exec_cmdclick_path="$(dirname $0)/win/srcs/cmdclick_dir/exec_cmdclick.sh"
+bash "${exec_cmdclick_path}" "${first_option}"
