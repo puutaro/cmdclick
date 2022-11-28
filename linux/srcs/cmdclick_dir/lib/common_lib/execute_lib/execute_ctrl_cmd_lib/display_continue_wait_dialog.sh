@@ -21,6 +21,7 @@ display_continue_wait_dialog(){
 		local wait_display_pid=$(\
 			ps aux \
 			| grep "${WINDOW_TITLE}" \
+			| grep "${wait_message}" \
 			| grep -v grep \
 			| head -1 \
 			| awk '{print $2}'
@@ -32,7 +33,9 @@ display_continue_wait_dialog(){
 		local exist_ctrl_cmd_pid=$(\
 			ps aux \
 				| grep -E "\s${ctrl_cmd_pid}\s" \
+				| grep -v "${wait_message}" \
 				| grep -v grep \
+				| head -1 \
 		)
 		case "${exist_ctrl_cmd_pid}" in
 			"")
