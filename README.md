@@ -45,6 +45,7 @@ Table of Contents
       * [Edit](#edit)
       * [Exit](#exit)
       * [Delete](#delete)
+  * [Shell to Gui](#shell-to-gui)
   * [Shortcut table](#shortcut-table)
   * [Trouble Shouting](#trouble-shouting)
   	 * [Not Startup](#not-startup)
@@ -283,6 +284,14 @@ App directory manager is used in order to add, edit, and delete app directory.
 #### Change directory
 1. Move cursor to change direcotry script file name you wont to run by mouse or up or down.
 2. Enter or double click this.
+
+
+### Shell to Gui
+`Cmdclick` can convert shellscript to Gui app.
+
+c [your shellscript make from `Cmdclick`]
+  - c is shortcut for cmdclck
+
 
 ### Shortcut Table
 
