@@ -3,6 +3,7 @@
 HANDLER_LIB_DIR_PATH="${EXECUTE_LIB_DIR_PATH}/handler_lib"
 . "${HANDLER_LIB_DIR_PATH}/read_ini_to_cmd.sh"
 . "${HANDLER_LIB_DIR_PATH}/echo_window_localtion.sh"
+. "${HANDLER_LIB_DIR_PATH}/echo_window_width.sh"
 
 unset -v HANDLER_LIB_DIR_PATH
 
@@ -18,6 +19,10 @@ exec_handler(){
 		"${ALWAYS_EDIT_EXECUTE}"|"${ONCE_EDIT_EXECUTE}")
 			EDIT_WINDOW_LOCATION="$(\
 				echo_window_localtion \
+					"${COUNT_EXEC_EDIT_EXECUTE}" \
+			)"
+			EDIT_WINDOW_WIDTH="$(\
+				echo_window_width \
 					"${COUNT_EXEC_EDIT_EXECUTE}" \
 			)"
 			COUNT_EXEC_EDIT_EXECUTE=$(( ${COUNT_EXEC_EDIT_EXECUTE} + 1))

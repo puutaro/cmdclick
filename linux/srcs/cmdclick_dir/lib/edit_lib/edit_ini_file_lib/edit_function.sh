@@ -7,6 +7,10 @@ display_edit_contensts(){
     echo_by_convert_xml_escape_sequence \
       "${SOURCE_CMD::400}" \
   )
+  local desc_string_quants=$(\
+    echo "scale=2; ${EDIT_WINDOW_WIDTH} * (450 / 720)" \
+      | bc\
+  )
   case "${EDIT_DESCRIPTION}" in 
     "")
       local edit_label="$(\
@@ -41,7 +45,7 @@ display_edit_contensts(){
     --form \
     --title="${WINDOW_TITLE}" \
     --window-icon="${WINDOW_ICON_PATH}" \
-    --text="${edit_label::500}" \
+    --text="${edit_label::${desc_string_quants%.*}} \n" \
     --separator=$'\t' \
     --date-format="%Y-%m-%d"\
     --item-separator="!" \
