@@ -23,6 +23,7 @@ execute_ctrl_cmd(){
 				if ($0 ~ "^"ALWAYS_EDIT_EXECUTE) print ALWAYS_EDIT_EXECUTE
 				else if ($0 ~ "^"ONCE_EDIT_EXECUTE) print ONCE_EDIT_EXECUTE
 				else if ($0 ~ "^"NO_EDIT_EXECUTE) print NO_EDIT_EXECUTE
+				else if ($0 ~ "^#") print "#"
 			}'\
 	)
 	local cmd=$(\
