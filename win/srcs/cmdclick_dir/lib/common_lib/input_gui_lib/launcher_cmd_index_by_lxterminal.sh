@@ -40,8 +40,8 @@ launcher_cmd_index_by_lxterminal(){
 					${scale_display_height}
 				break
 	;; esac
-	done 	
-	nircmd.exe win activate title "${WINDOW_TITLE}" &
+	done
+	cmd.exe /c start nircmd.exe win activate title "${WINDOW_TITLE}" &
 	wait "${lx_terminal_pid}"
 }
 
