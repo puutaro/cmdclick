@@ -10,7 +10,6 @@ unset -v index_lib_dir_path
 
 
 exit_when_app_mode
-reactive_when_aleady_exist_cmdclick
 get_inc_dir_file &
 first_index_num_in_app_dir_list=1
 echo "${GREP_INC_NUM}=${first_index_num_in_app_dir_list}" > "${CMDCLICK_CONF_INC_CMD_PATH}" &

@@ -255,6 +255,7 @@ init(){
 			"${CMDCLICK_DEFAULT_INI_FILE_DIR_PATH}"
 	fi
 	read_resolution_from_system
+	reactive_when_aleady_exist_cmdclick
 }
 
 init
