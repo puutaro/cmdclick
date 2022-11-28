@@ -85,7 +85,7 @@ command_execute(){
 				"${EXEC_AFTER_COMMAND}" \
 				"${ccerminal_acctive_state}"
 			execute_ctrl_cmd \
-				"${EXEC_BEFORE_CTRL_CMD}"
+				"${EXEC_AFTER_CTRL_CMD}"
 			unset -v ccerminal_acctive_state
 			;;
 		"OFF")
