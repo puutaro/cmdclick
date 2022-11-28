@@ -7,6 +7,9 @@ unset -v convert_input_value_lib_dir_path
 
 convert_input_value(){
   local source_ini_value="${1}"
+  case "${source_ini_value}" in
+    "") return
+  ;;esac
   local LANG=C
   #入力値を取得
   local ini_value_source=$(\
