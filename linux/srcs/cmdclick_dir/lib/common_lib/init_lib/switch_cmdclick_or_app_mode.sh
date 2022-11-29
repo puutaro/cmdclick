@@ -11,6 +11,7 @@ switch_cmdclick_or_app_mode(){
 	case "${app_file_path}" in
 		"") 
 			readonly WINDOW_TITLE="${CMDCLICK_WINDOW_TITLE}"
+			readonly WINDOW_ICON_PATH="${CMDCLICK_WINDOW_ICON_PATH}"
 			SIGNAL_CODE=${INDEX_CODE}
 			NORMAL_SIGNAL_CODE=${INDEX_CODE}
 			;;
@@ -23,5 +24,17 @@ switch_cmdclick_or_app_mode(){
 			NORMAL_SIGNAL_CODE=${OK_CODE}
 			EXECUTE_FILE_NAME="${cur_file_name}"
 			INI_FILE_DIR_PATH="${cur_dir_name}"
+			local window_icon_path_source=$(\
+				cat "${app_file_path}" \
+				| fetch_parameter_from_pip \
+					"${INI_APP_ICON_PATH}" \
+				| echo_removed_double_quote_both_ends_from_pip \
+			)
+			if [ -n "${window_icon_path_source}" ] \
+				&& [ -e "${window_icon_path_source}" ];then
+				readonly WINDOW_ICON_PATH="${window_icon_path_source}"
+			else
+				readonly WINDOW_ICON_PATH="${CMDCLICK_WINDOW_ICON_PATH}"
+			fi
 	;; esac
 }
