@@ -48,7 +48,7 @@ command_execute(){
 	# echo "EXEC_SHELL_ARGS ${EXEC_SHELL_ARGS}"
 	#ターミナル起動コマンド格納
 	if [ "${EXEC_TERMINAL_ON}" = "ON" ]; then
-		terminal_exec_command="x-terminal-emulator -T \"${CC_TERMINAL_NAME}\" &"
+		terminal_exec_command="LANG=\"ja_JP.UTF-8\"; . \"${HOME}/profile\"; x-terminal-emulator -T \"${CC_TERMINAL_NAME}\" &"
 	else 
 		terminal_exec_command=""
 	fi

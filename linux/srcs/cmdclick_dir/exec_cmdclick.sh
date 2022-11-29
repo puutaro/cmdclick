@@ -164,6 +164,7 @@ COUNT_EXEC_EDIT_EXECUTE=0
 
 case  "${IMPORT_CMDCLICK_VAL:-}" in 
 	"");; *) return;; esac
+
 . "${LIB_DIR_PATH}/check_ini_file.sh"
 . "${LIB_DIR_PATH}/check_ini_std_out.sh"
 . "${EDIT_LIB_DIR_PATH}/edit_ini_file.sh"
