@@ -28,6 +28,8 @@ read_ini_to_execute_command(){
 	EXEC_AFTER_COMMAND="$(echo "${variabl_contensts_setting_value_list[6]:-}" | sed -e 's/^"//' -e 's/"$//')"
 	EXEC_BEFORE_CTRL_CMD="$(echo "${variabl_contensts_setting_value_list[7]:-}" | sed -e 's/^"//' -e 's/"$//')"
 	EXEC_AFTER_CTRL_CMD="$(echo "${variabl_contensts_setting_value_list[8]:-}" | sed -e 's/^"//' -e 's/"$//')"
+	local shell_file_name="$(echo "${variabl_contensts_setting_value_list[9]:-}" | sed 's/^-$//')"
 	EXEC_SHELL_ARGS="$(echo "${variabl_contensts_setting_value_list[10]:-}" | sed 's/^-$//')"
+	local app_icon_path="$(echo "${variabl_contensts_setting_value_list[11]:-}" | sed 's/^-$//')"
 	EXECUTE_COMMAND="bash \"${execute_file_name}\" ${EXEC_SHELL_ARGS}"
 }
