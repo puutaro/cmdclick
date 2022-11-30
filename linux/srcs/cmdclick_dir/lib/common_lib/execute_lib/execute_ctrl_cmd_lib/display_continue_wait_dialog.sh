@@ -10,8 +10,10 @@ display_continue_wait_dialog(){
     --item-separator='!'\
     --center \
     --scroll \
+    --borders=\${CMDCLICK_BORDER_NUM} \
     \${WAIT_WINDOW_LOCATION} \
-    --field=\"\n \${wait_message} \n\n\":LBL &"
+    --field=\"\n \${wait_message} \n\n\":LBL \
+    --no-buttons &"
 
 	eval "${display_wait_dialog_cmd}"
 	local wait_display_pid=$!

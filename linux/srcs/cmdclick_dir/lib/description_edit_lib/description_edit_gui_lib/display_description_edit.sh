@@ -14,6 +14,7 @@ display_description_edit(){
 		    --item-separator=''\
 		    --center \
 		    --scroll \
+		    --borders=${CMDCLICK_BORDER_NUM} \
 		    --height=${CENTER_SCALE_DISPLAY_HEIGHT} \
 		    --width=${CENTER_SCALE_DISPLAY_WIDTH} \
 		    --field="${guid_sentence}":TXT "${desctiption_before_edit}" \

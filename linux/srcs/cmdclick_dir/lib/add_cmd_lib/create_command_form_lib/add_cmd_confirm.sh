@@ -14,6 +14,7 @@ add_cmd_confirm(){
       --item-separator='!'\
       --center \
       --scroll \
+      --borders=${CMDCLICK_BORDER_NUM} \
       --height=${CENTER_SCALE_DISPLAY_HEIGHT} \
       --width=${CENTER_SCALE_DISPLAY_WIDTH} \
       --field="\n ${add_confirm} ? \n  ${converted_xml_escape_sequence} \n\n":LBL ""

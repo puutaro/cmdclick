@@ -42,7 +42,10 @@ make_ini_contents(){
                 echo_by_replace_blank_with_hyphen_and_equal_with_tab \
                   "${source_con}" \
               )
-        if [ -z "${get_valiable}" ];then ROOP_NUM=2 ; fi
+        if [ -z "${get_valiable}" ];then 
+          HOW_EXIST_CMD_SECTION=${cmd_section_absence}
+          ROOP_NUM=2 ; 
+      fi
   ;; esac
   case "${ROOP_NUM}" in 
     "0"|"1") 

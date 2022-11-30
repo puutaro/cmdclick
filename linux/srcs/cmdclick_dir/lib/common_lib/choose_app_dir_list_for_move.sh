@@ -21,6 +21,7 @@ choose_app_dir_list_for_move(){
     --height=${CENTER_SCALE_DISPLAY_HEIGHT} \
     --width=${CENTER_SCALE_DISPLAY_WIDTH} \
     --column="APP DIR PATH" \
+    --borders=${CMDCLICK_BORDER_NUM} \
     --center \
     --separator="" \
     "${ini_file_list[@]}" \

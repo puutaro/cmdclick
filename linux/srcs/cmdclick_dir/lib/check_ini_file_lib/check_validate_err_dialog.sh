@@ -24,6 +24,7 @@ check_validate_err_dialog(){
 		--height=${CENTER_SCALE_DISPLAY_HEIGHT} \
 			--width=${CENTER_SCALE_DISPLAY_WIDTH} \
 		--item-separator='!'\
+		--borders=${CMDCLICK_BORDER_NUM} \
 		--field="\n bellow err, please ini file manual repair or delete \n (FILEPATH: "${xml_escape_validate_target_file_path}")":LBL   "" \
 		--field="${xml_escape_check_message}":LBL \
 		--button=gtk-ok:${OK_CODE} 

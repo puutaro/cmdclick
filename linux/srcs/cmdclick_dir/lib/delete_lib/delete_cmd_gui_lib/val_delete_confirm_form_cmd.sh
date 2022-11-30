@@ -7,5 +7,6 @@ delete_confirm_form_cmd="yad --form \
     --item-separator='!'\
     --center \
     --scroll \
+    --borders=\${CMDCLICK_BORDER_NUM} \
     --height=\${scale_display_height} \
     --width=\${scale_display_width}"

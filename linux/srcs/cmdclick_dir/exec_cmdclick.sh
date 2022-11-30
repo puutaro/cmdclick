@@ -6,6 +6,7 @@ LANG=C
 readonly ITEM_THREAD="ITEM_THREAD_CM2GUI"
 readonly APP_MODE_FILE_PATH="${1:-}"
 readonly CMDCLICK_WINDOW_TITLE="Command Click"
+readonly CMDCLICK_BORDER_NUM=10
 readonly COMMAND_CLICK_EXTENSION='.sh'
 readonly SOURCE_FILE_PATH="${0}"
 readonly SOURCE_DIR_PATH="$(dirname $0)"

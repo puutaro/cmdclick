@@ -13,6 +13,7 @@ display_setting_edit_manager(){
 		--separator=$'\t' --item-separator="!" \
 		--center \
 		--scroll \
+		--borders=${CMDCLICK_BORDER_NUM} \
 		--height=${CENTER_SCALE_DISPLAY_HEIGHT} \
 		--width=${CENTER_SCALE_DISPLAY_WIDTH} \
 		--button  gtk-cancel:${EXIT_CODE} \

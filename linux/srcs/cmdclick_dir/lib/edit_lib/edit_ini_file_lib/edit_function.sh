@@ -48,6 +48,7 @@ display_edit_contensts(){
     --text="${edit_label::${desc_string_quants%.*}} \n" \
     --separator=$'\t' \
     --date-format="%Y-%m-%d"\
+    --borders=${CMDCLICK_BORDER_NUM} \
     --item-separator="!" \
     ${EDIT_WINDOW_LOCATION} \
     --scroll \

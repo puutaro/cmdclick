@@ -16,6 +16,8 @@ unset -v EDIT_INI_FILE_LIB_DIR_PATH
 edit_ini_gui(){
   local LANG=C
   local ROOP_NUM=0
+  local cmd_section_exist=1
+  local cmd_section_absence=0
   local INI_CONTENTS=""
   local EDIT_FILE_NAME="${1}"
   local exec_edit_execute="${2:-${NO_EDIT_EXECUTE}}"
@@ -42,6 +44,7 @@ edit_ini_gui(){
     local VARIABLE_CONTENSTS_VALUE_LIST=()
     local ALL_KEY_CON=""
     local SOURCE_CMD=""
+    local HOW_EXIST_CMD_SECTION=${cmd_section_exist}
     INI_CONTENTS="${ini_contents_moto}"
     make_ini_contents \
       "${ini_contents_moto}"
@@ -68,7 +71,7 @@ edit_ini_gui(){
       && exit 0 \
       || e=$?
 
-    test ${ROOP_NUM} -eq 1 \
+    [ ${ROOP_NUM} -eq 1 -o ${HOW_EXIST_CMD_SECTION} -eq ${cmd_section_absence} ] \
       && [ ${SIGNAL_CODE} -eq ${EXIT_CODE} -o ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ] \
       &&  EXEC_SET_VARIABLE_TYPE="${NO_EDIT_EXECUTE}" \
       && break \
