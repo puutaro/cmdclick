@@ -40,8 +40,10 @@ edit_ini_gui(){
           "${ch_dir_path_parameter_before}" \
     )
     local EDIT_DESCRIPTION=""
-    local VARIABLE_CONTENSTS_FIELD_LIST=()
-    local VARIABLE_CONTENSTS_VALUE_LIST=()
+    local CMD_VARIABLE_CONTENSTS_FIELD_LIST=()
+    local CMD_VARIABLE_CONTENSTS_VALUE_LIST=()
+    local SETTING_VARIABLE_CONTENSTS_FIELD_LIST=()
+    local SETTING_VARIABLE_CONTENSTS_VALUE_LIST=()
     local ALL_KEY_CON=""
     local SOURCE_CMD=""
     local HOW_EXIST_CMD_SECTION=${cmd_section_exist}
@@ -63,7 +65,8 @@ edit_ini_gui(){
     local INI_VALUE=""
     SIGNAL_CODE=${EDIT_CODE}
     display_edit_contensts \
-      "${EDIT_WINDOW_LOCATION}" 
+      "${EDIT_WINDOW_LOCATION}" \
+      "${ROOP_NUM}"
 
     test "${CMDCLICK_WINDOW_TITLE}" != "${WINDOW_TITLE}" \
       && test ${ROOP_NUM} -eq 1 \
