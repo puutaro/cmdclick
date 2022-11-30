@@ -19,7 +19,7 @@ delete_cmd(){
   )"
   set +e
   eval "${delete_confirm_form_cmd} \
-    --field=\"\n Do you really want to delete bellow ini file ? \n  \${EXECUTE_FILE_NAME} \n\n\":LBL \
+    --field=\"\nDo you really want to delete bellow ini file ? \n  \${EXECUTE_FILE_NAME} \n\n\":LBL \
     --field=\"\${delete_contents}\":LBL"
   local confirm=$?
   set -e

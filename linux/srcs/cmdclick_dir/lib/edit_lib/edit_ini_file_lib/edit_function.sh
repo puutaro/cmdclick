@@ -14,15 +14,15 @@ display_edit_contensts(){
   case "${EDIT_DESCRIPTION}" in 
     "")
       local edit_label="$(\
-        cat <(echo "\n  please edit bellow command") \
+        cat <(echo "\nplease edit bellow command") \
             <(echo "") \
-            <(echo "      ${display_source_cmd}\n")\
+            <(echo "   ${display_source_cmd}\n")\
       )" ;;
     *)
       local edit_label="$(\
-        cat <(echo "\n  please edit bellow command") \
+        cat <(echo "\nplease edit bellow command") \
             <(echo "") \
-            <(echo "    ${EDIT_DESCRIPTION}") \
+            <(echo "   ${EDIT_DESCRIPTION}") \
             <(echo "\n") \
       )"
   ;; esac
