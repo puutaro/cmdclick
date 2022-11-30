@@ -6,6 +6,7 @@ echo_labeling_section_bitween_start_and_end(){
 	local print_method="${2:-printf}"
 	local start_section_name=${SEARCH_INI_LABELING_SECTION_START_NAME}
 	local end_section_name=${SEARCH_INI_LABELING_SECTION_END_NAME}
+	local LANG="ja_JP.UTF-8"
 	echo "${ini_contents}" |\
 	    awk -v start_section_name="${start_section_name}" \
 	      -v end_section_name="${end_section_name}" \
