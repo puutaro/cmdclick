@@ -7,6 +7,14 @@ display_edit_contensts(){
     echo "scale=2; ${EDIT_WINDOW_WIDTH} * (450 / 720)" \
       | bc\
   )
+  case "${ROOP_NUM}" in
+    "1")
+      local edit_prompt="please edit bellow cmd variable"
+      ;;
+    *)
+      local edit_prompt="please edit bellow setting or cmd variable"
+      ;;
+  esac
   case "${EDIT_DESCRIPTION}" in 
     "")
       local display_source_cmd=$(\
@@ -14,13 +22,13 @@ display_edit_contensts(){
         "${SOURCE_CMD::400}" \
       )
       local edit_label="$(\
-        cat <(echo "\nplease edit bellow command") \
+        cat <(echo "\n${edit_prompt}") \
             <(echo "") \
             <(echo "   ${display_source_cmd}")\
       )" ;;
     *)
       local edit_label="$(\
-        cat <(echo "\nplease edit bellow command") \
+        cat <(echo "\n${edit_prompt}") \
             <(echo "") \
             <(echo "   ${EDIT_DESCRIPTION}") \
       )"
