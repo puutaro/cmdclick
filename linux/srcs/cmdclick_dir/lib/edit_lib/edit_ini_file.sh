@@ -54,11 +54,19 @@ edit_ini_gui(){
       && exit 0 \
       || e=$?
 
-    [ ${SIGNAL_CODE} -eq ${EXIT_CODE} \
-      -o ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ] \
-    &&  EXEC_SET_VARIABLE_TYPE="${NO_EDIT_EXECUTE}" \
-    && break \
-    || e=$?
+    [ ${ROOP_NUM} -eq 1 -o ${HOW_EXIST_CMD_SECTION} -eq ${cmd_section_absence} ] \
+      && [ ${SIGNAL_CODE} -eq ${EXIT_CODE} -o ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ] \
+      &&  EXEC_SET_VARIABLE_TYPE="${NO_EDIT_EXECUTE}" \
+      && break \
+      || e=$?
+
+    test ${ROOP_NUM} -gt 1 \
+      && [ ${SIGNAL_CODE} -eq ${EXIT_CODE} -o ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ] \
+      &&  ROOP_NUM=0 \
+      && SIGNAL_CODE=${EDIT_CODE} \
+      && continue \
+      || e=$?
+
     local INI_VALUE=""
     SIGNAL_CODE=${EDIT_CODE}
     display_edit_contensts \
