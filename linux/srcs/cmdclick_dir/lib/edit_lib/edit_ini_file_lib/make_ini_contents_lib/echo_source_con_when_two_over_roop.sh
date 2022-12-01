@@ -11,6 +11,8 @@ echo_source_con_when_two_over_roop(){
     -v SEARCH_INI_SETTING_SECTION_END_NAME="${SEARCH_INI_SETTING_SECTION_END_NAME}" \
     -v SEARCH_INI_CMD_VARIABLE_SECTION_START_NAME="${SEARCH_INI_CMD_VARIABLE_SECTION_START_NAME}" \
     -v SEARCH_INI_CMD_VARIABLE_SECTION_END_NAME="${SEARCH_INI_CMD_VARIABLE_SECTION_END_NAME}" \
+    -v KEY_ADD_TYPE_BOUND_DESC_BITWEEN_CMD_AND_SETTING="${KEY_ADD_TYPE_BOUND_DESC_BITWEEN_CMD_AND_SETTING}" \
+    -v STR_BOUND_DESC_BITWEEN_CMD_AND_SETTING="${STR_BOUND_DESC_BITWEEN_CMD_AND_SETTING}" \
     '
     BEGIN {
       count_ini_setting_section_start_name = 0
@@ -22,6 +24,7 @@ echo_source_con_when_two_over_roop(){
       ini_setting_default_value_cons_of["'${INI_TERMINAL_FOCUS}'"]="'${INI_TERMINAL_FOCUS_DEFAULF_VALUE}'"
       ini_setting_default_value_cons_of["'${INI_EDIT_EXECUTE}'"]="'${INI_EDIT_EXECUTE_DEFAULF_VALUE}'"
       multiple_ok_key_of["'${INI_SET_VARIABLE_TYPE}'"] = 1
+      count_bound_desc_output_setting_cmd = 0
     }
     {
       current_first_field_value=$1
@@ -58,6 +61,18 @@ echo_source_con_when_two_over_roop(){
         && count_ini_cmd_variable_section_end_name == 0 \
         ) match_num=1
       if(match_num <= 0) next
+      if( \
+        count_ini_cmd_variable_section_start_name == 1 \
+        && count_ini_cmd_variable_section_end_name == 1 \
+        ) next
+      if( \
+        count_ini_setting_section_start_name == 1 \
+        && count_ini_setting_section_end_name == 1 \
+        && count_bound_desc_output_setting_cmd == 0 \
+      ) {
+          print KEY_ADD_TYPE_BOUND_DESC_BITWEEN_CMD_AND_SETTING"="STR_BOUND_DESC_BITWEEN_CMD_AND_SETTING
+          count_bound_desc_output_setting_cmd++
+      }
       current_parameter_value = ini_setting_default_value_cons_of[current_first_field_value]
       if(current_parameter_value <= 0){
         printf current_first_field_value"="

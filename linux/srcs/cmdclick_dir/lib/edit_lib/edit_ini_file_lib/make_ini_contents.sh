@@ -14,6 +14,9 @@ unset -v MAKE_INI_CONTENTS_LIB_DIR_PATH
 make_ini_contents(){
   local LANG=C
   local ini_contents_moto="${1}"
+  local KEY_BOUND_DESC_BITWEEN_CMD_AND_SETTING="--------------------"
+  local KEY_ADD_TYPE_BOUND_DESC_BITWEEN_CMD_AND_SETTING="${KEY_BOUND_DESC_BITWEEN_CMD_AND_SETTING}:RO"
+  local STR_BOUND_DESC_BITWEEN_CMD_AND_SETTING="  bellow is command variable"
   local exec_default_parameter="$(\
     fetch_parameter \
       "${ini_contents_moto}" \
