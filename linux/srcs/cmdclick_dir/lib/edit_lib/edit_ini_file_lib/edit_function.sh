@@ -45,13 +45,14 @@ display_edit_contensts(){
   set -e
   INI_VALUE=$(\
     awk \
-      -v INI_VALUE="${ini_value_source}" \
+      -v ini_value_source="${ini_value_source}" \
       'BEGIN {
-        new_line_index = index(INI_VALUE, "\n")
-        if(new_line_index > 0){
-          sub(".*\n", "", INI_VALUE)
-        }
-        print INI_VALUE
+        ini_value_source_list_len = split(\
+          ini_value_source, \
+          ini_value_source_list, \
+          "\n"\
+        )
+        print ini_value_source_list[ini_value_source_list_len]
       }'\
   )
   unset -v ini_value_source
