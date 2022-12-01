@@ -41,9 +41,11 @@ make_ini_contents(){
             -v EXEC_DISPLAY_DESCRIPTION_PATH="${EXEC_DISPLAY_DESCRIPTION_PATH}" \
             -v EDIT_FILE_PATH="${EDIT_FILE_PATH}" \
             -v source_con="${source_con}" \
+            -v WINDOW_TITLE="${WINDOW_TITLE}" \
+            -v WINDOW_ICON_PATH="${WINDOW_ICON_PATH}" \
             -v EDIT_WINDOW_LOCATION="--center --width=${CENTER_SCALE_DISPLAY_WIDTH} --height=${CENTER_SCALE_DISPLAY_HEIGHT}" \
             'BEGIN {
-              source_con=source_con"\ndisplayDescription:FBTN=bash \x27"EXEC_DISPLAY_DESCRIPTION_PATH"\x27 \x27"EDIT_FILE_PATH"\x27 \x27"EDIT_WINDOW_LOCATION"\x27"
+              source_con=source_con"\ndisplayDescription:FBTN=bash \x27"EXEC_DISPLAY_DESCRIPTION_PATH"\x27 \x27"EDIT_FILE_PATH"\x27 \x27"WINDOW_TITLE"\x27 \x27"WINDOW_ICON_PATH"\x27 \x27"EDIT_WINDOW_LOCATION"\x27"
               print source_con
             }'\
         )

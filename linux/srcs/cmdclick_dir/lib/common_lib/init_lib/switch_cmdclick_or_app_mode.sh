@@ -2,6 +2,7 @@
 
 
 switch_cmdclick_or_app_mode(){
+	local LANG="ja_JP.UTF-8"
 	local app_file_path_source="${1:-}"
 	if [ -e "${app_file_path_source}" ];then
 		local app_file_path="${app_file_path_source}"
@@ -30,6 +31,7 @@ switch_cmdclick_or_app_mode(){
 					"${INI_APP_ICON_PATH}" \
 				| echo_removed_double_quote_both_ends_from_pip \
 			)
+			window_icon_path_source=$(eval "echo ${window_icon_path_source}")
 			if [ -n "${window_icon_path_source}" ] \
 				&& [ -e "${window_icon_path_source}" ];then
 				readonly WINDOW_ICON_PATH="${window_icon_path_source}"

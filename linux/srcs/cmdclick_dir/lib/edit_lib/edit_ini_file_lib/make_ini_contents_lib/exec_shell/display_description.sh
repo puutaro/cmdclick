@@ -3,7 +3,9 @@
 
 set -eu
 readonly EDIT_FILE_PATH="${1}"
-readonly EDIT_WINDOW_LOCATION="${2}"
+readonly WINDOW_TITLE="${2}"
+readonly WINDOW_ICON="${3}"
+readonly EDIT_WINDOW_LOCATION="${4}"
 readonly exec_path_in_make_ini_contents_lib="$(dirname "${0}")"
 readonly make_ini_contents_lib_path=$(dirname "${exec_path_in_make_ini_contents_lib}")
 readonly edit_ini_file_lib=$(dirname "${make_ini_contents_lib_path}")
@@ -17,7 +19,9 @@ readonly IMPORT_CMDCLICK_VAL=1
 
 display_discription(){
 	local edit_file_path="${1}"
-	local edit_window_location="${2}"
+	local window_title="${2}"
+	local window_icon="${3}"
+	local edit_window_location="${4}"
 	local LANG="ja_JP.UTF-8"
 	. "${exec_cmdclick_path}"
 	. "${common_lib}/echo_by_convert_xml_escape_sequence.sh"
@@ -38,8 +42,8 @@ display_discription(){
 	echo "${CMDCLICK_WINDOW_ICON_PATH}"
     yad \
     --form \
-    --title="${CMDCLICK_WINDOW_TITLE}" \
-    --window-icon="${CMDCLICK_DIR}/images/cmdclick_image.png" \
+    --title="${window_title}" \
+    --window-icon="${window_icon}" \
     --text="\n${EDIT_DESCRIPTION} \n" \
     --borders=${CMDCLICK_BORDER_NUM} \
     ${edit_window_location} \
@@ -48,4 +52,6 @@ display_discription(){
 
 display_discription \
 	"${EDIT_FILE_PATH}" \
+	"${WINDOW_TITLE}" \
+	"${WINDOW_ICON}" \
 	"${EDIT_WINDOW_LOCATION}"
