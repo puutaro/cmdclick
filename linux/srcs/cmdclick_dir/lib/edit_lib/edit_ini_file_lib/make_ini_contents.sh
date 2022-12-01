@@ -45,6 +45,7 @@ make_ini_contents(){
             -v WINDOW_ICON_PATH="${WINDOW_ICON_PATH}" \
             -v EDIT_WINDOW_LOCATION="--center --width=${CENTER_SCALE_DISPLAY_WIDTH} --height=${CENTER_SCALE_DISPLAY_HEIGHT}" \
             'BEGIN {
+              if(!source_con) exit
               source_con=source_con"\ndisplayDescription:FBTN=bash \x27"EXEC_DISPLAY_DESCRIPTION_PATH"\x27 \x27"EDIT_FILE_PATH"\x27 \x27"WINDOW_TITLE"\x27 \x27"WINDOW_ICON_PATH"\x27 \x27"EDIT_WINDOW_LOCATION"\x27"
               print source_con
             }'\
@@ -77,6 +78,18 @@ make_ini_contents(){
     echo_source_con_when_two_over_roop \
       "${ini_contents_set_default_value_in_parameter}" \
   )
+  source_con=$(\
+      awk \
+        -v source_con="${source_con}"\
+        'BEGIN {
+          source_con_list_length = split(\
+            source_con, \
+            source_con_list, \
+            "\n"\
+          )
+          if(source_con_list_length > 2) print source_con
+        }'
+    )
   case "${source_con}" in 
     "") SIGNAL_CODE=${EXIT_CODE}
         return 
