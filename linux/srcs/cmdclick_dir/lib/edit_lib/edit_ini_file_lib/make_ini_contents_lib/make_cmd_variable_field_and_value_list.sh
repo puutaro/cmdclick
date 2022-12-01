@@ -4,6 +4,11 @@
 make_cmd_variable_field_and_value_list(){
 	local get_valiable="${1}"
 	local IFS=$'\n'
+	case "${get_valiable}" in
+		"")
+			return
+			;;
+	esac
 	CMD_VARIABLE_CONTENSTS_FIELD_LIST=(\
 	$(\
 		echo "${get_valiable}" \

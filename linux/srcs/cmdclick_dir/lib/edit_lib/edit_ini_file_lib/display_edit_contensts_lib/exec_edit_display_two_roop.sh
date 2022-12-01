@@ -7,7 +7,7 @@ exec_edit_display_two_roop(){
 		yad --plug=${PLUG_KEY} \
 			--tabnum=1 \
 			--form\
-			--text "\n${PROMPT_SENTENCE} \n" \
+			--text "\n${SETTING_VAR_PROMPT_SENTENCE} \n" \
 			--separator=$'\t' \
 			--date-format="%Y-%m-%d"\
 			--scroll \
@@ -15,10 +15,10 @@ exec_edit_display_two_roop(){
 			"${SETTING_VARIABLE_CONTENSTS_VALUE_LIST[@]}" \
 			--borders=${CMDCLICK_BORDER_NUM} \
 			& \
-		yad --plug=${PLUG_KEY} \
+		sleep 0.1 && yad --plug=${PLUG_KEY} \
 			--tabnum=2 \
 			--form\
-			--text "\n${PROMPT_SENTENCE} \n" \
+			--text "\n${CMD_VAR_PROMPT_SENTENCE} \n" \
 			--separator=$'\t\t' \
 			--date-format="%Y-%m-%d"\
 			--scroll \

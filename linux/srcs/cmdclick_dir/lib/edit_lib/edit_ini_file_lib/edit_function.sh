@@ -18,7 +18,13 @@ display_edit_contensts(){
   local SETTING_TAB="setting var"
   local CMD_TAB="cmd var"
   local DESC_TAB="desc"
-  local PROMPT_SENTENCE="please edit bellow command"
+  local SETTING_VAR_PROMPT_SENTENCE="please edit bellow setting variable"
+  local CMD_VAR_PROMPT_SENTENCE="please edit bellow command variable"
+  case "${CMD_VARIABLE_CONTENSTS_FIELD_LIST:-}" in
+    "") 
+      CMD_VAR_PROMPT_SENTENCE="command variable not found"
+      ;;
+  esac
   local display_source_cmd=$(\
     echo_by_convert_xml_escape_sequence \
       "${SOURCE_CMD::400}" \
