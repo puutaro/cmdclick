@@ -36,6 +36,12 @@ echo_source_con_when_two_over_roop(){
         count_ini_setting_section_end_name > 0 \
         ) next
       if(current_first_field_value ~ "[^a-zA-Z0-9:_-]") next
+      match_num = match(INI_SETTING_DEFAULT_VALUE_CONS, current_first_field_value)
+      if( \
+        count_ini_cmd_variable_section_start_name == 1 \
+        && count_ini_cmd_variable_section_end_name == 0 \
+        ) match_num=1
+      if(match_num <= 0) next
       if(\
         count_key_of[current_first_field_value] > 0 \
         && multiple_ok_key_of[current_first_field_value] <=0) next
