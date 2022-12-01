@@ -48,7 +48,6 @@ edit_ini_gui(){
     INI_CONTENTS="${ini_contents_moto}"
     make_ini_contents \
       "${ini_contents_moto}"
-
     test "${CMDCLICK_WINDOW_TITLE}" != "${WINDOW_TITLE}" \
       && test ${ROOP_NUM} -eq 1 \
       && [ ${SIGNAL_CODE} -eq ${EXIT_CODE} -o ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ] \
@@ -88,7 +87,6 @@ edit_ini_gui(){
       "${INI_VALUE}" \
       "${INI_CONTENTS}" \
       "${ALL_KEY_CON}"
-
     check_ini_std_out \
       "${INI_CONTENTS}"
     case "${SIGNAL_CODE}" in

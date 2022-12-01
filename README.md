@@ -318,10 +318,10 @@ Cmdclick's essence is shortcut usage.
 
 
 ### Trouble Shouting
-#### Not startup or Freeze
+#### Not startup
 
 Kill like bellow command, because leftover cmdclick process is getting in the way  
-(When starting, cmdclick check current process, and  start with nothing, or simply feaze)
+(When starting, cmdclick check current process, and  start with nothing)
 ```
 c -k
 ```
