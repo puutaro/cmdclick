@@ -23,6 +23,7 @@ edit_ini_gui(){
   local exec_edit_execute="${2:-${NO_EDIT_EXECUTE}}"
   local ch_dir_path_parameter_before=""
   local EDIT_FILE_PATH="${INI_FILE_DIR_PATH}/${EDIT_FILE_NAME}"
+  local EXEC_DISPLAY_DESCRIPTION_PATH="${MAKE_INI_CONTENTS_LIB_DIR_PATH}/exec_shell/display_description.sh"
   while :
   do
     ROOP_NUM=$((${ROOP_NUM} + 1))

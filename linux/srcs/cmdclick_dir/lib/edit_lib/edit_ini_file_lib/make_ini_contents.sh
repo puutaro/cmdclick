@@ -8,8 +8,6 @@ MAKE_INI_CONTENTS_LIB_DIR_PATH="${EDIT_INI_FILE_LIB_DIR_PATH}/make_ini_contents_
 . "${MAKE_INI_CONTENTS_LIB_DIR_PATH}/set_all_key_con_and_source_cmd_and_variable_con_field_and_value_list.sh"
 . "${MAKE_INI_CONTENTS_LIB_DIR_PATH}/echo_replace_cmd_section_with_default_value.sh"
 
-unset -v MAKE_INI_CONTENTS_LIB_DIR_PATH
-
 
 make_ini_contents(){
   local LANG=C
@@ -38,6 +36,17 @@ make_ini_contents(){
             "${SEARCH_INI_CMD_VARIABLE_SECTION_START_NAME}" \
             "${SEARCH_INI_CMD_VARIABLE_SECTION_END_NAME}" \
         )
+        source_con=$(\
+          awk \
+            -v EXEC_DISPLAY_DESCRIPTION_PATH="${EXEC_DISPLAY_DESCRIPTION_PATH}" \
+            -v EDIT_FILE_PATH="${EDIT_FILE_PATH}" \
+            -v source_con="${source_con}" \
+            -v EDIT_WINDOW_LOCATION="--center --width=${CENTER_SCALE_DISPLAY_WIDTH} --height=${CENTER_SCALE_DISPLAY_HEIGHT}" \
+            'BEGIN {
+              source_con=source_con"\ndisplayDescription:FBTN=bash \x27"EXEC_DISPLAY_DESCRIPTION_PATH"\x27 \x27"EDIT_FILE_PATH"\x27 \x27"EDIT_WINDOW_LOCATION"\x27"
+              print source_con
+            }'\
+        )
   ;; esac
   case "${ROOP_NUM}" in 
     "1")
@@ -56,7 +65,6 @@ make_ini_contents(){
       SOURCE_CMD=""
       VARIABLE_CONTENSTS_FIELD_LIST=""
       VARIABLE_CONTENSTS_VALUE_LIST=""
-      EDIT_DESCRIPTION=""
       set_all_key_con_and_source_cmd_and_variable_con_field_and_value_list \
         "${ini_contents_moto}" \
         "${source_con}" \
@@ -79,7 +87,6 @@ make_ini_contents(){
   SOURCE_CMD=""
   VARIABLE_CONTENSTS_FIELD_LIST=""
   VARIABLE_CONTENSTS_VALUE_LIST=""
-  EDIT_DESCRIPTION=""
   set_all_key_con_and_source_cmd_and_variable_con_field_and_value_list \
     "${ini_contents_moto}" \
     "${source_con}" \
