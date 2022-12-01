@@ -61,6 +61,16 @@ make_ini_contents(){
     echo_source_con_when_two_over_roop \
       "${ini_contents_set_default_value_in_parameter}" \
   )
+  local source_con=$(\
+    awk \
+        -v setting_section_source_con="${setting_section_source_con}" \
+        -v cmd_section_source_con="${cmd_section_source_con}" \
+        'BEGIN {
+          source_con = setting_section_source_con"\n"cmd_section_source_con
+          gsub("\n\n*", "\n", source_con)
+          print source_con
+        }'
+    )
   case "${setting_section_source_con}" in 
     "") SIGNAL_CODE=${EXIT_CODE}
         return 
@@ -83,10 +93,6 @@ make_ini_contents(){
   ALL_KEY_CON=""
   SOURCE_CMD=""
   EDIT_DESCRIPTION=""
-  local source_con="$(\
-    echo_section_bitween_setting_cmd_section \
-      "${ini_contents_moto}"
-  )"
   set_all_key_con_and_source_cmd \
     "${ini_contents_moto}" \
     "${source_con}"

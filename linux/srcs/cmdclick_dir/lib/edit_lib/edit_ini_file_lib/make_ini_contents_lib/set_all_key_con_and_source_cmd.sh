@@ -28,6 +28,10 @@ set_all_key_con_and_source_cmd(){
       "${ini_contents_moto}" \
       "print"
   )
+  case "${EDIT_DESCRIPTION}" in
+    "") EDIT_DESCRIPTION="${SOURCE_CMD}"
+      ;;
+  esac
   EDIT_DESCRIPTION="$(\
     echo_by_convert_xml_escape_sequence_new_line \
       "${EDIT_DESCRIPTION}"\

@@ -25,14 +25,6 @@ display_edit_contensts(){
       CMD_VAR_PROMPT_SENTENCE="command variable not found"
       ;;
   esac
-  local display_source_cmd=$(\
-    echo_by_convert_xml_escape_sequence \
-      "${SOURCE_CMD::400}" \
-  )
-  case "${EDIT_DESCRIPTION}" in
-    "") EDIT_DESCRIPTION="${SOURCE_CMD}"
-      ;;
-  esac
   local DESC_STRING_QUANTS=$(\
     echo "scale=2; ${EDIT_WINDOW_WIDTH} * (450 / 720)" \
       | bc\
