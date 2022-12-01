@@ -3,6 +3,7 @@
 
 ini_file_section_check_lib_dir_path="${CHECK_INI_FILE_LIB_PATH}/ini_file_section_check_lib"
 . "${ini_file_section_check_lib_dir_path}/echo_valified_about_section_holder.sh"
+. "${ini_file_section_check_lib_dir_path}/check_backslash_exist.sh"
 . "${COMMON_LIB_DIR_PATH}/fetch_parameter_from_pip.sh"
 . "${COMMON_LIB_DIR_PATH}/check_quote_surrounded_when_existing_space_or_single_quote_exist.sh"
 . "${COMMON_LIB_DIR_PATH}/echo_setting_cmd_section_bitween_start_and_end.sh"
@@ -30,6 +31,10 @@ ini_file_section_check(){
 	)"
 	local validate_err_message_body+=$(\
 		check_quote_surrounded_when_existing_space_or_single_quote_exist \
+			"${ini_parameter_contents}" \
+	)
+	local validate_err_message_body+=$(\
+		check_backslash_exist \
 			"${ini_parameter_contents}" \
 	)
 	local ini_file_name_parameter=$(\

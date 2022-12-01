@@ -1,6 +1,11 @@
 #!/bin/bash
 
 
+display_edit_contensts_lib_path="${EDIT_INI_FILE_LIB_DIR_PATH}/display_edit_contensts_lib"
+. "${display_edit_contensts_lib_path}/echo_ini_value.sh"
+. "${display_edit_contensts_lib_path}/judge_back_slash_err.sh"
+
+
 display_edit_contensts(){
   local LANG="ja_JP.UTF-8"
   case "${ROOP_NUM}" in
@@ -43,17 +48,11 @@ display_edit_contensts(){
   )
   SIGNAL_CODE=$?
   set -e
+  judge_back_slash_err \
+    "${ini_value_source}"
   INI_VALUE=$(\
-    awk \
-      -v ini_value_source="${ini_value_source}" \
-      'BEGIN {
-        ini_value_source_list_len = split(\
-          ini_value_source, \
-          ini_value_source_list, \
-          "\n"\
-        )
-        print ini_value_source_list[ini_value_source_list_len]
-      }'\
+    echo_ini_value \
+      "${ini_value_source}" \
   )
   unset -v ini_value_source
 }
