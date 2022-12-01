@@ -24,7 +24,7 @@ display_edit_contensts(){
         ;;
   esac
   set +e
-  INI_VALUE=$(\
+  ini_value_source=$(\
     LANG="ja_JP.UTF-8" \
     yad \
     --form \
@@ -43,4 +43,16 @@ display_edit_contensts(){
   )
   SIGNAL_CODE=$?
   set -e
+  INI_VALUE=$(\
+    awk \
+      -v INI_VALUE="${ini_value_source}" \
+      'BEGIN {
+        new_line_index = index(INI_VALUE, "\n")
+        if(new_line_index > 0){
+          sub(".*\n", "", INI_VALUE)
+        }
+        print INI_VALUE
+      }'\
+  )
+  unset -v ini_value_source
 }
