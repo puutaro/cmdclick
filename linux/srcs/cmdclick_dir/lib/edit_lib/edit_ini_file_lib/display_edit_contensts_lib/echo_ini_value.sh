@@ -9,7 +9,7 @@ echo_ini_value(){
         ini_value_source_list_len = split(\
           ini_value_source, \
           ini_value_source_list, \
-          "\n"\
+          "\n" \
         )
         print ini_value_source_list[ini_value_source_list_len]
       }'

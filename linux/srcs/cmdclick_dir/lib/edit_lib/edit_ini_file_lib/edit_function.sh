@@ -50,9 +50,13 @@ display_edit_contensts(){
   set -e
   judge_back_slash_err \
     "${ini_value_source}"
-  INI_VALUE=$(\
-    echo_ini_value \
-      "${ini_value_source}" \
-  )
+  case "${SIGNAL_CODE}" in
+    "${OK_CODE}")
+        INI_VALUE=$(\
+          echo_ini_value \
+            "${ini_value_source}" \
+        )
+      ;;
+  esac
   unset -v ini_value_source
 }
