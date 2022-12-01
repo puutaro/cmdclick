@@ -71,6 +71,7 @@ display_discription(){
 	    --text="\n${EDIT_DESCRIPTION} \n" \
 	    --borders=${CMDCLICK_BORDER_NUM} \
 	    ${edit_window_location} \
+	    --button  gtk-cancel:${EXIT_CODE} \
 	    --scroll 
 }
 
