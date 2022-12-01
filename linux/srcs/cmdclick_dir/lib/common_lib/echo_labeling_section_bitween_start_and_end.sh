@@ -4,6 +4,7 @@
 echo_labeling_section_bitween_start_and_end(){
 	local ini_contents="${1}"
 	local print_method="${2:-printf}"
+	local LANG="ja_JP.UTF-8"
 	local start_section_name=${SEARCH_INI_LABELING_SECTION_START_NAME}
 	local end_section_name=${SEARCH_INI_LABELING_SECTION_END_NAME}
 	echo "${ini_contents}" |\

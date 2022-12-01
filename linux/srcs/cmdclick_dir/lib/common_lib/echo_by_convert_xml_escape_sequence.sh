@@ -15,6 +15,7 @@ echo_by_convert_xml_escape_sequence(){
 
 echo_by_convert_xml_escape_sequence_new_line(){
 	local target_contents="${1}"
+	local LANG="ja_JP.UTF-8"
 	echo "${target_contents}" \
 	| sed -re 's/([^a-zA-Z0-9_-])/\\\1/g' \
 		-e 's/\&/\&amp;/g' \
