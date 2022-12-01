@@ -40,7 +40,7 @@ echo_section_bitween_setting_cmd_section(){
 			&& count_ini_cmd_variable_section_end_name == 1 \
 		) next
 		if(current_first_field_value ~ "[^a-zA-Z0-9:_-]") next
-		match_num = match(INI_SETTING_DEFAULT_VALUE_CONS, current_first_field_value)
+		match_num = 0
 		if( \
 			count_ini_setting_section_start_name == 1 \
 			&& count_ini_setting_section_end_name == 0 \

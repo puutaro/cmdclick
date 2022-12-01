@@ -7,7 +7,7 @@ exec_edit_display_first_roop(){
 		yad --plug=${PLUG_KEY} \
 			--tabnum=1 \
 			--form\
-			--text "\n${CMD_VAR_PROMPT_SENTENCE} \n" \
+			--text "\n${PROMPT_SENTENCE} \n" \
 			--separator=$'\t' \
 			--date-format="%Y-%m-%d"\
 			--scroll \
