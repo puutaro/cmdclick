@@ -63,7 +63,6 @@ display_discription(){
 			"${EDIT_DESCRIPTION}"\
 	)"
 	local LANG="ja_JP.UTF-8"
-	echo "${CMDCLICK_WINDOW_ICON_PATH}"
     yad \
 	    --form \
 	    --title="${window_title}" \
