@@ -51,7 +51,7 @@ display_edit_contensts(){
   judge_back_slash_err \
     "${ini_value_source}"
   case "${SIGNAL_CODE}" in
-    "${OK_CODE}")
+    "${OK_CODE}"|${EDIT_FULL_CODE})
         INI_VALUE=$(\
           echo_ini_value \
             "${ini_value_source}" \
