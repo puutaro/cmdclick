@@ -37,6 +37,9 @@ set_all_key_con_and_source_cmd_and_variable_con_field_and_value_list(){
     $(\
       echo "${get_valiable}" \
       | awk -F '\t' '{
+        if( $2 ~ /^-*$/ ){
+          $2 = "\x22"$2"\x22"  
+        }
         gsub( /^-/, "\x22-\x22", $2);
         for (i=2; i<=NF; i++) print $i
       }'
