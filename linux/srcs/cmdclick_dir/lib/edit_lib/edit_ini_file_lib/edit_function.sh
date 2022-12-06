@@ -55,6 +55,7 @@ display_edit_contensts(){
         INI_VALUE=$(\
           echo_ini_value \
             "${ini_value_source}" \
+            "${BTN_PARAMETERS}" \
         )
       ;;
   esac

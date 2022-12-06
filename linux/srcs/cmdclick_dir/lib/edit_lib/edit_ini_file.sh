@@ -64,7 +64,6 @@ edit_ini_gui(){
     SIGNAL_CODE=${EDIT_CODE}
     display_edit_contensts \
       "${EDIT_WINDOW_LOCATION}" 
-
     test "${CMDCLICK_WINDOW_TITLE}" != "${WINDOW_TITLE}" \
       && test ${ROOP_NUM} -eq 1 \
       && [ ${SIGNAL_CODE} -eq ${EXIT_CODE} -o ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ] \

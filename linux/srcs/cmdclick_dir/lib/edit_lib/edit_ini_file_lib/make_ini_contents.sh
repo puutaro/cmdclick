@@ -7,6 +7,7 @@ MAKE_INI_CONTENTS_LIB_DIR_PATH="${EDIT_INI_FILE_LIB_DIR_PATH}/make_ini_contents_
 . "${MAKE_INI_CONTENTS_LIB_DIR_PATH}/echo_by_replace_blank_with_hyphen_and_equal_with_tab.sh"
 . "${MAKE_INI_CONTENTS_LIB_DIR_PATH}/set_all_key_con_and_source_cmd_and_variable_con_field_and_value_list.sh"
 . "${MAKE_INI_CONTENTS_LIB_DIR_PATH}/echo_replace_cmd_section_with_default_value.sh"
+. "${MAKE_INI_CONTENTS_LIB_DIR_PATH}/echo_btn_parameters.sh"
 
 
 make_ini_contents(){
@@ -22,6 +23,11 @@ make_ini_contents(){
       | echo_removed_double_quote_both_ends_from_pip \
       | sed  -e 's/,[ ]*/\n/g' \
   )"
+  BTN_PARAMETERS=$(\
+    echo_btn_parameters \
+      "${ini_contents_moto}" \
+      "${exec_default_parameter}" \
+  )
   local ini_contents_set_default_value_in_parameter=$(\
     echo_replace_cmd_section_with_default_value \
       "${ini_contents_moto}" \

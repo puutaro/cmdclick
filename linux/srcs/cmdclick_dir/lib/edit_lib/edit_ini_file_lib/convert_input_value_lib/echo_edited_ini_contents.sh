@@ -9,30 +9,62 @@ echo_edited_ini_contents(){
       | awk \
       -v ini_value="${ini_value}" \
       -v all_key_con="${all_key_con}" \
-      '
+      -v BTN_PARAMETERS="${BTN_PARAMETERS}" \
+      'BEGIN {
+        tn_para_len = split(BTN_PARAMETERS, BTN_PARAMETERS_LIST, "\n")
+        ini_value_list_length = split(ini_value, ini_value_list, "\n")
+        BTN_PARAMETERS_LIST_LENGTH = split(BTN_PARAMETERS, BTN_PARAMETERS_LIST, "\n")
+        all_key_con_list_length = split(all_key_con, all_key_con_list, "\n")
+        BTN_PARAMETERS = "\n"BTN_PARAMETERS"\n"
+        count_ini_value_list_seed = 1
+        count_all_key_con_seed = 1
+        COUNT_BTN_PARAMETERS_LIST_SEED = 1
+      }
+      function return_ini_one_value(\
+        ini_one_key, \
+        ini_one_value, \
+        cur_key \
+      ){
+        if(\
+          ini_one_value \
+          && BTN_PARAMETERS ~ "\n"cur_key"=" \
+        ) {
+          COUNT_BTN_PARAMETERS_LIST_SEED++
+          return "-"
+        }
+        if(ini_one_value){
+          return ini_one_value
+        }
+        if(BTN_PARAMETERS !~ "\n"ini_one_key"="){
+            return "-"
+        }
+        cur_bttn_pra = BTN_PARAMETERS_LIST[COUNT_BTN_PARAMETERS_LIST_SEED]
+        cur_bttn_pra_value = substr(cur_bttn_pra, index(cur_bttn_pra, "=")+1, length(cur_bttn_pra))
+        if(!cur_bttn_pra_value) cur_bttn_pra_value = "-"
+        COUNT_BTN_PARAMETERS_LIST_SEED++
+        return cur_bttn_pra_value
+
+      }
       { 
-        ini_one_key=substr(all_key_con, 0, index(all_key_con, "\n"))
-        if( ini_one_key == "") {
-          ini_one_key = all_key_con
-        }
-        replace_ini_one_key=ini_one_key
-        gsub("\n", "", ini_one_key)
-        ini_one_value=substr(ini_value, 0, index(ini_value, "\n"))
-        if( ini_one_value == "") {
-          ini_one_value = ini_value
-        }
-        replace_ini_one_value=ini_one_value
-        gsub("\n", "", ini_one_value)
+        ini_one_key=all_key_con_list[count_all_key_con_seed]
+        ini_one_value = ini_value_list[count_ini_value_list_seed]
         if($0 !~ "^"ini_one_key"="){
           print $0
           next
         }
+        cur_key = $0
+        cur_key = gsub("=.*", "", cur_key)
+        ini_one_value = return_ini_one_value(\
+                          ini_one_key, \
+                          ini_one_value, \
+                          cur_key \
+                        )
         gsub("^\x27-\x27$", "", ini_one_value)
         gsub("^\x22-\x22$", "", ini_one_value)
         gsub("^-$", "", ini_one_value)
         print ini_one_key"="ini_one_value
-        all_key_con=substr(all_key_con, index(all_key_con, "\n")+1, length(all_key_con))
-        ini_value = substr(ini_value, index(ini_value, "\n")+1, length(ini_value))
+        count_all_key_con_seed++
+        count_ini_value_list_seed++
       }
     '
 }

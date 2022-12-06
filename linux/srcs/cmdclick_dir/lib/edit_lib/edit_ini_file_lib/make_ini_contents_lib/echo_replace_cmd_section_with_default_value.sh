@@ -13,9 +13,11 @@ echo_replace_cmd_section_with_default_value(){
 	BEGIN {
 		checkbox_num=1
 		num_inc_dec=2
+		no_use_type=4
 		extramation_use_gtk_edit_type_of["CB"]=checkbox_num
 		extramation_use_gtk_edit_type_of["CBE"]=checkbox_num
 		extramation_use_gtk_edit_type_of["NUM"]=num_inc_dec
+		extramation_use_gtk_edit_type_of["TXT"]=no_use_type
 		end_buffer_order = 1000
 	}
 	function update_replace_record_by_count_exec_edit_execute(\
@@ -41,7 +43,15 @@ echo_replace_cmd_section_with_default_value(){
 		if(\
 			extramation_use_gtk_edit_type_of[gtk_edit_type] != checkbox_num \
 			&& extramation_use_gtk_edit_type_of[gtk_edit_type] != num_inc_dec \
+			&& extramation_use_gtk_edit_type_of[gtk_edit_type] != no_use_type \
 		){
+			replace_record=replace_key"="target_value
+			return
+		}
+		if(\
+			extramation_use_gtk_edit_type_of[gtk_edit_type] == no_use_type \
+		){
+			sub(":.*$", "", replace_key)
 			replace_record=replace_key"="target_value
 			return
 		}

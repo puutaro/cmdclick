@@ -53,8 +53,8 @@ surround_single_double_quote_when_existing_space_or_quote(){
     		single_quote_middle_exist, \
     		"\x22" \
     	)
-    	if(return_next == next_str) next
 
+    	if(return_next == next_str) next
 		double_quote_middle_exist = match(\
 			$0, /^([a-zA-z]|[^a-zA-Z]).*\x22.*([a-zA-z]|[^a-zA-Z])$/ \
 		)
@@ -65,11 +65,11 @@ surround_single_double_quote_when_existing_space_or_quote(){
 			print $0
 			next
 		}
-		exec_surround(\
+		return_next = exec_surround(\
     		double_quote_middle_exist, \
     		"\x27" \
     	)
-
+    	if(return_next == next_str) next
 		hankaku_space_exist = match($0, /\x20/)
 		zenkaku_space_exist = match($0, /　/)
 		space_exist = \
@@ -95,18 +95,21 @@ surround_single_double_quote_when_existing_space_or_quote(){
 			next
 		}
 		if(single_quote_exist) \
-			exec_surround(\
+			return_next = exec_surround(\
 	    		space_exist+1, \
 	    		"\x27" \
 	    	)
+	    if(return_next == next_str) next
 	    if(double_quote_exist) \
-			exec_surround(\
+			return_next = exec_surround(\
 	    		space_exist+1, \
 	    		"\x22" \
 	    	)
-		exec_surround(\
+	    if(return_next == next_str) next
+		return_next = exec_surround(\
     		space_exist+1, \
     		"\x22" \
     	)
+    	if(return_next == next_str) next
     }' 
 }
