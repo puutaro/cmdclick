@@ -10,6 +10,7 @@ echo_edited_ini_contents(){
       -v ini_value="${ini_value}" \
       -v all_key_con="${all_key_con}" \
       -v BTN_PARAMETERS="${BTN_PARAMETERS}" \
+      -v INI_CMD_FILE_NAME=${INI_CMD_FILE_NAME} \
       'BEGIN {
         tn_para_len = split(BTN_PARAMETERS, BTN_PARAMETERS_LIST, "\n")
         ini_value_list_length = split(ini_value, ini_value_list, "\n")
@@ -19,6 +20,19 @@ echo_edited_ini_contents(){
         count_ini_value_list_seed = 1
         count_all_key_con_seed = 1
         COUNT_BTN_PARAMETERS_LIST_SEED = 1
+      }
+      function add_suffix_to_ini_cmd_file(\
+        ini_one_key, \
+        ini_one_value, \
+        cur_key \
+      ){
+          if(cur_key != INI_CMD_FILE_NAME){
+            return ini_one_value
+          }
+          if(ini_one_value ~ "\\.sh$") {
+            return ini_one_value 
+          }
+          return ini_one_value".sh"
       }
       function return_ini_one_value(\
         ini_one_key, \
@@ -33,7 +47,11 @@ echo_edited_ini_contents(){
           return "-"
         }
         if(ini_one_value){
-          return ini_one_value
+          return add_suffix_to_ini_cmd_file(\
+            ini_one_key, \
+            ini_one_value, \
+            cur_key \
+          )
         }
         if(BTN_PARAMETERS !~ "\n"ini_one_key"="){
             return "-"
@@ -53,7 +71,7 @@ echo_edited_ini_contents(){
           next
         }
         cur_key = $0
-        cur_key = gsub("=.*", "", cur_key)
+        gsub("=.*", "", cur_key)
         ini_one_value = return_ini_one_value(\
                           ini_one_key, \
                           ini_one_value, \
