@@ -78,7 +78,7 @@ echo_replace_cmd_section_with_default_value(){
 				replace_value \
 			)
 		}
-		replace_record=replace_key"="replace_value
+		replace_record = replace_key"="replace_value
 	}
 	function replace_yad_gtk_edit_option(){
 		colon_index = index(grep_str, ":")
@@ -132,6 +132,8 @@ echo_replace_cmd_section_with_default_value(){
 		gsub("\\[", "\\[", target_record)
 		gsub("\\]", "\\]", target_record)
 		gsub("\\^", "\\^", target_record)
+		gsub("\\{", "\\{", target_record)
+		gsub("\\}", "\\}", target_record)
 		sub(\
 			target_record, \
 			replace_record"\n", \
