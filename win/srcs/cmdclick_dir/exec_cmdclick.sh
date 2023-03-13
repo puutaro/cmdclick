@@ -125,7 +125,7 @@ readonly INI_EXEC_BEFORE_CTRL_CMD='execBeforeCtrlCmd'
 readonly INI_EXEC_AFTER_CTRL_CMD='execAfterCtrlCmd'
 readonly INI_SHELL_ARGS='shellArgs'
 readonly INI_APP_ICON_PATH='appIconPath'
-readonly INI_CMD_FILE_NAME='shellFileName'
+readonly INI_CMD_FILE_NAME='scriptFileName'
 readonly SEARCH_INI_CMD_SECTION_START_NAME="### Please write bellow with shell script"
 export CH_DIR_PATH='CH_DIR_PATH'
 
