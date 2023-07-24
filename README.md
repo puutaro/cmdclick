@@ -56,13 +56,13 @@ Installation
 1. Downlaod [installer.bat](https://drive.google.com/file/d/1XqA2EhTeLQnFtFSh87D1oWIh96Hna1w_/view?usp=share_link) from google drive
 2. Double click installer.bat
 
-  	- Support Ubuntu18.04+
+  	- Support Ubuntu20.04+
 	- for windows 11, disable wayland, but it's unconfirmed operation
 
 ### For Ubuntu or Debian
 
 - Only X11 support (wayland not support)
-- Support Ubuntu18.04+
+- Support Ubuntu20.04+
 
 ```
 git clone https://github.com/kitamura-take/cmdclick.git ~/.cmdclick
