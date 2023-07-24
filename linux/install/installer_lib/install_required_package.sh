@@ -11,9 +11,7 @@ install_required_package(){
 		--set /apps/metacity/general/focus_new_windows \
 		--type string smart
 	sudo apt install -y xdotool xclip && \
-	git clone https://github.com/junegunn/fzf.git "$HOME/.fzf" \
-	&& yes \
-	| "$HOME/.fzf/install"
+	sudo apt install -y fzf
 	local lxterminal_conf_file_name="lxterminal.conf"
 	local lxterminal_par_dir_path="${HOME}/.config/lxterminal"
 	local lxterminal_conf_file_path="${lxterminal_par_dir_path}/${lxterminal_conf_file_name}"
