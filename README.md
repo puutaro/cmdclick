@@ -1,4 +1,5 @@
-![cmdclick_image](https://user-images.githubusercontent.com/55217593/199425521-3f088fcc-93b0-4a84-a9fd-c75418f40654.png)
+![cmdclick_image](https://user-images.githubusercontent.com/55217593/199425521-3f088fcc-93b0-4a84-a9fd-c75418f40654.png)  
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]((https://opensource.org/licenses/MIT))
 # Command Click
 Shellscript gui platform made with 100% shell script (fzf, yad, etc)
 
@@ -56,13 +57,13 @@ Installation
 1. Downlaod [installer.bat](https://drive.google.com/file/d/1XqA2EhTeLQnFtFSh87D1oWIh96Hna1w_/view?usp=share_link) from google drive
 2. Double click installer.bat
 
-  	- Support Ubuntu18.04+
+  	- Support Ubuntu20.04+
 	- for windows 11, disable wayland, but it's unconfirmed operation
 
 ### For Ubuntu or Debian
 
 - Only X11 support (wayland not support)
-- Support Ubuntu18.04+
+- Support Ubuntu20.04+
 
 ```
 git clone https://github.com/kitamura-take/cmdclick.git ~/.cmdclick
