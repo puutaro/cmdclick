@@ -326,3 +326,8 @@ Kill like bellow command, because leftover cmdclick process is getting in the wa
 ```
 c -k
 ```
+
+### Android version
+
+-> [CommandClick](https://github.com/puutaro/CommandClick)
+
