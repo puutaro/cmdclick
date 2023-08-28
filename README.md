@@ -50,6 +50,8 @@ Table of Contents
   * [Shortcut table](#shortcut-table)
   * [Trouble Shouting](#trouble-shouting)
   	 * [Not Startup](#not-startup)
+  * [Android version](#android-version)
+
 
 Installation
 -----
