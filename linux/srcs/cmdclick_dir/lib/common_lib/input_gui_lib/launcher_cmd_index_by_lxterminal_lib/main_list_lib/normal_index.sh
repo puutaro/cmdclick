@@ -26,7 +26,7 @@ normal_index(){
 			--bind "Alt-i:execute(echo \"${INSTALL_CODE},{1},{2}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}')+abort" \
 			--bind "Alt-a:execute(echo \"${ADD_CODE},{1},{2}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}')+abort" \
 			--bind "Alt-d:execute(echo \"${DELETE_CODE},{1},{2}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}')+abort" \
-			--bind "Alt-c:execute(echo \"${CHDIR_CODE},{1},${CMDCLICK_APP_DIR_PATH}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}')+abort" \
+			--bind "Alt-l:execute(echo \"${CHDIR_CODE},{1},${CMDCLICK_APP_DIR_PATH}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}')+abort" \
 			--bind "Alt-C:execute(echo \"${SETTING_CODE},{1},{2}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}')+abort" \
 			--bind "Alt-s:reload(export IMPORT_CMDCLICK_VAL=1 && . ${IMPORT_PATH_EXEC_CMDCLICK} && . ${IMPORT_PATH_INPUT_GUI} && export SIGNAL_CODE=${SIGNAL_CODE} && exec_inc && reload_cmd)" \
 			--bind "Alt-S:reload(export IMPORT_CMDCLICK_VAL=1 && . ${IMPORT_PATH_EXEC_CMDCLICK} && . ${IMPORT_PATH_INPUT_GUI} && export SIGNAL_CODE=${SIGNAL_CODE} && exec_dec && reload_cmd)" \

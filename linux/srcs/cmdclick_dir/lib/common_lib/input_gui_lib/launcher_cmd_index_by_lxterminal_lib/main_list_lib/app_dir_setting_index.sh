@@ -24,7 +24,6 @@ app_dir_setting_index(){
             --bind "Alt-a:execute(echo \"${ADD_CODE},{1},{2}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}')+abort" \
             --bind "Alt-d:execute(echo \"${DELETE_CODE},{1},{2}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}')+abort" \
             --preview 'LANG="ja_JP.UTF-8" echo $(head -100 {2}/{1} | grep -E "^CH_DIR_PATH") | fold -b'${preview_string_width}' ' \
-            --bind "#:preview:open_editor {2}/{1}" \
             --color 'fg:#000000,fg+:#ddeeff,bg:#f2f2f2,preview-bg:#e6ffe6,border:#ffffff'\
             --color 'info:#00b386,hl+:#02ebc7,hl:#0750fa,header:#000000,gutter:#000000' \
             --color 'marker:#0750fa,spinner:#0750fa,pointer:#4382f7,prompt:#000000' \
