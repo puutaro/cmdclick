@@ -20,8 +20,8 @@ app_dir_setting_index(){
             --header-lines=1 \
             --bind "Alt-w:execute(open_editor {2}/{1})" \
             --bind "Alt-e:execute(echo \"${EDIT_CODE},{1},{2}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}')+abort" \
-            --bind "Alt-E:execute(echo \"${DESCRIPTION_EDIT_CODE},{1},{2}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}')+abort" \
-            --bind "Alt-a:execute(echo \"${ADD_CODE},{1},{2}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}')+abort" \
+            --bind "Alt-k:execute(echo \"${DESCRIPTION_EDIT_CODE},{1},{2}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}')+abort" \
+            --bind "Alt-q:execute(echo \"${ADD_CODE},{1},{2}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}')+abort" \
             --bind "Alt-d:execute(echo \"${DELETE_CODE},{1},{2}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}')+abort" \
             --preview 'LANG="ja_JP.UTF-8" echo $(head -100 {2}/{1} | grep -E "^CH_DIR_PATH") | fold -b'${preview_string_width}' ' \
             --color 'fg:#000000,fg+:#ddeeff,bg:#f2f2f2,preview-bg:#e6ffe6,border:#ffffff'\
