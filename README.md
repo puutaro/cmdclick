@@ -303,21 +303,21 @@ Cmdclick's essence is shortcut usage.
 
 | keybind| description | support `app directory manager` |
 | --------- | --------- | ------------ |
-| `ctrl`+`a` | add | o   |
-| `ctrl`+`e`  | edit | o  |
-| `ctrl`+`E`  | description edit | o  |
-| `ctrl`+`w`  | edit by editor | o  |
-| `ctrl`+`r`  | reload list | x  |
-| `ctrl`+`s`  | change app directory | x  |
-| `ctrl`+`S`  | conversely　change app directory | x  |
-| `ctrl`+`d`  | delete | o  |
-| `ctrl`+`c`  | launch app directory manager | x |
-| `ctrl`+`C`  | setting | x  |
-| `ctrl`+`v`  | copy highlited shellscript file path | x  |
-| `ctrl`+`m`  | move | o  |
-| `ctrl`+`i`  | install | o  |
-| `ctrl`+`g`  | descriptoin scroll up | o |
-| `ctrl`+`b`  | descriptoin scroll down | o |
+| `alt`+`q` | add | o   |
+| `alt`+`e`  | edit | o  |
+| `alt`+`k`  | description edit | o  |
+| `alt`+`w`  | edit by editor | o  |
+| `alt`+`r`  | reload list | x  |
+| `alt`+`s`  | change app directory | x  |
+| `alt`+`a`  | conversely　change app directory | x  |
+| `alt`+`d`  | delete | o  |
+| `alt`+`c`  | launch app directory manager | x |
+| `alt`+`p`  | setting | x  |
+| `alt`+`v`  | copy highlited shellscript file path | x  |
+| `alt`+`m`  | move | o  |
+| `alt`+`i`  | install | o  |
+| `alt`+`g`  | descriptoin scroll up | o |
+| `alt`+`b`  | descriptoin scroll down | o |
 
 
 ### Trouble Shouting
