@@ -303,16 +303,16 @@ Cmdclick's essence is shortcut usage.
 
 | keybind| description | support `app directory manager` |
 | --------- | --------- | ------------ |
-| `alt`+`a` | add | o   |
+| `alt`+`q` | add | o   |
 | `alt`+`e`  | edit | o  |
-| `alt`+`E`  | description edit | o  |
+| `alt`+`k`  | description edit | o  |
 | `alt`+`w`  | edit by editor | o  |
 | `alt`+`r`  | reload list | x  |
 | `alt`+`s`  | change app directory | x  |
-| `alt`+`S`  | conversely　change app directory | x  |
+| `alt`+`a`  | conversely　change app directory | x  |
 | `alt`+`d`  | delete | o  |
-| `alt`+`l`  | launch app directory manager | x |
-| `alt`+`C`  | setting | x  |
+| `alt`+`c`  | launch app directory manager | x |
+| `alt`+`p`  | setting | x  |
 | `alt`+`v`  | copy highlited shellscript file path | x  |
 | `alt`+`m`  | move | o  |
 | `alt`+`i`  | install | o  |
