@@ -11,6 +11,7 @@ upgrade_app_dir_list_order(){
 			get_hit_app_dir_file \
 				"${ini_file_dir_path}" \
 		)
+	echo "hit_app_dir_file: ${hit_app_dir_file}"
 	if [ ! -e "${hit_app_dir_file}" ]; then return; fi
 	touch "${hit_app_dir_file}"
 	echo "${GREP_INC_NUM}=1" > "${CMDCLICK_CONF_INC_CMD_PATH}"
@@ -25,6 +26,7 @@ get_hit_app_dir_file(){
 	)
 	local hit_app_dir_file=$(\
 		grep "${ini_file_dir_path}" -rl "${CMDCLICK_APP_DIR_PATH}" \
+		| sort \
 		| head -n 1 \
 		|| e=$? \
 	)
@@ -38,6 +40,7 @@ get_hit_app_dir_file(){
 	)
 	hit_app_dir_file=$(\
 		grep "${grep_path1}" -rl "${CMDCLICK_APP_DIR_PATH}" \
+		| sort \
 		| head -n 1 \
 		|| e=$? \
 	)
@@ -51,6 +54,7 @@ get_hit_app_dir_file(){
 	)
 	hit_app_dir_file=$(
 		grep "${grep_path2}" -rl "${CMDCLICK_APP_DIR_PATH}" \
+		| sort \
 		| head -n 1 \
 		|| e=$? \
 	)
