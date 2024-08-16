@@ -3,7 +3,7 @@
 echo_ini_file_list(){
 	local ini_file_dir_path="${1}"
 	local display_ini_file_dir_path="${2}"
-	ls -ultF "${ini_file_dir_path}" \
+	ls -tl "${ini_file_dir_path}" \
 	| awk \
 		-v ini_file_dir_path="${ini_file_dir_path}" \
 		-v display_ini_file_dir_path="${display_ini_file_dir_path}" \

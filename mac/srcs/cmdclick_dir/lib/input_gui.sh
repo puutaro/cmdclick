@@ -9,7 +9,7 @@ reload_cmd(){
 
 	case "${SIGNAL_CODE}" in 
 		"${DELETE_CODE}"|"${EDIT_CODE}")
-				local ini_file_list=$(ls -ultF  "${SECONDS_INI_FILE_DIR_PATH}/" | sed 's/\*$//g' | rga ''${COMMAND_CLICK_EXTENSION}'' | awk '{print $9}' | gsed -e '1i ['${display_sec_ini_path}']' -e 's/$/\t'${sed_dir_path}'/' | rga -v "${CMDCLICK_EDIT_CMD}" | rga -v "${CMDCLICK_DELETE_CMD}" | rga -v "${CMDCLICK_CHANGE_DIR_CMD}" | grep -v "${CMDCLICK_RESOLUTION_CMD}" | rga -v "${CMDCLICK_ADD_CMD}")
+				local ini_file_list=$(ls -tl  "${SECONDS_INI_FILE_DIR_PATH}/" | sed 's/\*$//g' | rga ''${COMMAND_CLICK_EXTENSION}'' | awk '{print $9}' | gsed -e '1i ['${display_sec_ini_path}']' -e 's/$/\t'${sed_dir_path}'/' | rga -v "${CMDCLICK_EDIT_CMD}" | rga -v "${CMDCLICK_DELETE_CMD}" | rga -v "${CMDCLICK_CHANGE_DIR_CMD}" | grep -v "${CMDCLICK_RESOLUTION_CMD}" | rga -v "${CMDCLICK_ADD_CMD}")
 				case "${ini_file_list}" in
 					"") 
 						local ini_file_list="$(cat <(echo "[${display_sec_ini_path}"]) <(echo "-") | sed 's/$/\t'${sed_dir_path}'/')"
@@ -17,7 +17,7 @@ reload_cmd(){
 				esac
 				;;
 		*)
-			local ini_file_list=$(ls -ultF  "${SECONDS_INI_FILE_DIR_PATH}/" | sed 's/\*$//g' | rga ''${COMMAND_CLICK_EXTENSION}'' | awk '{print $9}' | gsed -e 's/$/\t'${sed_dir_path}'/' -e '1i ['${display_sec_ini_path}']' -e 's/$/\t'${sed_dir_path}'/')
+			local ini_file_list=$(ls -tl  "${SECONDS_INI_FILE_DIR_PATH}/" | sed 's/\*$//g' | rga ''${COMMAND_CLICK_EXTENSION}'' | awk '{print $9}' | gsed -e 's/$/\t'${sed_dir_path}'/' -e '1i ['${display_sec_ini_path}']' -e 's/$/\t'${sed_dir_path}'/')
 			case "${ini_file_list}" in
 				"")
 					local ini_file_list="$(cat <(echo "[${display_sec_ini_path}"]) <(echo "-") | sed 's/$/\t'${sed_dir_path}'/')"
@@ -72,7 +72,7 @@ input_cmd_index(){
 	local sed_dir_path=$(echo "${1}" | sed 's/\//\\\//g')
 	case "${SIGNAL_CODE}" in 
 		"${DELETE_CODE}"|"${EDIT_CODE}")
-			local ini_file_list="$(ls -ultF  "${1}/" | sed 's/\*$//g' | rga ''${COMMAND_CLICK_EXTENSION}'' | awk '{print $9}' | gsed '1i ['${display_sec_ini_path}']' | sed 's/$/\t'${sed_dir_path}'/' | rga -v "${CMDCLICK_EDIT_CMD}" | rga -v "${CMDCLICK_DELETE_CMD}" | rga -v "${CMDCLICK_CHANGE_DIR_CMD}" | rga -v "${CMDCLICK_RESOLUTION_CMD}" | rga -v "${CMDCLICK_ADD_CMD}")"
+			local ini_file_list="$(ls -tl  "${1}/" | sed 's/\*$//g' | rga ''${COMMAND_CLICK_EXTENSION}'' | awk '{print $9}' | gsed '1i ['${display_sec_ini_path}']' | sed 's/$/\t'${sed_dir_path}'/' | rga -v "${CMDCLICK_EDIT_CMD}" | rga -v "${CMDCLICK_DELETE_CMD}" | rga -v "${CMDCLICK_CHANGE_DIR_CMD}" | rga -v "${CMDCLICK_RESOLUTION_CMD}" | rga -v "${CMDCLICK_ADD_CMD}")"
 			case "${ini_file_list}" in
 				"") 
 					local ini_file_list="$(cat <(echo "[${display_sec_ini_path}"]) <(echo "-") | sed 's/$/\t'${sed_dir_path}'/')"
@@ -80,7 +80,7 @@ input_cmd_index(){
 			esac
 			;;
 		*)
-			local ini_file_list="$(ls -ultF  "${1}" | gsed 's/\*$//g' | rga ''${COMMAND_CLICK_EXTENSION}'' | awk '{print $9}' | gsed -e '1i ['${display_sec_ini_path}']' -e 's/$/\t'${sed_dir_path}'/')"
+			local ini_file_list="$(ls -tl  "${1}" | gsed 's/\*$//g' | rga ''${COMMAND_CLICK_EXTENSION}'' | awk '{print $9}' | gsed -e '1i ['${display_sec_ini_path}']' -e 's/$/\t'${sed_dir_path}'/')"
 			case "${ini_file_list}" in
 				"")
 					local ini_file_list="$(cat <(echo "[${display_sec_ini_path}"]) <(echo "-") | sed 's/$/\t'${sed_dir_path}'/')"

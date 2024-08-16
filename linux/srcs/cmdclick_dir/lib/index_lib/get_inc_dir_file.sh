@@ -4,7 +4,7 @@
 get_inc_dir_file(){
 	local sed_home="${HOME//\//\\\/}"
 	local change_dir_path_con=$(\
-		ls -ultF "${CMDCLICK_APP_DIR_PATH}" \
+		ls -tl "${CMDCLICK_APP_DIR_PATH}" \
 		| awk -v CMDCLICK_APP_DIR_PATH="${CMDCLICK_APP_DIR_PATH}" \
 		'
 		{
