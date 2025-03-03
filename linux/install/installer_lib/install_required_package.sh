@@ -8,7 +8,7 @@ install_required_package(){
 	sudo apt-get update -y \
 	&& sudo apt-get upgrade -y && \
 	sudo apt-get install -y lxterminal yad wmctrl x11-xserver-utils
-	sudo apt-get install gconf2 || e=$?
+	sudo apt-get install -y gconf2 || e=$?
 	gconftool-2 \
 		--set /apps/metacity/general/focus_new_windows \
 		--type string smart

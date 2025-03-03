@@ -12,7 +12,7 @@ install_sublime(){
 	local sublime_preference_file_name="Preferences.sublime-settings"
 	local sublime_preference_par_dir_path="${HOME}/.config/sublime-text/Packages/User"
 	local sublime_preference_file_path="${sublime_preference_par_dir_path}/${sublime_preference_file_name}"
-	sudo apt-get install fonts-ricty-diminished
+	sudo apt-get install -y fonts-ricty-diminished
 	if [ ! -e "${sublime_preference_file_path}" ]; then
 		mkdir -p "${sublime_preference_par_dir_path}"
 		cp -avf \
