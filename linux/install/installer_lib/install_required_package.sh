@@ -4,14 +4,16 @@
 install_required_package(){
 	local usrlocalbin_path="${1}"
 	local files_lib_path="${2}"
-	sudo apt update -y \
-	&& sudo apt upgrade -y && \
-	sudo apt install -y lxterminal yad wmctrl gconf2 x11-xserver-utils
+	local e=""
+	sudo apt-get update -y \
+	&& sudo apt-get upgrade -y && \
+	sudo apt-get install -y lxterminal yad wmctrl x11-xserver-utils
+	sudo apt-get install gconf2 || e=$?
 	gconftool-2 \
 		--set /apps/metacity/general/focus_new_windows \
 		--type string smart
-	sudo apt install -y xdotool xclip && \
-	sudo apt install -y fzf
+	sudo apt-get install -y xdotool xclip && \
+	sudo apt-get install -y fzf
 	local lxterminal_conf_file_name="lxterminal.conf"
 	local lxterminal_par_dir_path="${HOME}/.config/lxterminal"
 	local lxterminal_conf_file_path="${lxterminal_par_dir_path}/${lxterminal_conf_file_name}"
