@@ -8,10 +8,22 @@ install_required_package(){
 	sudo apt-get update -y \
 	&& sudo apt-get upgrade -y && \
 	sudo apt-get install -y lxterminal yad wmctrl x11-xserver-utils
-	sudo apt-get install -y gconf2 || e=$?
-	gconftool-2 \
-		--set /apps/metacity/general/focus_new_windows \
-		--type string smart
+	local how_version_2404_plus=$(\
+	  cat /etc/os-release \
+	  | awk '($0 ~ "VERSION_ID"){
+	    gsub(".*=|\\.|\x22", "", $0)
+	    if($0 >= 2404) print $0
+	  }' \
+	)
+	case "${how_version_2404_plus}" in
+		"") ;;
+		*)
+			sudo apt-get install -y gconf2 || e=$?
+			gconftool-2 \
+				--set /apps/metacity/general/focus_new_windows \
+				--type string smart
+			;;
+	esac
 	readonly usr_name=$(\
 		echo "${files_lib_path}" \
 		| awk '{
