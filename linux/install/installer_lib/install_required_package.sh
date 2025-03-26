@@ -32,10 +32,13 @@ install_required_package(){
 		}'\
 	)
 	readonly usr_dir_path="/home/${usr_name}"
-	sudo apt-get install -y xdotool xclip && \
+	sudo apt-get install -y xdotool xclip
 	readonly fzf_download_dir_path="${usr_dir_path}/.fzf"
-	git clone https://github.com/junegunn/fzf.git "${fzf_download_dir_path}" \
-	&& yes | "${fzf_download_dir_path}/install"
+	git clone https://github.com/junegunn/fzf.git "${fzf_download_dir_path}"
+	bk_home="${HOME}"
+	export HOME="${usr_dir_path}"
+	yes | "${fzf_download_dir_path}/install"
+	export HOME="${bk_home}"
 	local lxterminal_conf_file_name="lxterminal.conf"
 	local lxterminal_par_dir_path="${HOME}/.config/lxterminal"
 	local lxterminal_conf_file_path="${lxterminal_par_dir_path}/${lxterminal_conf_file_name}"
